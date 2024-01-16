@@ -5,11 +5,11 @@ VisualStudioVersion = 17.7.34302.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Application", "Restaurant.Application\Restaurant.Application.csproj", "{71D74D03-5ABA-4CB4-AD98-AB62030C37E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Domain", "Domain\Restaurant.Domain.csproj", "{794DEF20-5F31-406C-AD35-127AEF676BE4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Domain", "Restaurant.Domain\Restaurant.Domain.csproj", "{794DEF20-5F31-406C-AD35-127AEF676BE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.Infrastructure", "Restaurant.Infrastructure\Restaurant.Infrastructure.csproj", "{72C3F65A-2D84-4752-BC7B-92086D7C44CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Infrastructure", "Restaurant.Infrastructure\Restaurant.Infrastructure.csproj", "{72C3F65A-2D84-4752-BC7B-92086D7C44CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant.WebAPI", "Restaurant.WebAPI\Restaurant.WebAPI.csproj", "{7B44F257-8A7E-4E29-A35F-6D87113148A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.WebAPI", "Restaurant.WebAPI\Restaurant.WebAPI.csproj", "{7B44F257-8A7E-4E29-A35F-6D87113148A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
