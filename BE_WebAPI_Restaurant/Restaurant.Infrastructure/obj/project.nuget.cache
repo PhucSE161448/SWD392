@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "qdVvpvKu8elSLCfpMQF4aMqkti/vDirLZrOLekGCcDg5k0Lcm6LflUIHwoDno7jbE00kBcc4kcUQsFcQFsuv+Q==",
+  "success": true,
+  "projectFilePath": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.26\\microsoft.windowsdesktop.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.26\\microsoft.netcore.app.ref.6.0.26.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.26\\microsoft.aspnetcore.app.ref.6.0.26.nupkg.sha512"
+  ],
+  "logs": []
+}
