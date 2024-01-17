@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Restaurant.Application/1.0.0": {
+        "dependencies": {
+          "Restaurant.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Restaurant.Application.dll": {}
+        }
+      },
+      "Restaurant.Domain/1.0.0": {
+        "runtime": {
+          "Restaurant.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Restaurant.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Restaurant.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

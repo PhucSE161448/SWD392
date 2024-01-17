@@ -17,8 +17,8 @@
   "libraries": {
     "Restaurant.Domain/1.0.0": {
       "type": "project",
-      "path": "../Domain/Restaurant.Domain.csproj",
-      "msbuildProject": "../Domain/Restaurant.Domain.csproj"
+      "path": "../Restaurant.Domain/Restaurant.Domain.csproj",
+      "msbuildProject": "../Restaurant.Domain/Restaurant.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -58,8 +58,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Domain\\Restaurant.Domain.csproj": {
-              "projectPath": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Domain\\Restaurant.Domain.csproj"
+            "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj": {
+              "projectPath": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj"
             }
           }
         }

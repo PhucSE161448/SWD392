@@ -4,14 +4,14 @@
     "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\Restaurant.WebAPI.csproj": {}
   },
   "projects": {
-    "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Domain\\Restaurant.Domain.csproj": {
+    "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Domain\\Restaurant.Domain.csproj",
-        "projectName": "Restaurant.Domain",
-        "projectPath": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Domain\\Restaurant.Domain.csproj",
+        "projectUniqueName": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj",
+        "projectName": "Restaurant.Application",
+        "projectPath": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Domain\\obj\\",
+        "outputPath": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -31,7 +31,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj": {
+                "projectPath": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -77,14 +81,14 @@
         }
       }
     },
-    "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj": {
+    "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj",
-        "projectName": "Restaurant.Application",
-        "projectPath": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj",
+        "projectUniqueName": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj",
+        "projectName": "Restaurant.Domain",
+        "projectPath": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Application\\obj\\",
+        "outputPath": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Restaurant.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -104,11 +108,7 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {
-              "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Domain\\Restaurant.Domain.csproj": {
-                "projectPath": "F:\\Code\\C#\\SWD\\BE_WebAPI_Restaurant\\Domain\\Restaurant.Domain.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {

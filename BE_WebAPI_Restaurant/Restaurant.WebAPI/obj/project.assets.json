@@ -473,8 +473,8 @@
     },
     "Restaurant.Domain/1.0.0": {
       "type": "project",
-      "path": "../Domain/Restaurant.Domain.csproj",
-      "msbuildProject": "../Domain/Restaurant.Domain.csproj"
+      "path": "../Restaurant.Domain/Restaurant.Domain.csproj",
+      "msbuildProject": "../Restaurant.Domain/Restaurant.Domain.csproj"
     },
     "Restaurant.Infrastructure/1.0.0": {
       "type": "project",

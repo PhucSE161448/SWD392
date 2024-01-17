@@ -1,0 +1,17 @@
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\bin\Debug\net6.0\Restaurant.Infrastructure.deps.json
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\bin\Debug\net6.0\Restaurant.Infrastructure.dll
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\bin\Debug\net6.0\Restaurant.Infrastructure.pdb
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\bin\Debug\net6.0\Restaurant.Application.dll
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\bin\Debug\net6.0\Restaurant.Domain.dll
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\bin\Debug\net6.0\Restaurant.Application.pdb
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\bin\Debug\net6.0\Restaurant.Domain.pdb
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\obj\Debug\net6.0\Restaurant.Infrastructure.csproj.AssemblyReference.cache
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\obj\Debug\net6.0\Restaurant.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\obj\Debug\net6.0\Restaurant.Infrastructure.AssemblyInfoInputs.cache
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\obj\Debug\net6.0\Restaurant.Infrastructure.AssemblyInfo.cs
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\obj\Debug\net6.0\Restaurant.Infrastructure.csproj.CoreCompileInputs.cache
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\obj\Debug\net6.0\Restaurant.Infrastructure.csproj.CopyComplete
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\obj\Debug\net6.0\Restaurant.Infrastructure.dll
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\obj\Debug\net6.0\refint\Restaurant.Infrastructure.dll
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\obj\Debug\net6.0\Restaurant.Infrastructure.pdb
+F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.Infrastructure\obj\Debug\net6.0\ref\Restaurant.Infrastructure.dll
