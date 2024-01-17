@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurant.Infrastructure
+namespace Restaurant.Application.Interfaces
 {
-    public class DependencyInjection
+    public interface IGenericRepository <T> where T : class
     {
     }
 }

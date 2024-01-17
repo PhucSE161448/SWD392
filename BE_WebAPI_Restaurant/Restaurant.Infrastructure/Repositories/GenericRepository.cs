@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restaurant.Infrastructure
+namespace Restaurant.Infrastructure.Repositories
 {
-    public class UnitOfWork : IUnitOfWork
+    public class GenericRepository <T> : IGenericRepository<T> where T : class
     {
     }
 }

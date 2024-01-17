@@ -8,10 +8,8 @@
 
   <ItemGroup>
     <Folder Include="Commons\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Utils\" />
-    <Folder Include="Services\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
 

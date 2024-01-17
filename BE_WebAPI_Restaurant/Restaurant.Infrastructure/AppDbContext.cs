@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Infrastructure
 {
-    internal class AppDbContext
+    public class AppDbContext
     {
     }
 }

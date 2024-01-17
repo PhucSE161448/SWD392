@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Mappers\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
