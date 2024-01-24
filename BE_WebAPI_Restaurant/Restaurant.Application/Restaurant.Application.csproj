@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Restaurant.Domain\Restaurant.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModels\ProductTemplateDTO\" />
+  </ItemGroup>
+
 </Project>

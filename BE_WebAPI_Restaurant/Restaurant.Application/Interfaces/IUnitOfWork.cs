@@ -10,6 +10,7 @@ namespace Restaurant.Application.Interfaces
     public interface IUnitOfWork
     {
         public IAccountRepository AccountRepository { get; }
+        public IProductRepository ProductRepository { get; }
         public Task<int> SaveChangeAsync();
     }
 }

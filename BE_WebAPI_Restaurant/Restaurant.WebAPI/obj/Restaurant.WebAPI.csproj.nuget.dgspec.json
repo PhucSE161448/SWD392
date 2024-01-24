@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\Restaurant.WebAPI.csproj": {}
+    "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\Restaurant.WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj": {
+    "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj",
+        "projectUniqueName": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj",
         "projectName": "Restaurant.Application",
-        "projectPath": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\obj\\",
+        "projectPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj",
+        "packagesPath": "C:\\Users\\nhath\\.nuget\\packages\\",
+        "outputPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nhath\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj": {
-                "projectPath": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj"
+              "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj": {
+                "projectPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj"
               }
             }
           }
@@ -69,24 +70,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj": {
+    "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj",
+        "projectUniqueName": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj",
         "projectName": "Restaurant.Domain",
-        "projectPath": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\obj\\",
+        "projectPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj",
+        "packagesPath": "C:\\Users\\nhath\\.nuget\\packages\\",
+        "outputPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nhath\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -95,6 +96,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -140,24 +142,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj": {
+    "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj",
+        "projectUniqueName": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj",
         "projectName": "Restaurant.Infrastructure",
-        "projectPath": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Infrastructure\\obj\\",
+        "projectPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\nhath\\.nuget\\packages\\",
+        "outputPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nhath\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -166,14 +168,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj": {
-                "projectPath": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj"
+              "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj": {
+                "projectPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj"
               }
             }
           }
@@ -223,24 +226,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\Restaurant.WebAPI.csproj": {
+    "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\Restaurant.WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\Restaurant.WebAPI.csproj",
+        "projectUniqueName": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\Restaurant.WebAPI.csproj",
         "projectName": "Restaurant.WebAPI",
-        "projectPath": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\Restaurant.WebAPI.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\obj\\",
+        "projectPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\Restaurant.WebAPI.csproj",
+        "packagesPath": "C:\\Users\\nhath\\.nuget\\packages\\",
+        "outputPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nhath\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -249,14 +252,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj": {
-                "projectPath": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj"
+              "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj": {
+                "projectPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj"
               }
             }
           }
@@ -303,7 +307,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
