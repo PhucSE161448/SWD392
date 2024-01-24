@@ -3,6 +3,7 @@ using Restaurant.Application.Commons;
 using Restaurant.Domain.Entities;
 using Application.ViewModels.AccountDTO;
 using Application.ViewModels.RegisterAccountDTO;
+using Restaurant.Application.ViewModels.ProductDTO;
 
 namespace Restaurant.Infrastructures.Mappers
 {
@@ -17,7 +18,10 @@ namespace Restaurant.Infrastructures.Mappers
 
             CreateMap<RegisterAccountDTO, Account>();
             CreateMap<RegisterAccountDTO, AccountDTO>();
-
+            
+            CreateMap<Product, ProductDTO>().ReverseMap();
+            CreateMap<CreatedProductDTO, Product>();
+            CreateMap<CreatedProductDTO, ProductDTO>();
 
         }
     }

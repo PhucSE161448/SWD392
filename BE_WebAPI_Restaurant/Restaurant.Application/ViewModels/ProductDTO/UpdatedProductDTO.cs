@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Application.ViewModels.ProductDTO
 {
-    internal class UpdatedProductDTO
+    public class UpdatedProductDTO
     {
     }
 }

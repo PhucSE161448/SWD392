@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Application.Repositories
 {
-    public interface IProductRepository
+    public interface IProductRepository : IGenericRepository<Product>
     {
-        Task<Product> CreatedProduct(int id);
+        Task<bool> CheckProductExited(int id);
+        Task<IEnumerable<Product>> SearchProductByNameAsync(string name);
+        Task<IEnumerable<Product>> GetSortedProductAsync();
     }
 }

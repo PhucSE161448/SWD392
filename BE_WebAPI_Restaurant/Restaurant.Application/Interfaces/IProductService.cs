@@ -13,6 +13,9 @@ namespace Restaurant.Application.Interfaces
     {
         Task<ServiceResponse<IEnumerable<ProductDTO>>> GetAllProductAsync();
         Task<ServiceResponse<ProductDTO>> CreateProductAsync(CreatedProductDTO CreatedProductDTO);
-        Task<ServiceResponse<ProductDTO>> UpdateProductAsync(int id, ProductDTO UpdatedProductDTO);
+        Task<ServiceResponse<ProductDTO>> UpdateProductAsync(int id, ProductDTO ProductDTO);
+        Task<ServiceResponse<bool>> DeleteProductAsync(int id);
+        Task<ServiceResponse<IEnumerable<ProductDTO>>> SearchProductByNameAsync(string name);
+        Task<ServiceResponse<IEnumerable<ProductDTO>>> GetSortedProductAsync();
     }
 }

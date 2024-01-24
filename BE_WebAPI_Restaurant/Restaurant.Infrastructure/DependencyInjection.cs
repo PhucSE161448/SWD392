@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Restaurant.Infrastructure.Repositories;
 namespace Restaurant.Infrastructure
 {
     public static class DependencyInjection
@@ -21,6 +22,8 @@ namespace Restaurant.Infrastructure
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
 
             services.AddScoped<IAuthenticationService, AuthenticationService>();
 
