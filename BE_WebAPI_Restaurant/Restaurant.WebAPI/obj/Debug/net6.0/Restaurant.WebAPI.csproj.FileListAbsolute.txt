@@ -113,6 +113,9 @@ D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\obj\Debug\net6.0\refint\
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\obj\Debug\net6.0\Restaurant.WebAPI.pdb
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\obj\Debug\net6.0\Restaurant.WebAPI.genruntimeconfig.cache
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\obj\Debug\net6.0\ref\Restaurant.WebAPI.dll
+D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\AutoMapper.dll
+D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\University\GitHub\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\appsettings.Development.json
 D:\University\GitHub\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Restaurant.WebAPI.exe
 D:\University\GitHub\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\appsettings.json
