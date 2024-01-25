@@ -8,6 +8,9 @@ namespace Restaurant.Infrastructure
 {
     public partial class MixFoodContext : DbContext
     {
+        public MixFoodContext()
+        {
+        }
 
         public MixFoodContext(DbContextOptions<MixFoodContext> options)
             : base(options)
@@ -32,7 +35,7 @@ namespace Restaurant.Infrastructure
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-/*            if (!optionsBuilder.IsConfigured)
+            /*if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=(local);uid=sa;pwd=12345;database=MixFood;TrustServerCertificate=True");
@@ -45,9 +48,11 @@ namespace Restaurant.Infrastructure
             {
                 entity.ToTable("Account");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Avatar)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ConfirmationToken)
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
@@ -96,8 +101,6 @@ namespace Restaurant.Infrastructure
             {
                 entity.ToTable("Category");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Name)
                     .HasMaxLength(1)
                     .IsUnicode(false);
@@ -106,8 +109,6 @@ namespace Restaurant.Infrastructure
             modelBuilder.Entity<Ingredient>(entity =>
             {
                 entity.ToTable("Ingredient");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedBy).HasMaxLength(255);
 
@@ -145,7 +146,7 @@ namespace Restaurant.Infrastructure
             modelBuilder.Entity<IngredientProduct>(entity =>
             {
                 entity.HasKey(e => new { e.IngredientId, e.ProductId })
-                    .HasName("PK__Ingredie__F080A71AB49640E1");
+                    .HasName("PK__Ingredie__F080A71A551C7065");
 
                 entity.ToTable("IngredientProduct");
 
@@ -157,20 +158,18 @@ namespace Restaurant.Infrastructure
                     .WithMany(p => p.IngredientProducts)
                     .HasForeignKey(d => d.IngredientId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Ingredien__Ingre__5165187F");
+                    .HasConstraintName("FK__Ingredien__Ingre__60A75C0F");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.IngredientProducts)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Ingredien__Produ__52593CB8");
+                    .HasConstraintName("FK__Ingredien__Produ__619B8048");
             });
 
             modelBuilder.Entity<IngredientType>(entity =>
             {
                 entity.ToTable("IngredientType");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedBy).HasMaxLength(255);
 
@@ -200,7 +199,7 @@ namespace Restaurant.Infrastructure
             modelBuilder.Entity<IngredientTypeTemplateStep>(entity =>
             {
                 entity.HasKey(e => new { e.IngredientTypeId, e.TemplateStepId })
-                    .HasName("PK__Ingredie__D37B8AD77423C037");
+                    .HasName("PK__Ingredie__D37B8AD7C88257E5");
 
                 entity.ToTable("IngredientType_TemplateStep");
 
@@ -227,8 +226,6 @@ namespace Restaurant.Infrastructure
 
             modelBuilder.Entity<News>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.AccountId).HasColumnName("Account_Id");
 
                 entity.Property(e => e.CreatedBy).HasMaxLength(255);
@@ -267,8 +264,6 @@ namespace Restaurant.Infrastructure
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.ToTable("Order");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.AccountId).HasColumnName("Account_id");
 
@@ -346,8 +341,6 @@ namespace Restaurant.Infrastructure
             {
                 entity.ToTable("Payment");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.IsDelete)
                     .IsRequired()
                     .HasDefaultValueSql("('0')");
@@ -365,8 +358,6 @@ namespace Restaurant.Infrastructure
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.ToTable("Product");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedBy).HasMaxLength(255);
 
@@ -394,8 +385,6 @@ namespace Restaurant.Infrastructure
             modelBuilder.Entity<ProductTemplate>(entity =>
             {
                 entity.ToTable("ProductTemplate");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CategoryId).HasColumnName("Category_Id");
 
@@ -456,8 +445,6 @@ namespace Restaurant.Infrastructure
             {
                 entity.ToTable("Session");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.EndTime).HasColumnName("End_Time");
 
                 entity.Property(e => e.IngredientId).HasColumnName("Ingredient_Id");
@@ -481,11 +468,11 @@ namespace Restaurant.Infrastructure
                     .WithMany(p => p.Sessions)
                     .UsingEntity<Dictionary<string, object>>(
                         "IngredientSession",
-                        l => l.HasOne<Ingredient>().WithMany().HasForeignKey("IngredientId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Ingredien__Ingre__5812160E"),
-                        r => r.HasOne<Session>().WithMany().HasForeignKey("SessionId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Ingredien__Sessi__59063A47"),
+                        l => l.HasOne<Ingredient>().WithMany().HasForeignKey("IngredientId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Ingredien__Ingre__628FA481"),
+                        r => r.HasOne<Session>().WithMany().HasForeignKey("SessionId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Ingredien__Sessi__6383C8BA"),
                         j =>
                         {
-                            j.HasKey("SessionId", "IngredientId").HasName("PK__Ingredie__455B9AFEC8E9944A");
+                            j.HasKey("SessionId", "IngredientId").HasName("PK__Ingredie__455B9AFE4BA9FEAD");
 
                             j.ToTable("IngredientSession");
 
@@ -499,8 +486,6 @@ namespace Restaurant.Infrastructure
             {
                 entity.ToTable("Store");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Address).HasMaxLength(255);
 
                 entity.Property(e => e.IsDeleted)
@@ -513,8 +498,6 @@ namespace Restaurant.Infrastructure
             modelBuilder.Entity<TemplateStep>(entity =>
             {
                 entity.ToTable("TemplateStep");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedBy).HasMaxLength(255);
 
@@ -542,6 +525,10 @@ namespace Restaurant.Infrastructure
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("templatestep_proucttemplate_id_foreign");
             });
+
+            OnModelCreatingPartial(modelBuilder);
         }
+
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

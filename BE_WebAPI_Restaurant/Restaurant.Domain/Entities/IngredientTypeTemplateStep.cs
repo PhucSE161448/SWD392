@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Restaurant.Domain.Entities
 {
-    public partial class IngredientTypeTemplateStep : BaseEntity
+    public partial class IngredientTypeTemplateStep
     {
         public int IngredientTypeId { get; set; }
         public int TemplateStepId { get; set; }

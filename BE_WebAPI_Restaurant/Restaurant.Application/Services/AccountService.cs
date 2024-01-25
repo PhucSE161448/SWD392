@@ -174,7 +174,7 @@ namespace Restaurant.Application.Services
 
                 // Map accountDT0 => existingUser
                 var updated = _mapper.Map(accountDTO, existingUser);
-                updated.Password = Utils.HashPassword.HashWithSHA256(accountDTO.PasswordHash);
+                updated.Password = Utils.HashPassword.HashWithSHA256(accountDTO.Password);
 
                 _unitOfWork.AccountRepository.Update(updated);
 

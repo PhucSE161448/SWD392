@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Restaurant.Infrastructure.Repositories;
 using Restaurant.Infrastructure;
+using Restaurant.Domain;
 
 namespace Restaurant.Infrastructures.Repositories
 {
