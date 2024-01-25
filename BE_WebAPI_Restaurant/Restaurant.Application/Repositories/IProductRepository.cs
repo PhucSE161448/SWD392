@@ -10,6 +10,7 @@ namespace Restaurant.Application.Repositories
     public interface IProductRepository : IGenericRepository<Product>
     {
         Task<bool> CheckProductExited(int id);
+        Task<bool> CheckNameProductExited(string name);
         Task<IEnumerable<Product>> SearchProductByNameAsync(string name);
         Task<IEnumerable<Product>> GetSortedProductAsync();
     }

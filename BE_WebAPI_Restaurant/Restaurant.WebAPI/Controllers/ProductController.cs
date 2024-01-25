@@ -7,8 +7,6 @@ using Restaurant.Domain.Entities;
 
 namespace Restaurant.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class ProductController : BaseController
     {
         private readonly IProductService _productService;
