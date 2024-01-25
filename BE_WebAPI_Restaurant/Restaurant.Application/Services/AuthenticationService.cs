@@ -96,7 +96,7 @@ namespace Restaurant.Application.Services
 
                 var account = _mapper.Map<Account>(registerAccountDTO);
                 account.Password = Utils.HashPassword.HashWithSHA256(
-                    registerAccountDTO.PasswordHash
+                    registerAccountDTO.Password
                 );
                 // Tạo token ngẫu nhiên
                 account.ConfirmationToken = Guid.NewGuid().ToString();

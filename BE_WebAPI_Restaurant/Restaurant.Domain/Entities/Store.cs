@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Restaurant.Domain.Entities
 {
     public partial class Store : BaseEntity
-    {
+    { 
         public Store()
         {
             Orders = new HashSet<Order>();

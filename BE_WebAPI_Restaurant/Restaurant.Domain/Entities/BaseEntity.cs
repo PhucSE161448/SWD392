@@ -13,13 +13,13 @@ namespace Restaurant.Domain.Entities
 
         public int? CreatedBy { get; set; }
 
-        public DateTime? ModificatedDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
 
-        public int? ModificatedBy { get; set; }
+        public int? ModifiedBy { get; set; }
 
         public DateTime? DeletedDate { get; set; }
 
-        public int? DeleteBy { get; set; }
+        public int? DeletedBy { get; set; }
 
         public bool IsDeleted { get; set; }
     }

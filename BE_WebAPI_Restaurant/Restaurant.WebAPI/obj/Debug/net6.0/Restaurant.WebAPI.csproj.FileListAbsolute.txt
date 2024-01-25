@@ -37,12 +37,15 @@ F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.WebAPI\obj\Debug\net6.0\Restauran
 F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.WebAPI\obj\Debug\net6.0\Restaurant.WebAPI.genruntimeconfig.cache
 F:\Code\C#\SWD\BE_WebAPI_Restaurant\Restaurant.WebAPI\obj\Debug\net6.0\ref\Restaurant.WebAPI.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\appsettings.Development.json
-D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\appsettings.json
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Restaurant.WebAPI.exe
+D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\appsettings.json
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Restaurant.WebAPI.deps.json
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Restaurant.WebAPI.runtimeconfig.json
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Restaurant.WebAPI.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Restaurant.WebAPI.pdb
+D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\AutoMapper.dll
+D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -51,6 +54,7 @@ D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microso
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
@@ -58,6 +62,7 @@ D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microso
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\C#\SWD\SWD392\BE_WebAPI_Restaurant\Restaurant.WebAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll

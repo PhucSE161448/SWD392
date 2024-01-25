@@ -79,14 +79,14 @@ namespace Restaurant.Infrastructure.Repositories
         public void SoftRemove(T entity)
         {
             entity.IsDeleted = true;
-            entity.DeleteBy = _claimsService.GetCurrentUserId;
+            entity.DeletedBy = _claimsService.GetCurrentUserId;
             _dbSet.Update(entity);
         }
 
         public void Update(T entity)
         {
-            entity.ModificatedDate = _timeService.GetCurrentTime();
-            entity.ModificatedBy = _claimsService.GetCurrentUserId;
+            entity.ModifiedDate = _timeService.GetCurrentTime();
+            entity.ModifiedBy = _claimsService.GetCurrentUserId;
             _dbSet.Update(entity);
         }
 
@@ -106,7 +106,7 @@ namespace Restaurant.Infrastructure.Repositories
             {
                 entity.IsDeleted = true;
                 entity.DeletedDate = _timeService.GetCurrentTime();
-                entity.DeleteBy = _claimsService.GetCurrentUserId;
+                entity.DeletedBy = _claimsService.GetCurrentUserId;
             }
             _dbSet.UpdateRange(entities);
         }
