@@ -1967,11 +1967,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj",
+      "projectUniqueName": "E:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj",
       "projectName": "Restaurant.Application",
-      "projectPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj",
+      "projectPath": "E:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\Restaurant.Application.csproj",
       "packagesPath": "C:\\Users\\nhath\\.nuget\\packages\\",
-      "outputPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\obj\\",
+      "outputPath": "E:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1993,8 +1993,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj": {
-              "projectPath": "D:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj"
+            "E:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj": {
+              "projectPath": "E:\\University\\GitHub\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj"
             }
           }
         }
