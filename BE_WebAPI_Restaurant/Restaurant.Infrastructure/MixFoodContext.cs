@@ -25,7 +25,6 @@ namespace Restaurant.Infrastructure
         public virtual DbSet<IngredientTypeTemplateStep> IngredientTypeTemplateSteps { get; set; } = null!;
         public virtual DbSet<News> News { get; set; } = null!;
         public virtual DbSet<Order> Orders { get; set; } = null!;
-        public virtual DbSet<OrderDetail> OrderDetails { get; set; } = null!;
         public virtual DbSet<Payment> Payments { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<ProductTemplate> ProductTemplates { get; set; } = null!;
@@ -48,13 +47,13 @@ namespace Restaurant.Infrastructure
             {
                 entity.ToTable("Account");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.Avatar)
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ConfirmationToken)
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
+                entity.Property(e => e.ConfirmationToken).IsUnicode(false);
 
                 entity.Property(e => e.CreatedBy).HasMaxLength(255);
 
@@ -101,14 +100,38 @@ namespace Restaurant.Infrastructure
             {
                 entity.ToTable("Category");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.CreatedBy)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.DeletedBy)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.DeletedDate).HasColumnType("datetime");
+
+                entity.Property(e => e.IsDeleted).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.ModifiedBy)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
+
                 entity.Property(e => e.Name)
-                    .HasMaxLength(1)
+                    .HasMaxLength(255)
                     .IsUnicode(false);
             });
 
             modelBuilder.Entity<Ingredient>(entity =>
             {
                 entity.ToTable("Ingredient");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedBy).HasMaxLength(255);
 
@@ -146,7 +169,7 @@ namespace Restaurant.Infrastructure
             modelBuilder.Entity<IngredientProduct>(entity =>
             {
                 entity.HasKey(e => new { e.IngredientId, e.ProductId })
-                    .HasName("PK__Ingredie__F080A71A551C7065");
+                    .HasName("PK__Ingredie__F080A71A5F926D80");
 
                 entity.ToTable("IngredientProduct");
 
@@ -158,18 +181,20 @@ namespace Restaurant.Infrastructure
                     .WithMany(p => p.IngredientProducts)
                     .HasForeignKey(d => d.IngredientId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Ingredien__Ingre__60A75C0F");
+                    .HasConstraintName("FK__Ingredien__Ingre__5DCAEF64");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.IngredientProducts)
                     .HasForeignKey(d => d.ProductId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Ingredien__Produ__619B8048");
+                    .HasConstraintName("FK__Ingredien__Produ__5EBF139D");
             });
 
             modelBuilder.Entity<IngredientType>(entity =>
             {
                 entity.ToTable("IngredientType");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedBy).HasMaxLength(255);
 
@@ -188,18 +213,12 @@ namespace Restaurant.Infrastructure
                 entity.Property(e => e.ModifiedDate).HasColumnType("date");
 
                 entity.Property(e => e.Name).HasMaxLength(255);
-
-                entity.HasOne(d => d.SizeNavigation)
-                    .WithMany(p => p.InverseSizeNavigation)
-                    .HasForeignKey(d => d.Size)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("ingredienttype_size_foreign");
             });
 
             modelBuilder.Entity<IngredientTypeTemplateStep>(entity =>
             {
                 entity.HasKey(e => new { e.IngredientTypeId, e.TemplateStepId })
-                    .HasName("PK__Ingredie__D37B8AD7C88257E5");
+                    .HasName("PK__Ingredie__D37B8AD7892E6243");
 
                 entity.ToTable("IngredientType_TemplateStep");
 
@@ -226,6 +245,8 @@ namespace Restaurant.Infrastructure
 
             modelBuilder.Entity<News>(entity =>
             {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.AccountId).HasColumnName("Account_Id");
 
                 entity.Property(e => e.CreatedBy).HasMaxLength(255);
@@ -265,6 +286,8 @@ namespace Restaurant.Infrastructure
             {
                 entity.ToTable("Order");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.AccountId).HasColumnName("Account_id");
 
                 entity.Property(e => e.CreateDate)
@@ -276,6 +299,8 @@ namespace Restaurant.Infrastructure
                     .HasDefaultValueSql("('0')");
 
                 entity.Property(e => e.PaymentMethodId).HasColumnName("Payment_method_id");
+
+                entity.Property(e => e.ProductId).HasColumnName("Product_Id");
 
                 entity.Property(e => e.Status)
                     .HasMaxLength(255)
@@ -297,6 +322,12 @@ namespace Restaurant.Infrastructure
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("order_payment_method_id_foreign");
 
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ProductID");
+
                 entity.HasOne(d => d.Store)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.StoreId)
@@ -304,42 +335,11 @@ namespace Restaurant.Infrastructure
                     .HasConstraintName("order_store_id_foreign");
             });
 
-            modelBuilder.Entity<OrderDetail>(entity =>
-            {
-                entity.ToTable("OrderDetail");
-
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.Property(e => e.IsDelete)
-                    .IsRequired()
-                    .HasDefaultValueSql("('0')");
-
-                entity.Property(e => e.Note)
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.ProductId).HasColumnName("Product_id");
-
-                entity.Property(e => e.UnitPrice)
-                    .HasColumnType("decimal(8, 2)")
-                    .HasColumnName("Unit_price");
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.OrderDetail)
-                    .HasForeignKey<OrderDetail>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("orderdetail_id_foreign");
-
-                entity.HasOne(d => d.Product)
-                    .WithMany(p => p.OrderDetails)
-                    .HasForeignKey(d => d.ProductId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("orderdetail_product_id_foreign");
-            });
-
             modelBuilder.Entity<Payment>(entity =>
             {
                 entity.ToTable("Payment");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.IsDelete)
                     .IsRequired()
@@ -358,6 +358,8 @@ namespace Restaurant.Infrastructure
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.ToTable("Product");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedBy).HasMaxLength(255);
 
@@ -379,12 +381,20 @@ namespace Restaurant.Infrastructure
 
                 entity.Property(e => e.Price).HasColumnType("decimal(8, 2)");
 
-                entity.Property(e => e.Status).HasMaxLength(255);
+                entity.Property(e => e.ProductTemplateId).HasColumnName("ProductTemplate_Id");
+
+                entity.HasOne(d => d.ProductTemplate)
+                    .WithMany(p => p.Products)
+                    .HasForeignKey(d => d.ProductTemplateId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ProductTemplate_ID");
             });
 
             modelBuilder.Entity<ProductTemplate>(entity =>
             {
                 entity.ToTable("ProductTemplate");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CategoryId).HasColumnName("Category_Id");
 
@@ -412,8 +422,6 @@ namespace Restaurant.Infrastructure
 
                 entity.Property(e => e.Price).HasColumnType("decimal(8, 2)");
 
-                entity.Property(e => e.ProductId).HasColumnName("Product_id");
-
                 entity.Property(e => e.Size)
                     .HasMaxLength(255)
                     .IsUnicode(false);
@@ -428,12 +436,6 @@ namespace Restaurant.Infrastructure
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("producttemplate_categoryid_foreign");
 
-                entity.HasOne(d => d.Product)
-                    .WithMany(p => p.ProductTemplates)
-                    .HasForeignKey(d => d.ProductId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("producttemplate_product_id_foreign");
-
                 entity.HasOne(d => d.Store)
                     .WithMany(p => p.ProductTemplates)
                     .HasForeignKey(d => d.StoreId)
@@ -444,6 +446,8 @@ namespace Restaurant.Infrastructure
             modelBuilder.Entity<Session>(entity =>
             {
                 entity.ToTable("Session");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.EndTime).HasColumnName("End_Time");
 
@@ -468,11 +472,11 @@ namespace Restaurant.Infrastructure
                     .WithMany(p => p.Sessions)
                     .UsingEntity<Dictionary<string, object>>(
                         "IngredientSession",
-                        l => l.HasOne<Ingredient>().WithMany().HasForeignKey("IngredientId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Ingredien__Ingre__628FA481"),
-                        r => r.HasOne<Session>().WithMany().HasForeignKey("SessionId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Ingredien__Sessi__6383C8BA"),
+                        l => l.HasOne<Ingredient>().WithMany().HasForeignKey("IngredientId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Ingredien__Ingre__5FB337D6"),
+                        r => r.HasOne<Session>().WithMany().HasForeignKey("SessionId").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__Ingredien__Sessi__60A75C0F"),
                         j =>
                         {
-                            j.HasKey("SessionId", "IngredientId").HasName("PK__Ingredie__455B9AFE4BA9FEAD");
+                            j.HasKey("SessionId", "IngredientId").HasName("PK__Ingredie__455B9AFE5867C6A7");
 
                             j.ToTable("IngredientSession");
 
@@ -486,6 +490,8 @@ namespace Restaurant.Infrastructure
             {
                 entity.ToTable("Store");
 
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
                 entity.Property(e => e.Address).HasMaxLength(255);
 
                 entity.Property(e => e.IsDeleted)
@@ -498,6 +504,8 @@ namespace Restaurant.Infrastructure
             modelBuilder.Entity<TemplateStep>(entity =>
             {
                 entity.ToTable("TemplateStep");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedBy).HasMaxLength(255);
 

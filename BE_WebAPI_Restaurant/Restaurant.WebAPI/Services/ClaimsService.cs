@@ -8,10 +8,10 @@ namespace Restaurant.WebAPI.Services
         public ClaimsService(IHttpContextAccessor httpContextAccessor)
         {
             // todo implementation to get the current userId
-            var Id = httpContextAccessor.HttpContext?.User?.FindFirstValue("Id");
-            GetCurrentUserId = string.IsNullOrEmpty(Id) ? 0 : Convert.ToInt32(Id);
+            var name = httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.Name);
+            GetCurrentUserId = string.IsNullOrEmpty(name) ? "" : name;
         }
 
-        public int GetCurrentUserId { get; }
+        public string GetCurrentUserId { get; }
     }
 }

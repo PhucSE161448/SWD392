@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Restaurant.Domain.Entities
 {
-    public partial class Session : BaseEntity
+    public partial class Session
     {
         public Session()
         {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Restaurant.Application.Interfaces;
+using Restaurant.Application.Interfaces.Products;
 using Restaurant.Application.ViewModels.ProductDTO;
 using Restaurant.Domain.Entities;
 

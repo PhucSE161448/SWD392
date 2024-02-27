@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Restaurant.Application.Interfaces;
 using Application.ViewModels.AccountDTO;
 using Application.ViewModels.AuthenAccountDTO;
 using Application.ViewModels.RegisterAccountDTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Restaurant.Application.Interfaces.Authenticates;
 
 namespace Restaurant.WebAPI.Controllers
 {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Restaurant.Application.Interfaces;
+using Restaurant.Application.IRepositories;
 using Restaurant.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -68,7 +69,6 @@ namespace Restaurant.Infrastructure.Repositories
             // todo should throw excepted when not found
             return result;
         }
-
         public async Task AddAsync(T entity)
         {
             entity.CreatedDate = _timeService.GetCurrentTime();

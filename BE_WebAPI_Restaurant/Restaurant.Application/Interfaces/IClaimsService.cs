@@ -3,6 +3,6 @@ namespace Restaurant.Application.Interfaces
 {
     public interface IClaimsService
     {
-        public int GetCurrentUserId { get; }
+        public string GetCurrentUserId { get; }
     }
 }

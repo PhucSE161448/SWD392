@@ -1,8 +1,8 @@
-﻿using Restaurant.Application.Interfaces;
-using Application.ViewModels.AccountDTO;
+﻿using Application.ViewModels.AccountDTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Restaurant.Application.Interfaces.Accounts;
 
 namespace Restaurant.WebAPI.Controllers
 {

@@ -22,4 +22,12 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\Account\" />
+    <Folder Include="Controllers\Authenticate\" />
+    <Folder Include="Controllers\Ingredient\" />
+    <Folder Include="Controllers\Product\" />
+    <Folder Include="wwwroot\ProductImage\" />
+  </ItemGroup>
+
 </Project>

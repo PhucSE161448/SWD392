@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 namespace Restaurant.Domain.Entities
 {
-    public partial class Store : BaseEntity
-    { 
+    public partial class Store
+    {
         public Store()
         {
             Orders = new HashSet<Order>();
