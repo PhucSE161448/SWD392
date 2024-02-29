@@ -59,7 +59,11 @@ builder.Services.AddSwaggerGen(setup =>
 
 builder.Services.AddSingleton(configuration);
 var app = builder.Build();
-
+app.UseCors(options =>
+options.WithOrigins("http://localhost:3000")
+.AllowAnyMethod()
+.AllowAnyHeader()
+);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
