@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj": {}
+    "D:\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj": {}
   },
   "projects": {
-    "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj": {
+    "D:\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj",
+        "projectUniqueName": "D:\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj",
         "projectName": "Restaurant.Domain",
-        "projectPath": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\Restaurant.Domain.csproj",
+        "projectPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.Domain\\obj\\",
+        "outputPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

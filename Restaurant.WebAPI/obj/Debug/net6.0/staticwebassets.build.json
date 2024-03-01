@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IQgRERVyYGFgOOlJUNT4j9CiZMN1215pu9YSHLNALG0=",
+  "Hash": "jRL9jzjXZO9xg1+9L5vy8QMUWFrZtpYkOfuH2b0vlZ4=",
   "Source": "Restaurant.WebAPI",
   "BasePath": "_content/Restaurant.WebAPI",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Restaurant.WebAPI\\wwwroot",
       "Source": "Restaurant.WebAPI",
-      "ContentRoot": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Ricee.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Ricee.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\C#\\SWD\\SWD392\\BE_WebAPI_Restaurant\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "ProductImage/Ricee.jpg",
       "AssetKind": "All",
