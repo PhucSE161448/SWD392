@@ -1,5 +1,0 @@
-
-BE_WebAPI_Restaurant/Restaurant.Application/Interfaces/Categories/ICategoryService.cs
-BE_WebAPI_Restaurant/Restaurant.Application/Interfaces/IAccountService.cs
-BE_WebAPI_Restaurant/Restaurant.Application/Interfaces/IAuthenticationService.cs
-BE_WebAPI_Restaurant/Restaurant.Application/Interfaces/IClaimsService.cs
