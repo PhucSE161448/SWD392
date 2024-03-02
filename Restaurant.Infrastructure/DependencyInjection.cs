@@ -27,6 +27,10 @@ using Restaurant.Application.IRepositories.Ingredient_Type;
 using Restaurant.Infrastructure.Repositories.Ingredient_Type;
 using Restaurant.Application.Interfaces.Ingredient_Type;
 using Restaurant.Application.Services.Ingredient_Type;
+using Restaurant.Application.IRepositories.New;
+using Restaurant.Infrastructure.Repositories.New;
+using Restaurant.Application.Interfaces.News;
+using Restaurant.Application.Services.Newss;
 
 namespace Restaurant.Infrastructure
 {
@@ -52,6 +56,9 @@ namespace Restaurant.Infrastructure
 
             services.AddScoped<IIngredientTypeRepository, IngredientTypeRepository>();
             services.AddScoped<IIngredientTypeService,IngredientTypeService>();
+
+            services.AddScoped<INewsRepository, NewsRepository>();
+            services.AddScoped<INewsService, NewsService>();
 
             services.AddSingleton<ICurrentTime, CurrentTime>();
             services.AddDbContext<MixFoodContext>(options =>

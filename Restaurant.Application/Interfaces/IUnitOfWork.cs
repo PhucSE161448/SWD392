@@ -1,6 +1,7 @@
 ﻿using Restaurant.Application.IRepositories.Accounts;
 using Restaurant.Application.IRepositories.Categories;
 using Restaurant.Application.IRepositories.Ingredient_Type;
+using Restaurant.Application.IRepositories.New;
 using Restaurant.Application.IRepositories.Products;
 using Restaurant.Application.IRepositories.ProductTemplates;
 using System;
@@ -18,6 +19,7 @@ namespace Restaurant.Application.Interfaces
         public ICategoryRepository CategoryRepository { get; }
         public IProductTemplateRepository ProductTemplateRepository { get; }
         public IIngredientTypeRepository IngredientTypeRepository { get; }
+        public INewsRepository NewsRepository { get; }
         public Task<int> SaveChangeAsync();
     }
 }
