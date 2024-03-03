@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "Hash": "BlVUoiOqHbYbpwXUXrjPE9PvjA8RMn4yWvonrHv2zeA=",
+  "Source": "Restaurant.WebAPI",
+  "BasePath": "_content/Restaurant.WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Restaurant.WebAPI\\wwwroot",
+      "Source": "Restaurant.WebAPI",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "BasePath": "_content/Restaurant.WebAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Ricee.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "BasePath": "_content/Restaurant.WebAPI",
+      "RelativePath": "ProductImage/Ricee.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProductImage\\Ricee.jpg"
+    },
+    {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\True.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "BasePath": "_content/Restaurant.WebAPI",
+      "RelativePath": "ProductImage/True.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProductImage\\True.jpg"
+    }
+  ]
+}

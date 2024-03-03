@@ -25,6 +25,11 @@ namespace Restaurant.Infrastructure.Repositories.Products
             _dbContext = context;
         }
 
+        public Task<bool> CheckNameProductExited(string name)
+        {
+            return _dbContext.Products.AnyAsync(p => p.Name == name);
+        }
+
         public Task<bool> CheckProductExited(int id)
         {
             return _dbContext.Products.AnyAsync(p => p.Id == id);

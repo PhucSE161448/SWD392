@@ -25,7 +25,7 @@ namespace Restaurant.Application.Services.Products
         public async Task<ServiceResponse<ProductDTO>> CreateProductAsync(CreatedProductDTO CreatedProductDTO)
         {
             var response = new ServiceResponse<ProductDTO>();
-            var exist = await _unitOfWork.ProductRepository.CheckProductExited(CreatedProductDTO.Id);
+            var exist = await _unitOfWork.ProductRepository.CheckNameProductExited(CreatedProductDTO.Name);
             if (exist)
             {
                 response.Success = false;

@@ -245,7 +245,6 @@ namespace Restaurant.Infrastructure
 
             modelBuilder.Entity<News>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.AccountId).HasColumnName("Account_Id");
 
