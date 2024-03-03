@@ -121,15 +121,15 @@ namespace Restaurant.Application.Services.Newss
             return response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<NewsDTO>>> GetAllNewsAsync(string description)
+        public async Task<ServiceResponse<IEnumerable<NewsDTO>>> GetAllNewsAsync(string title)
         {
             var _response = new ServiceResponse<IEnumerable<NewsDTO>>();
             try
             {
                 List<News> Newss;
-                if(description != null)
+                if(title != null)
                 {
-                     Newss = await _unitOfWork.NewsRepository.GetAllAsync(x => x.Description == description);
+                     Newss = await _unitOfWork.NewsRepository.GetAllAsync(x => x.Title == title);
                 }
                 else
                 { 

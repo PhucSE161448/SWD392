@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BlVUoiOqHbYbpwXUXrjPE9PvjA8RMn4yWvonrHv2zeA=",
+  "Hash": "C2Dh8r/E1NJC/nalZUVQAEpX9lajKhT2FPT/m2Ydc1M=",
   "Source": "Restaurant.WebAPI",
   "BasePath": "_content/Restaurant.WebAPI",
   "Mode": "Default",
@@ -10,24 +10,22 @@
     {
       "Name": "Restaurant.WebAPI\\wwwroot",
       "Source": "Restaurant.WebAPI",
-      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Ricee.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Ricee.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "ProductImage/Ricee.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -36,23 +34,21 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Ricee.jpg"
     },
     {
-      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\True.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\true.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
-      "RelativePath": "ProductImage/True.jpg",
+      "RelativePath": "ProductImage/true.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\ProductImage\\True.jpg"
+      "OriginalItemSpec": "wwwroot\\ProductImage\\true.jpg"
     }
   ]
 }

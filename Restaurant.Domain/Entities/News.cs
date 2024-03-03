@@ -9,7 +9,7 @@ namespace Restaurant.Domain.Entities
         public int AccountId { get; set; }
         public string Description { get; set; } = null!;
         public string Image { get; set; } = null!;
-        public string Status { get; set; } = null!;
+        public bool? Status { get; set; }
         public string? CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }
         public string? ModifiedBy { get; set; }
@@ -17,6 +17,7 @@ namespace Restaurant.Domain.Entities
         public string? DeletedBy { get; set; }
         public DateTime? DeletedDate { get; set; }
         public bool? IsDeleted { get; set; }
+        public string? Title { get; set; }
 
         public virtual Account Account { get; set; } = null!;
     }

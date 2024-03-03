@@ -24,7 +24,7 @@ namespace Restaurant.Domain.Entities
         public DateTime? ModifiedDate { get; set; }
         public string? DeletedBy { get; set; }
         public DateTime? DeletedDate { get; set; }
-        public long IsDeleted { get; set; }
+        public bool? IsDeleted { get; set; }
 
         public virtual IngredientType IngredientType { get; set; } = null!;
         public virtual ICollection<IngredientProduct> IngredientProducts { get; set; }

@@ -8,6 +8,7 @@ namespace Restaurant.Application.ViewModels.ProductTemplateDTO
 {
     public class ProductTemplateDTO
     {
+        public int Id { get; set; }
         public int CategoryId { get; set; }
         public string Name { get; set; } = null!;
         public int Quantity { get; set; }

@@ -1,12 +1,12 @@
 {
   "Files": [
     {
-      "Id": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Ricee.jpg",
+      "Id": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Ricee.jpg",
       "PackagePath": "staticwebassets\\ProductImage\\Ricee.jpg"
     },
     {
-      "Id": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\True.jpg",
-      "PackagePath": "staticwebassets\\ProductImage\\True.jpg"
+      "Id": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\true.jpg",
+      "PackagePath": "staticwebassets\\ProductImage\\true.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Restaurant.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props",

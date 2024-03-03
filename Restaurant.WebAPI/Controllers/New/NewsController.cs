@@ -12,9 +12,9 @@ namespace Restaurant.WebAPI.Controllers.New
             _NewsService = NewsService;
         }
         [HttpGet]
-        public async Task<IActionResult> GetNewsList([FromQuery] string? description = null)
+        public async Task<IActionResult> GetNewsList([FromQuery] string? title = null)
         {
-            var result = await _NewsService.GetAllNewsAsync(description);
+            var result = await _NewsService.GetAllNewsAsync(title);
             return Ok(result);
         }
         [HttpPost]
