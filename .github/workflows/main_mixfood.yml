@@ -61,6 +61,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'MixFood'
-          slot-name: 'Production'
+          slot-name: 'Development'
           package: .
           
