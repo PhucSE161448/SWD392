@@ -22,13 +22,13 @@ namespace Restaurant.Application.Services.ProductTemplates
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<ServiceResponse<ProductTemplateDTO>> CreateProductTemplateAsync(ProductTemplateCreateDTO CreatedProductTemplateDTO)
+        public async Task<ServiceResponse<ProductTemplateDTO>> CreateProductTemplateAsync(ProductTemplateCreateDTO CreatedProductTemplateDTO, string url)
         {
             var response = new ServiceResponse<ProductTemplateDTO>();
             try
             {
-
                 var ProductTemplate = _mapper.Map<ProductTemplate>(CreatedProductTemplateDTO);
+                ProductTemplate.ImageUrl = url;
                 await _unitOfWork.ProductTemplateRepository.AddAsync(ProductTemplate);
                 var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                 if (isSuccess)
@@ -111,12 +111,12 @@ namespace Restaurant.Application.Services.ProductTemplates
             return response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<ProductTemplateDTO>>> GetAllProductTemplateAsync()
+        public async Task<ServiceResponse<IEnumerable<ProductTemplateDTO>>> GetAllProductTemplateAsync(string size = null)
         {
             var _response = new ServiceResponse<IEnumerable<ProductTemplateDTO>>();
             try
             {
-                var ProductTemplates = await _unitOfWork.ProductTemplateRepository.GetAllAsync();
+                var ProductTemplates = await  _unitOfWork.ProductTemplateRepository.GetThreeProductsPerCategoryAsync(size);
                 var ProductTemplateDTOs = new List<ProductTemplateDTO>();
                 foreach (var pro in ProductTemplates)
                 {
@@ -235,7 +235,7 @@ namespace Restaurant.Application.Services.ProductTemplates
             return response;
         }
 
-        public async Task<ServiceResponse<ProductTemplateDTO>> UpdateProductTemplateAsync(int id, ProductTemplateUpdateDTO ProductTemplateDTO)
+        public async Task<ServiceResponse<ProductTemplateDTO>> UpdateProductTemplateAsync(int id, ProductTemplateUpdateDTO ProductTemplateDTO, string url)
         {
             var response = new ServiceResponse<ProductTemplateDTO>();
             var exist = await _unitOfWork.ProductTemplateRepository.GetByIdAsync(id);
@@ -247,11 +247,15 @@ namespace Restaurant.Application.Services.ProductTemplates
             }
             try
             {
-                if (ProductTemplateDTO.ImageUrl == null)
-                {
-                    ProductTemplateDTO.ImageUrl = exist.ImageUrl;
-                }
                 var ProductTemplate = _mapper.Map(ProductTemplateDTO, exist);
+                if (string.IsNullOrEmpty(url))
+                {
+                    ProductTemplate.ImageUrl = exist.ImageUrl;
+                }
+                else
+                {
+                    ProductTemplate.ImageUrl = url;
+                }
                 _unitOfWork.ProductTemplateRepository.Update(ProductTemplate);
                 var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                 if (isSuccess)

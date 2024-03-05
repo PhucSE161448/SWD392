@@ -10,9 +10,9 @@ namespace Restaurant.Application.Interfaces.ProductTemplates
 {
     public interface IProductTemplateService
     {
-        Task<ServiceResponse<IEnumerable<ProductTemplateDTO>>> GetAllProductTemplateAsync();
-        Task<ServiceResponse<ProductTemplateDTO>> CreateProductTemplateAsync(ProductTemplateCreateDTO CreatedProductTemplateDTO);
-        Task<ServiceResponse<ProductTemplateDTO>> UpdateProductTemplateAsync(int id, ProductTemplateUpdateDTO ProductTemplateDTO);
+        Task<ServiceResponse<IEnumerable<ProductTemplateDTO>>> GetAllProductTemplateAsync(string? size = null);
+        Task<ServiceResponse<ProductTemplateDTO>> CreateProductTemplateAsync(ProductTemplateCreateDTO CreatedProductTemplateDTO, string url);
+        Task<ServiceResponse<ProductTemplateDTO>> UpdateProductTemplateAsync(int id, ProductTemplateUpdateDTO ProductTemplateDTO,string url);
         Task<ServiceResponse<bool>> DeleteProductTemplateAsync(int id);
         Task<ServiceResponse<IEnumerable<ProductTemplateDTO>>> SearchProductTemplateByNameAsync(string name);
         Task<ServiceResponse<IEnumerable<ProductTemplateDTO>>> GetSortedProductTemplateAsync();

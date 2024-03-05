@@ -27,6 +27,7 @@ namespace Restaurant.Domain.Entities
         public bool? IsDeleted { get; set; }
 
         public virtual IngredientType IngredientType { get; set; } = null!;
+        public virtual Nutrition? Nutrition { get; set; }
         public virtual ICollection<IngredientProduct> IngredientProducts { get; set; }
 
         public virtual ICollection<Session> Sessions { get; set; }

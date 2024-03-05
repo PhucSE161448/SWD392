@@ -7,6 +7,7 @@ namespace Restaurant.Domain.Entities
     {
         public Account()
         {
+            FeedBacks = new HashSet<FeedBack>();
             News = new HashSet<News>();
             Orders = new HashSet<Order>();
         }
@@ -28,6 +29,7 @@ namespace Restaurant.Domain.Entities
         public bool? IsDeleted { get; set; }
         public string? ConfirmationToken { get; set; }
 
+        public virtual ICollection<FeedBack> FeedBacks { get; set; }
         public virtual ICollection<News> News { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
     }

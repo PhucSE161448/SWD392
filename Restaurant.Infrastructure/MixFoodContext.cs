@@ -19,11 +19,13 @@ namespace Restaurant.Infrastructure
 
         public virtual DbSet<Account> Accounts { get; set; } = null!;
         public virtual DbSet<Category> Categories { get; set; } = null!;
+        public virtual DbSet<FeedBack> FeedBacks { get; set; } = null!;
         public virtual DbSet<Ingredient> Ingredients { get; set; } = null!;
         public virtual DbSet<IngredientProduct> IngredientProducts { get; set; } = null!;
         public virtual DbSet<IngredientType> IngredientTypes { get; set; } = null!;
         public virtual DbSet<IngredientTypeTemplateStep> IngredientTypeTemplateSteps { get; set; } = null!;
         public virtual DbSet<News> News { get; set; } = null!;
+        public virtual DbSet<Nutrition> Nutritions { get; set; } = null!;
         public virtual DbSet<Order> Orders { get; set; } = null!;
         public virtual DbSet<Payment> Payments { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
@@ -38,7 +40,7 @@ namespace Restaurant.Infrastructure
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=(local);uid=sa;pwd=12345;database=MixFood;TrustServerCertificate=True");
-            }*/
+            } */
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -121,6 +123,20 @@ namespace Restaurant.Infrastructure
                 entity.Property(e => e.Name)
                     .HasMaxLength(255)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<FeedBack>(entity =>
+            {
+                entity.ToTable("FeedBack");
+
+                entity.Property(e => e.AccountId).HasColumnName("Account_Id");
+
+                entity.Property(e => e.Comment).HasMaxLength(255);
+
+                entity.HasOne(d => d.Account)
+                    .WithMany(p => p.FeedBacks)
+                    .HasForeignKey(d => d.AccountId)
+                    .HasConstraintName("FK__FeedBack__Accoun__06CD04F7");
             });
 
             modelBuilder.Entity<Ingredient>(entity =>
@@ -272,6 +288,49 @@ namespace Restaurant.Infrastructure
                     .HasConstraintName("news_account_id_foreign");
             });
 
+            modelBuilder.Entity<Nutrition>(entity =>
+            {
+                entity.ToTable("Nutrition");
+
+                entity.HasIndex(e => e.IngredientId, "UQ__Nutritio__C90398E29135F4A4")
+                    .IsUnique();
+
+                entity.Property(e => e.CreatedBy).HasMaxLength(255);
+
+                entity.Property(e => e.CreatedDate).HasColumnType("date");
+
+                entity.Property(e => e.DeletedBy).HasMaxLength(255);
+
+                entity.Property(e => e.DeletedDate).HasColumnType("date");
+
+                entity.Property(e => e.Description).HasMaxLength(255);
+
+                entity.Property(e => e.HealthValue).HasMaxLength(255);
+
+                entity.Property(e => e.ImageUrl).HasMaxLength(255);
+
+                entity.Property(e => e.IngredientId).HasColumnName("Ingredient_id");
+
+                entity.Property(e => e.IsDeleted).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.ModifiedBy).HasMaxLength(255);
+
+                entity.Property(e => e.ModifiedDate).HasColumnType("date");
+
+                entity.Property(e => e.Name).HasMaxLength(255);
+
+                entity.Property(e => e.Nutrition1)
+                    .HasMaxLength(255)
+                    .HasColumnName("Nutrition");
+
+                entity.Property(e => e.Vitamin).HasMaxLength(255);
+
+                entity.HasOne(d => d.Ingredient)
+                    .WithOne(p => p.Nutrition)
+                    .HasForeignKey<Nutrition>(d => d.IngredientId)
+                    .HasConstraintName("FK__Nutrition__Nutri__03F0984C");
+            });
+
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.ToTable("Order");
@@ -407,8 +466,6 @@ namespace Restaurant.Infrastructure
                 entity.Property(e => e.Size)
                     .HasMaxLength(255)
                     .IsUnicode(false);
-
-                entity.Property(e => e.Status).HasMaxLength(255);
 
                 entity.Property(e => e.StoreId).HasColumnName("Store_id");
 

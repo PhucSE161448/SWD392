@@ -1,8 +1,24 @@
 {
   "Files": [
     {
+      "Id": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Big Bowl.png",
+      "PackagePath": "staticwebassets\\ProductImage\\Big Bowl.png"
+    },
+    {
+      "Id": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Big Bowls.jpg",
+      "PackagePath": "staticwebassets\\ProductImage\\Big Bowls.jpg"
+    },
+    {
+      "Id": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Red Rice.png",
+      "PackagePath": "staticwebassets\\ProductImage\\Red Rice.png"
+    },
+    {
       "Id": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Ricee.jpg",
       "PackagePath": "staticwebassets\\ProductImage\\Ricee.jpg"
+    },
+    {
+      "Id": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\White Rice.jpg",
+      "PackagePath": "staticwebassets\\ProductImage\\White Rice.jpg"
     },
     {
       "Id": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\true.jpg",

@@ -13,15 +13,16 @@ namespace Restaurant.WebAPI.Controllers.ProductTemplate
             _ProductTemplateService = ProductTemplateService;
         }
         [HttpGet]
-        public async Task<IActionResult> GetProductTemplateList()
+        public async Task<IActionResult> GetProductTemplateList([FromQuery] string? size = null )
         {
-            var result = await _ProductTemplateService.GetAllProductTemplateAsync();
+            var result = await _ProductTemplateService.GetAllProductTemplateAsync(size);
             return Ok(result);
         }
         [HttpPost]
         public async Task<IActionResult> CreateProductTemplate([FromForm] ProductTemplateCreateDTO createdProductTemplateDTO)
         {
-            if (createdProductTemplateDTO.ImageUrl != null)
+            string url = "";
+            if (createdProductTemplateDTO.Image != null)
             {
                 string fileName = createdProductTemplateDTO.Name + Path.GetExtension(createdProductTemplateDTO.Image.FileName);
                 string filePath = @"wwwroot\ProductImage\" + fileName;
@@ -41,14 +42,14 @@ namespace Restaurant.WebAPI.Controllers.ProductTemplate
                 }
 
                 var baseUrl = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host.Value}{HttpContext.Request.PathBase.Value}";
-                createdProductTemplateDTO.ImageUrl = baseUrl + "/ProductImage/" + fileName;
+                url = baseUrl + "/ProductImage/" + fileName;
             }
             else
             {
-                createdProductTemplateDTO.ImageUrl = "https://placehold.co/600x400";
+                url = "https://placehold.co/600x400";
             }
 
-            var result = await _ProductTemplateService.CreateProductTemplateAsync(createdProductTemplateDTO);
+            var result = await _ProductTemplateService.CreateProductTemplateAsync(createdProductTemplateDTO,url);
             if (!result.Success)
             {
                 return BadRequest(result);
@@ -63,6 +64,7 @@ namespace Restaurant.WebAPI.Controllers.ProductTemplate
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProductTemplate(int id, [FromForm] ProductTemplateUpdateDTO ProductTemplateDTO)
         {
+            string url = "";
             if (ProductTemplateDTO.Image != null)
             {
                 string fileName = ProductTemplateDTO.Name + Path.GetExtension(ProductTemplateDTO.Image.FileName);
@@ -83,9 +85,10 @@ namespace Restaurant.WebAPI.Controllers.ProductTemplate
                 }
 
                 var baseUrl = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host.Value}{HttpContext.Request.PathBase.Value}";
-                ProductTemplateDTO.ImageUrl = baseUrl + "/ProductImage/" + fileName;
+                url = baseUrl + "/ProductImage/" + fileName;
             }
-            var result = await _ProductTemplateService.UpdateProductTemplateAsync(id, ProductTemplateDTO);
+            
+            var result = await _ProductTemplateService.UpdateProductTemplateAsync(id, ProductTemplateDTO,url);
             if (!result.Success)
             {
                 return NotFound(result);

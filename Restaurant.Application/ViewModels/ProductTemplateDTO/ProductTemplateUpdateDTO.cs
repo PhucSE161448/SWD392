@@ -13,7 +13,6 @@ namespace Restaurant.Application.ViewModels.ProductTemplateDTO
         public string Name { get; set; } = null!;
         public int Quantity { get; set; }
         public string Size { get; set; } = null!;
-        public string? ImageUrl { get; set; } = null!;
         public IFormFile? Image { get; set; }
         public decimal Price { get; set; }
         public string Status { get; set; } = null!;
