@@ -23,9 +23,9 @@ namespace Restaurant.Application.Services.Categories
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<ServiceResponse<CategoryDTO>> CreateCategoryAsync(CategoryDTO CategoryDto)
+        public async Task<ServiceResponse<CategoryDto>> CreateCategoryAsync(AddUpdateCategoryDTO CategoryDto)
         {
-            var response = new ServiceResponse<CategoryDTO>();
+            var response = new ServiceResponse<CategoryDto>();
             var exist = await _unitOfWork.CategoryRepository.CheckCategoryExited(CategoryDto.Name);
             if (exist)
             {
@@ -40,7 +40,7 @@ namespace Restaurant.Application.Services.Categories
                 var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                 if (isSuccess)
                 {
-                    var categoryDTO = _mapper.Map<CategoryDTO>(category);
+                    var categoryDTO = _mapper.Map<CategoryDto>(category);
                     response.Data = categoryDTO;
                     response.Success = true;
                     response.Message = "Category created successfully";
@@ -107,18 +107,18 @@ namespace Restaurant.Application.Services.Categories
             return response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<CategoryDTO>>> GetAllCategoryAsync()
+        public async Task<ServiceResponse<IEnumerable<CategoryDto>>> GetAllCategoryAsync()
         {
-            var _response = new ServiceResponse<IEnumerable<CategoryDTO>>();
+            var _response = new ServiceResponse<IEnumerable<CategoryDto>>();
             try
             {
                 var categorys = await _unitOfWork.CategoryRepository.GetAllAsync();
-                var CategoryDTOs = new List<CategoryDTO>();
+                var CategoryDTOs = new List<CategoryDto>();
                 foreach (var pro in categorys)
                 {
                     if ((bool)!pro.IsDeleted)
                     {
-                        CategoryDTOs.Add(_mapper.Map<CategoryDTO>(pro));
+                        CategoryDTOs.Add(_mapper.Map<CategoryDto>(pro));
                     }
                 }
                 if (CategoryDTOs.Count != 0)
@@ -149,9 +149,9 @@ namespace Restaurant.Application.Services.Categories
             return _response;
         }
 
-        public async Task<ServiceResponse<CategoryDTO>> UpdateCategoryAsync(int id, CategoryDTO CategoryDTO)
+        public async Task<ServiceResponse<CategoryDto>> UpdateCategoryAsync(int id, AddUpdateCategoryDTO CategoryDTO)
         {
-            var response = new ServiceResponse<CategoryDTO>();
+            var response = new ServiceResponse<CategoryDto>();
             var exist = await _unitOfWork.CategoryRepository.GetAsync(x => x.Id == id);
 
             if (exist == null)
@@ -169,7 +169,7 @@ namespace Restaurant.Application.Services.Categories
                 {
                     response.Success = true;
                     response.Message = "Category updated successfully";
-                    response.Data = _mapper.Map<CategoryDTO>(category);
+                    response.Data = _mapper.Map<CategoryDto>(category);
                 }
                 else
                 {

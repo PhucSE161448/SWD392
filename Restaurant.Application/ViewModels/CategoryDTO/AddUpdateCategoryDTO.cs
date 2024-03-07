@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Application.ViewModels.CategoryDTO
 {
-    public class CategoryDto
+    public class AddUpdateCategoryDTO
     {
-        public int Id { get; set; } 
-        public string? Name { get; set; }
+        public string Name { get; set; }
     }
 }

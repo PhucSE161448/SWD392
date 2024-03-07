@@ -56,30 +56,30 @@ namespace Restaurant.WebAPI.Controllers
             }
             return Ok(result);
         }
-        [Authorize(Roles = "admin")]
-        [HttpGet("{name}")]
-        public async Task<IActionResult> SearchProductByName(string name)
-        {
-            var result = await _productService.SearchProductByNameAsync(name);
-            if (!result.Success)
-            {
-                return NotFound(result);
-            }
-            return Ok(result);
-        }
-        [Authorize(Roles = "admin")]
-        [HttpGet]
-        public async Task<IActionResult> GetSortedProductAsync()
-        {
-            var result = await _productService.GetSortedProductAsync();
-            if(!result.Success)
-            {
-                return NotFound(result);
-            }
-            else
-            {
-                return Ok(result);
-            }
-        }
+        //[Authorize(Roles = "admin")]
+        //[HttpGet("{name}")]
+        //public async Task<IActionResult> SearchProductByName(string name)
+        //{
+        //    var result = await _productService.SearchProductByNameAsync(name);
+        //    if (!result.Success)
+        //    {
+        //        return NotFound(result);
+        //    }
+        //    return Ok(result);
+        //}
+        //[Authorize(Roles = "admin")]
+        //[HttpGet]
+        //public async Task<IActionResult> GetSortedProductAsync()
+        //{
+        //    var result = await _productService.GetSortedProductAsync();
+        //    if(!result.Success)
+        //    {
+        //        return NotFound(result);
+        //    }
+        //    else
+        //    {
+        //        return Ok(result);
+        //    }
+        //}
     }
 }
