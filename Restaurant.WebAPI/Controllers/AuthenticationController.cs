@@ -20,7 +20,7 @@ namespace Restaurant.WebAPI.Controllers
             _authenticationService = authenticationService;
         }
 
-        [HttpPost]
+        [HttpPost("login")]
         public async Task<IActionResult> RegisterAsync(RegisterAccountDTO registerObject)
         {
             var result = await _authenticationService.RegisterAsync(registerObject);
@@ -35,7 +35,7 @@ namespace Restaurant.WebAPI.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<IActionResult> LoginAsync(AuthenAccountDTO loginObject)
         {
             var result = await _authenticationService.LoginAsync(loginObject);

@@ -116,7 +116,8 @@ namespace Restaurant.Application.Services.ProductTemplates
             var _response = new ServiceResponse<IEnumerable<ProductTemplateDTO>>();
             try
             {
-                var ProductTemplates = await  _unitOfWork.ProductTemplateRepository.GetThreeProductsPerCategoryAsync(size);
+                //  var ProductTemplates = await  _unitOfWork.ProductTemplateRepository.GetThreeProductsPerCategoryAsync(size);
+                var ProductTemplates = await _unitOfWork.ProductTemplateRepository.GetAllAsync(includeProperties:"Category");
                 var ProductTemplateDTOs = new List<ProductTemplateDTO>();
                 foreach (var pro in ProductTemplates)
                 {

@@ -28,6 +28,7 @@ namespace Restaurant.Domain.Entities
         public string? DeletedBy { get; set; }
         public bool? IsDeleted { get; set; }
         public string? ConfirmationToken { get; set; }
+        public string Gender { get; set; } = null!;
 
         public virtual ICollection<FeedBack> FeedBacks { get; set; }
         public virtual ICollection<News> News { get; set; }
