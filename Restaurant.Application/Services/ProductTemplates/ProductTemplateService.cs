@@ -29,6 +29,7 @@ namespace Restaurant.Application.Services.ProductTemplates
             {
                 var ProductTemplate = _mapper.Map<ProductTemplate>(CreatedProductTemplateDTO);
                 ProductTemplate.ImageUrl = url;
+                ProductTemplate.Size = "S";
                 await _unitOfWork.ProductTemplateRepository.AddAsync(ProductTemplate);
                 var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                 if (isSuccess)

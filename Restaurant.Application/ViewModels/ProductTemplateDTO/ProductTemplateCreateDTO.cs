@@ -11,11 +11,10 @@ namespace Restaurant.Application.ViewModels.ProductTemplateDTO
     {
         public int CategoryId { get; set; }
         public string Name { get; set; } = null!;
-        public int Quantity { get; set; }
-        public string Size { get; set; } = null!;
+        public int? Quantity { get; set; }
+        public string? Size { get; set; } 
         public IFormFile? Image { get; set; }
         public decimal Price { get; set; }
-        public string Status { get; set; } = null!;
         public int StoreId { get; set; }
     }
 }
