@@ -11,7 +11,7 @@ namespace Restaurant.Application.Interfaces.News
 {
     public interface INewsService
     {
-        Task<ServiceResponse<IEnumerable<NewsDTO>>> GetAllNewsAsync(string title);
+        Task<ServiceResponse<IEnumerable<NewsDTO>>> GetAllNewsAsync(int? id, string title);
         Task<ServiceResponse<NewsDTO>> CreateNewsAsync(AddNewsDTO AddNewsDTO, string image);
         Task<ServiceResponse<NewsDTO>> UpdateNewsAsync(int id, AddNewsDTO NewsDTO, string image);
         Task<ServiceResponse<bool>> DeleteNewsAsync(int id);

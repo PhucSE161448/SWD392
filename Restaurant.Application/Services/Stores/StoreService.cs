@@ -109,7 +109,7 @@ namespace Restaurant.Application.Services.Stores
             return response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<StoreDTO>>> GetAllStoreAsync(string name)
+        public async Task<ServiceResponse<IEnumerable<StoreDTO>>> GetAllStoreAsync(int? id, string name)
         {
             var response = new ServiceResponse<IEnumerable<StoreDTO>>();
             try
@@ -118,6 +118,9 @@ namespace Restaurant.Application.Services.Stores
                 if(name != null)
                 {
                     Storess = await _unitOfWork.StoreRepository.GetAllAsync(x => x.Name.Contains(name));
+                }else if(id != null && id != 0)
+                {
+                    Storess = await _unitOfWork.StoreRepository.GetAllAsync(x => x.Id == id);
                 }
                 else
                 {
