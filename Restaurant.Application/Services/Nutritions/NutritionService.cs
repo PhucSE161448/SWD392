@@ -316,5 +316,46 @@ namespace Restaurant.Application.Services.Nutritions
             }
             return response;
         }
+        //create a method to get nutrition by id ingredient
+        public async Task<ServiceResponse<IEnumerable<NutritionDTO>>> GetNutritionByIngredientIdAsync(int id)
+        {
+            var response = new ServiceResponse<IEnumerable<NutritionDTO>>();
+            try
+            {
+                var Nutritions = await _unitOfWork.NutritionRepository.GetAllAsync();
+                var NutritionDTOs = new List<NutritionDTO>();
+                foreach (var pro in Nutritions)
+                {
+                    if ((bool)!pro.IsDeleted && pro.IngredientId == id)
+                    {
+                        NutritionDTOs.Add(_mapper.Map<NutritionDTO>(pro));
+                    }
+                }
+                if (NutritionDTOs.Count != 0)
+                {
+                    response.Success = true;
+                    response.Message = "Nutrition retrieved successfully";
+                    response.Data = NutritionDTOs;
+                }
+                else
+                {
+                    response.Success = true;
+                    response.Message = "Nutrition not found";
+                }
+            }
+            catch (DbException ex)
+            {
+                response.Success = false;
+                response.Message = "Database error occurred.";
+                response.ErrorMessages = new List<string> { ex.Message };
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Error";
+                response.ErrorMessages = new List<string> { ex.Message };
+            }
+            return response;
+        }
     }
 }

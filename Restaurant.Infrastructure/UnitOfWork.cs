@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Restaurant.Application.Interfaces;
+using Restaurant.Application.Interfaces.Store;
 using Restaurant.Application.IRepositories.Accounts;
 using Restaurant.Application.IRepositories.Categories;
 using Restaurant.Application.IRepositories.Ingredient_Type;
@@ -8,6 +9,7 @@ using Restaurant.Application.IRepositories.New;
 using Restaurant.Application.IRepositories.Nutritions;
 using Restaurant.Application.IRepositories.Products;
 using Restaurant.Application.IRepositories.ProductTemplates;
+using Restaurant.Application.IRepositories.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,9 +30,11 @@ namespace Restaurant.Infrastructure
         private readonly INewsRepository _iNewsRepository;
         private readonly IIngredientRepository _ingredientRepository;
         private readonly INutritionRepository _nutritionRepository;
+        private readonly IStoreRepository _storeRepository;
         public UnitOfWork(MixFoodContext foodContext, IAccountRepository accountRepository, IProductRepository productRepository, ICategoryRepository categoryRepository, IProductTemplateRepository productTemplateRepository,
             IIngredientTypeRepository ingredientTypeRepository,INewsRepository newsRepository,
-            IIngredientRepository ingredientRepository,INutritionRepository nutritionRepository)
+            IIngredientRepository ingredientRepository,INutritionRepository nutritionRepository,
+            IStoreRepository storeRepository)
         {
             _foodContext = foodContext;
             _accountRepository = accountRepository;
@@ -41,6 +45,7 @@ namespace Restaurant.Infrastructure
             _iNewsRepository = newsRepository;
             _ingredientRepository = ingredientRepository;
             _nutritionRepository = nutritionRepository;
+            _storeRepository = storeRepository;
         }
         public IAccountRepository AccountRepository => _accountRepository;
         public IProductRepository ProductRepository => _productRepository;
@@ -50,6 +55,7 @@ namespace Restaurant.Infrastructure
         public INewsRepository NewsRepository => _iNewsRepository;
         public IIngredientRepository IngredientRepository => _ingredientRepository;
         public INutritionRepository NutritionRepository => _nutritionRepository;
+        public IStoreRepository StoreRepository => _storeRepository;
         public async Task<int> SaveChangeAsync()
         {
             return await _foodContext.SaveChangesAsync();
