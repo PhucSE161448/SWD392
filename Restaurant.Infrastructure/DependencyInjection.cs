@@ -43,6 +43,10 @@ using Restaurant.Application.IRepositories.Stores;
 using Restaurant.Infrastructure.Repositories.Stores;
 using Restaurant.Application.Interfaces.Store;
 using Restaurant.Application.Services.Stores;
+using Restaurant.Application.IRepositories.TemplateSteps;
+using Restaurant.Infrastructure.Repositories.TemplateSteps;
+using Restaurant.Application.Interfaces.TemplateSteps;
+using Restaurant.Application.Services.TemplateSteps;
 
 namespace Restaurant.Infrastructure
 {
@@ -80,6 +84,9 @@ namespace Restaurant.Infrastructure
 
             services.AddScoped<IStoreRepository, StoreRepository>();
             services.AddScoped<IStoreService, StoreService>();
+
+            services.AddScoped<ITemplateStepRepository, TemplateStepRepository>();
+            services.AddScoped<ITemplateStepService, TemplateStepService>();
 
             services.AddSingleton<ICurrentTime, CurrentTime>();
             services.AddDbContext<MixFoodContext>(options =>

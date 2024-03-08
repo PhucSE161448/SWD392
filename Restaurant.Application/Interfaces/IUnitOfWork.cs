@@ -8,6 +8,7 @@ using Restaurant.Application.IRepositories.Nutritions;
 using Restaurant.Application.IRepositories.Products;
 using Restaurant.Application.IRepositories.ProductTemplates;
 using Restaurant.Application.IRepositories.Stores;
+using Restaurant.Application.IRepositories.TemplateSteps;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace Restaurant.Application.Interfaces
         public IIngredientRepository IngredientRepository { get; }
         public INutritionRepository NutritionRepository { get; }
         public IStoreRepository StoreRepository { get; }
+        public ITemplateStepRepository TemplateStepRepository { get; }
         public Task<int> SaveChangeAsync();
     }
 }

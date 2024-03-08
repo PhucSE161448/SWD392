@@ -10,6 +10,7 @@ using Restaurant.Application.IRepositories.Nutritions;
 using Restaurant.Application.IRepositories.Products;
 using Restaurant.Application.IRepositories.ProductTemplates;
 using Restaurant.Application.IRepositories.Stores;
+using Restaurant.Application.IRepositories.TemplateSteps;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,10 +32,11 @@ namespace Restaurant.Infrastructure
         private readonly IIngredientRepository _ingredientRepository;
         private readonly INutritionRepository _nutritionRepository;
         private readonly IStoreRepository _storeRepository;
+        private readonly ITemplateStepRepository _templateStepRepository;
         public UnitOfWork(MixFoodContext foodContext, IAccountRepository accountRepository, IProductRepository productRepository, ICategoryRepository categoryRepository, IProductTemplateRepository productTemplateRepository,
             IIngredientTypeRepository ingredientTypeRepository,INewsRepository newsRepository,
             IIngredientRepository ingredientRepository,INutritionRepository nutritionRepository,
-            IStoreRepository storeRepository)
+            IStoreRepository storeRepository, ITemplateStepRepository templateStepRepository)
         {
             _foodContext = foodContext;
             _accountRepository = accountRepository;
@@ -46,6 +48,7 @@ namespace Restaurant.Infrastructure
             _ingredientRepository = ingredientRepository;
             _nutritionRepository = nutritionRepository;
             _storeRepository = storeRepository;
+            _templateStepRepository = templateStepRepository;
         }
         public IAccountRepository AccountRepository => _accountRepository;
         public IProductRepository ProductRepository => _productRepository;
@@ -55,6 +58,7 @@ namespace Restaurant.Infrastructure
         public INewsRepository NewsRepository => _iNewsRepository;
         public IIngredientRepository IngredientRepository => _ingredientRepository;
         public INutritionRepository NutritionRepository => _nutritionRepository;
+        public ITemplateStepRepository TemplateStepRepository => _templateStepRepository;
         public IStoreRepository StoreRepository => _storeRepository;
         public async Task<int> SaveChangeAsync()
         {

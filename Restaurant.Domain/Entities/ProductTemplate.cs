@@ -25,7 +25,7 @@ namespace Restaurant.Domain.Entities
         public string? ModifiedBy { get; set; }
         public string? DeletedBy { get; set; }
         public DateTime? DeletedDate { get; set; }
-        public bool? IsDeleted { get; set; }
+       // public bool? IsDeleted { get; set; }
 
         public virtual Category Category { get; set; } = null!;
         public virtual Store Store { get; set; } = null!;

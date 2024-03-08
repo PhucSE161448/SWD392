@@ -11,6 +11,7 @@ using Restaurant.Application.ViewModels.NewsDTO;
 using Restaurant.Application.ViewModels.IngredientsDTO;
 using Restaurant.Application.ViewModels.NutritionsDTO;
 using Restaurant.Application.ViewModels.StoreDTO;
+using Restaurant.Application.ViewModels.TemplateStepsDTO;
 
 namespace Restaurant.Infrastructures.Mappers
 {
@@ -20,40 +21,45 @@ namespace Restaurant.Infrastructures.Mappers
         {
 
             CreateMap<Account, AccountDTO>().ReverseMap();
-            CreateMap<CreatedAccountDTO, Account>();   
+            CreateMap<CreatedAccountDTO, Account>();
             CreateMap<CreatedAccountDTO, AccountDTO>();
 
             CreateMap<RegisterAccountDTO, Account>();
             CreateMap<RegisterAccountDTO, AccountDTO>();
-            
+
             CreateMap<Product, ProductDTO>().ReverseMap();
             CreateMap<CreatedProductDTO, Product>();
             CreateMap<CreatedProductDTO, ProductDTO>();
 
-            CreateMap<Category,CategoryDto>().ReverseMap();
+            CreateMap<Category, CategoryDto>().ReverseMap();
 
             CreateMap<ProductTemplate, ProductTemplateDTO>().ReverseMap();
             CreateMap<ProductTemplateCreateDTO, ProductTemplate>();
-            CreateMap<ProductTemplateCreateDTO, ProductTemplateDTO>();  
+            CreateMap<ProductTemplateCreateDTO, ProductTemplateDTO>();
             CreateMap<ProductTemplateUpdateDTO, ProductTemplate>().ReverseMap();
 
-            CreateMap<NewsDTO,News>().ReverseMap();
-            CreateMap<AddNewsDTO,News>().ReverseMap();
+            CreateMap<NewsDTO, News>().ReverseMap();
+            CreateMap<AddNewsDTO, News>().ReverseMap();
 
             CreateMap<IngredientDTO, Ingredient>().ReverseMap();
             CreateMap<IngredientAddDTO, Ingredient>();
-            CreateMap<IngredientAddDTO,IngredientDTO>().ReverseMap();
+            CreateMap<IngredientAddDTO, IngredientDTO>().ReverseMap();
             CreateMap<IngredientUpdateDTO, Ingredient>().ReverseMap();
 
             CreateMap<NutritionDTO, Nutrition>().ReverseMap();
-            CreateMap<NutritionAddDTO, Nutrition>();  
+            CreateMap<NutritionAddDTO, Nutrition>();
             CreateMap<NutritionAddDTO, NutritionDTO>().ReverseMap();
             CreateMap<NutritionUpdateDTO, Nutrition>().ReverseMap();
 
-            CreateMap<IngredientType,IngredientTypeDTO>().ReverseMap();
+            CreateMap<IngredientType, IngredientTypeDTO>().ReverseMap();
 
             CreateMap<StoreDTO, Store>().ReverseMap();
             CreateMap<AddStoreDTO, Store>().ReverseMap();
+
+            CreateMap<TemplateStepCreateDTO, TemplateStep>().ReverseMap();
+            CreateMap<TemplateStepCreateDTO, TemplateStepDTO>().ReverseMap();
+            CreateMap<TemplateStepDTO, TemplateStep>().ReverseMap();
+            CreateMap<TemplateStepUpdateDTO, TemplateStep>().ReverseMap();
         }
     }
 }
