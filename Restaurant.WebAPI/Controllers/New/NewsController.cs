@@ -12,9 +12,9 @@ namespace Restaurant.WebAPI.Controllers.New
             _NewsService = NewsService;
         }
         [HttpGet]
-        public async Task<IActionResult> GetNewsList([FromQuery] string? title = null)
+        public async Task<IActionResult> GetNewsList([FromQuery]int? id = null ,[FromQuery] string? title = null)
         {
-            var result = await _NewsService.GetAllNewsAsync(title);
+            var result = await _NewsService.GetAllNewsAsync(id, title);
             return Ok(result);
         }
         [HttpGet("{id}")]
@@ -26,9 +26,10 @@ namespace Restaurant.WebAPI.Controllers.New
         [HttpPost]
         public async Task<IActionResult> CreateNews([FromForm] AddNewsDTO createdNewsDTO)
         {
-            if (createdNewsDTO.Image != null)
+            string image = "";
+            if (createdNewsDTO.formFile != null)
             {
-                string fileName = createdNewsDTO.Status + Path.GetExtension(createdNewsDTO.formFile.FileName);
+                string fileName = createdNewsDTO.Title + Path.GetExtension(createdNewsDTO.formFile.FileName);
                 string filePath = @"wwwroot\ProductImage\" + fileName;
 
                 var directoryLocation = Path.Combine(Directory.GetCurrentDirectory(), filePath);
@@ -46,14 +47,14 @@ namespace Restaurant.WebAPI.Controllers.New
                 }
 
                 var baseUrl = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host.Value}{HttpContext.Request.PathBase.Value}";
-                createdNewsDTO.Image = baseUrl + "/ProductImage/" + fileName;
+                image = baseUrl + "/ProductImage/" + fileName;
             }
             else
             {
-                createdNewsDTO.Image = "https://placehold.co/600x400";
+                image = "https://placehold.co/600x400";
             }
 
-            var result = await _NewsService.CreateNewsAsync(createdNewsDTO);
+            var result = await _NewsService.CreateNewsAsync(createdNewsDTO, image);
             if (!result.Success)
             {
                 return BadRequest(result);
@@ -68,9 +69,10 @@ namespace Restaurant.WebAPI.Controllers.New
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateNews(int id, [FromForm] AddNewsDTO NewsDTO)
         {
-            if (NewsDTO.Image != null)
+            string image = "";
+            if (NewsDTO.formFile != null)
             {
-                string fileName = NewsDTO.Status + Path.GetExtension(NewsDTO.formFile.FileName);
+                string fileName = NewsDTO.Title + Path.GetExtension(NewsDTO.formFile.FileName);
                 string filePath = @"wwwroot\ProductImage\" + fileName;
 
                 var directoryLocation = Path.Combine(Directory.GetCurrentDirectory(), filePath);
@@ -88,9 +90,9 @@ namespace Restaurant.WebAPI.Controllers.New
                 }
 
                 var baseUrl = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host.Value}{HttpContext.Request.PathBase.Value}";
-                NewsDTO.Image = baseUrl + "/ProductImage/" + fileName;
+                image = baseUrl + "/ProductImage/" + fileName;
             }
-            var result = await _NewsService.UpdateNewsAsync(id, NewsDTO);
+            var result = await _NewsService.UpdateNewsAsync(id, NewsDTO, image);
             if (!result.Success)
             {
                 return NotFound(result);

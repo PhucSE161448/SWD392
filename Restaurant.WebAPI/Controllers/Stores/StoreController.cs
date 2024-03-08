@@ -12,9 +12,9 @@ namespace Restaurant.WebAPI.Controllers.Stores
             _storeService = storeService;
         }
         [HttpGet]
-        public async Task<IActionResult> GetStoreList([FromQuery] string? name = null)
+        public async Task<IActionResult> GetStoreList([FromQuery] int ? id = null , [FromQuery] string? name = null)
         {
-            var result = await _storeService.GetAllStoreAsync(name);
+            var result = await _storeService.GetAllStoreAsync(id, name);
             return Ok(result);
         }
         [HttpPost]

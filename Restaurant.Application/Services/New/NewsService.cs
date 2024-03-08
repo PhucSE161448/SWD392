@@ -22,13 +22,14 @@ namespace Restaurant.Application.Services.Newss
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<ServiceResponse<NewsDTO>> CreateNewsAsync(AddNewsDTO CreatedNewsDTO)
+        public async Task<ServiceResponse<NewsDTO>> CreateNewsAsync(AddNewsDTO CreatedNewsDTO, string image)
         {
             var response = new ServiceResponse<NewsDTO>();
             try
             {
                 var n = await _unitOfWork.NewsRepository.GetAllAsync();
-                if(n.Any(x => x.Description == CreatedNewsDTO.Description))
+                
+                if(n.Any(x => x.Title == CreatedNewsDTO.Title))
                 {
                     response.Success = false;
                     response.Message = "News already exists";
@@ -37,6 +38,7 @@ namespace Restaurant.Application.Services.Newss
                 else
                 {
                     var News = _mapper.Map<News>(CreatedNewsDTO);
+                    News.Image = image;
                     await _unitOfWork.NewsRepository.AddAsync(News);
                     var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                     if (isSuccess)
@@ -121,7 +123,7 @@ namespace Restaurant.Application.Services.Newss
             return response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<NewsDTO>>> GetAllNewsAsync(string title)
+        public async Task<ServiceResponse<IEnumerable<NewsDTO>>> GetAllNewsAsync(int? id, string title)
         {
             var _response = new ServiceResponse<IEnumerable<NewsDTO>>();
             try
@@ -130,6 +132,9 @@ namespace Restaurant.Application.Services.Newss
                 if(title != null)
                 {
                      Newss = await _unitOfWork.NewsRepository.GetAllAsync(x => x.Title == title);
+                }else if (id != 0 && id != null)
+                {
+                    Newss = await _unitOfWork.NewsRepository.GetAllAsync(x => x.Id == id);
                 }
                 else
                 { 
@@ -286,7 +291,7 @@ namespace Restaurant.Application.Services.Newss
             return response;
         }
 
-        public async Task<ServiceResponse<NewsDTO>> UpdateNewsAsync(int id, AddNewsDTO NewsDTO)
+        public async Task<ServiceResponse<NewsDTO>> UpdateNewsAsync(int id, AddNewsDTO NewsDTO, string image)
         {
             var response = new ServiceResponse<NewsDTO>();
             var exist = await _unitOfWork.NewsRepository.GetByIdAsync(id);
@@ -298,11 +303,15 @@ namespace Restaurant.Application.Services.Newss
             }
             try
             {
-                if (NewsDTO.Image == null)
-                {
-                    NewsDTO.Image = exist.Image;
-                }
                 var News = _mapper.Map(NewsDTO, exist);
+                if(string.IsNullOrEmpty(image))
+                {
+                    News.Image = exist.Image;
+                }
+                else
+                {
+                    News.Image = image;
+                }
                 _unitOfWork.NewsRepository.Update(News);
                 var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                 if (isSuccess)

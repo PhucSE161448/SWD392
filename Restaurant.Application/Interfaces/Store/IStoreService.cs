@@ -10,7 +10,7 @@ namespace Restaurant.Application.Interfaces.Store
 {
     public interface IStoreService
     {
-        Task<ServiceResponse<IEnumerable<StoreDTO>>> GetAllStoreAsync(string name);
+        Task<ServiceResponse<IEnumerable<StoreDTO>>> GetAllStoreAsync(int? id, string name);
         Task<ServiceResponse<StoreDTO>> CreateStoreAsync(AddStoreDTO AddStoreDTO);
         Task<ServiceResponse<StoreDTO>> UpdateStoreAsync(int id, AddStoreDTO StoreDTO);
         Task<ServiceResponse<bool>> DeleteStoreAsync(int id);
