@@ -10,6 +10,7 @@ using Restaurant.Application.ViewModels.Ingredient_TypeDTO;
 using Restaurant.Application.ViewModels.NewsDTO;
 using Restaurant.Application.ViewModels.IngredientsDTO;
 using Restaurant.Application.ViewModels.NutritionsDTO;
+using Restaurant.Application.ViewModels.StoreDTO;
 
 namespace Restaurant.Infrastructures.Mappers
 {
@@ -19,7 +20,7 @@ namespace Restaurant.Infrastructures.Mappers
         {
 
             CreateMap<Account, AccountDTO>().ReverseMap();
-            CreateMap<CreatedAccountDTO, Account>();
+            CreateMap<CreatedAccountDTO, Account>();   
             CreateMap<CreatedAccountDTO, AccountDTO>();
 
             CreateMap<RegisterAccountDTO, Account>();
@@ -50,6 +51,9 @@ namespace Restaurant.Infrastructures.Mappers
             CreateMap<NutritionUpdateDTO, Nutrition>().ReverseMap();
 
             CreateMap<IngredientType,IngredientTypeDTO>().ReverseMap();
+
+            CreateMap<StoreDTO, Store>().ReverseMap();
+            CreateMap<AddStoreDTO, Store>().ReverseMap();
         }
     }
 }

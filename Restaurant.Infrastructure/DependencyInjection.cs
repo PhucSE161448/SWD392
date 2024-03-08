@@ -39,6 +39,10 @@ using Restaurant.Application.IRepositories.Nutritions;
 using Restaurant.Infrastructure.Repositories.Nutritions;
 using Restaurant.Application.Interfaces.Nutrition;
 using Restaurant.Application.Services.Nutritions;
+using Restaurant.Application.IRepositories.Stores;
+using Restaurant.Infrastructure.Repositories.Stores;
+using Restaurant.Application.Interfaces.Store;
+using Restaurant.Application.Services.Stores;
 
 namespace Restaurant.Infrastructure
 {
@@ -73,6 +77,9 @@ namespace Restaurant.Infrastructure
             
             services.AddScoped<INutritionRepository,NutritionRepository>();
             services.AddScoped<INutritionService,NutritionService>();
+
+            services.AddScoped<IStoreRepository, StoreRepository>();
+            services.AddScoped<IStoreService, StoreService>();
 
             services.AddSingleton<ICurrentTime, CurrentTime>();
             services.AddDbContext<MixFoodContext>(options =>
