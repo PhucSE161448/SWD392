@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Restaurant.Application.Interfaces;
 using Restaurant.Application.IRepositories.TemplateSteps;
+using Restaurant.Application.ViewModels.Ingredient_TypeDTO;
+using Restaurant.Application.ViewModels.IngredientsDTO;
 using Restaurant.Application.ViewModels.TemplateStepsDTO;
 using Restaurant.Domain.Entities;
 using System;
@@ -28,7 +30,7 @@ namespace Restaurant.Infrastructure.Repositories.TemplateSteps
             _mapper = mapper;
         }
 
-        public async Task<bool> CreateTemplateAsync(TemplateStepCreateDTO templateStep)
+        public async Task<(bool success, TemplateStep templateStep)> CreateTemplateAsync(TemplateStepCreateDTO templateStep)
         {
             try
             {
@@ -47,12 +49,37 @@ namespace Restaurant.Infrastructure.Repositories.TemplateSteps
                     await _dbContext.IngredientTypeTemplateSteps.AddAsync(ingredientProduct);
                 }
                 await _dbContext.SaveChangesAsync();
-                return true;
+                return (true, template);
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
-                return false;
+                return (false, null);
             }
+        }
+
+        public async Task<IEnumerable<TemplateStepIngredientDTO>> GetTemplateStepsByProductId(int productTemplateId)
+        {
+            var result = await (from ts in _dbContext.TemplateSteps
+                         where ts.ProuctTemplateId == productTemplateId
+                         select new TemplateStepIngredientDTO
+                         {
+                             TemplateStep = _mapper.Map<TemplateStepDTO>(ts),
+                             Ingredients = (from its in _dbContext.IngredientTypeTemplateSteps
+                                            join i in _dbContext.Ingredients
+                                            on its.IngredientTypeId equals i.IngredientTypeId
+                                            where its.TemplateStepId == ts.Id
+                                            select new IngredientDTO
+                                            {
+                                                Id = i.Id,
+                                                Name = i.Name,
+                                                ImageUrl = i.ImageUrl,
+                                                Calo = i.Calo,
+                                                IngredientType = _mapper.Map<IngredientTypeDTO>(i.IngredientType)
+                                            })
+                                            .ToList(),
+                         
+                         }).ToListAsync();
+            return result;
         }
     }
 }

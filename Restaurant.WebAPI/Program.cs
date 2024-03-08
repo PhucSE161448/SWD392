@@ -5,6 +5,7 @@ using Restaurant.WebAPI;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 // parse the configuration in appsettings
@@ -60,7 +61,8 @@ builder.Services.AddSwaggerGen(setup =>
 builder.Services.AddSingleton(configuration);
 var app = builder.Build();
 app.UseCors(options =>
-options.WithOrigins("http://localhost:3000")
+//options.WithOrigins("http://localhost:3000")
+options.AllowAnyOrigin()
 .AllowAnyMethod()
 .AllowAnyHeader()
 );

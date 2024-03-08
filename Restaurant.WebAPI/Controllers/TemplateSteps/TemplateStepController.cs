@@ -12,6 +12,12 @@ namespace Restaurant.WebAPI.Controllers.TemplateSteps
         {
             _service = service;
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetTemplateStepsByProductId(int id)
+        {
+            var result = await _service.GetAllTemplateStepAsync(id);
+            return Ok(result);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateTemplateStep([FromBody] TemplateStepCreateDTO templateStepCreateDTO)
         {

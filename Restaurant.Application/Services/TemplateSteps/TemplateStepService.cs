@@ -3,6 +3,7 @@ using Restaurant.Application.Interfaces;
 using Restaurant.Application.Interfaces.TemplateSteps;
 using Restaurant.Application.ViewModels.ProductTemplateDTO;
 using Restaurant.Application.ViewModels.TemplateStepsDTO;
+using Restaurant.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -27,10 +28,10 @@ namespace Restaurant.Application.Services.TemplateSteps
             var response = new ServiceResponse<TemplateStepDTO>();
             try
             {
-                var isSuccess = await _unitOfWork.TemplateStepRepository.CreateTemplateAsync(CreatedTemplateStepDTO) == true;
+                var (isSuccess,templateStep) = await _unitOfWork.TemplateStepRepository.CreateTemplateAsync(CreatedTemplateStepDTO);
                 if (isSuccess)
                 {
-                    var TemplateStepDTO = _mapper.Map<TemplateStepDTO>(CreatedTemplateStepDTO);
+                    var TemplateStepDTO = _mapper.Map<TemplateStepDTO>(templateStep);
                     response.Data = TemplateStepDTO;
                     response.Success = true;
                     response.Message = "TemplateStep created successfully";
@@ -62,9 +63,39 @@ namespace Restaurant.Application.Services.TemplateSteps
             throw new NotImplementedException();
         }
 
-        public Task<ServiceResponse<IEnumerable<TemplateStepDTO>>> GetAllTemplateStepAsync(string? size = null)
+        public async Task<ServiceResponse<IEnumerable<TemplateStepIngredientDTO>>> GetAllTemplateStepAsync(int id)
         {
-            throw new NotImplementedException();
+            var _response = new ServiceResponse<IEnumerable<TemplateStepIngredientDTO>>();
+            try
+            {
+                var list = await _unitOfWork.TemplateStepRepository.GetTemplateStepsByProductId(id);
+               
+                if (list != null)
+                {
+                    _response.Success = true;
+                    _response.Message = "ProductTemplate retrieved successfully";
+                    _response.Data = list;
+                }
+                else
+                {
+                    _response.Success = true;
+                    _response.Message = "ProductTemplate not found";
+                }
+            }
+            catch (DbException ex)
+            {
+                _response.Success = false;
+                _response.Message = "Database error occurred.";
+                _response.ErrorMessages = new List<string> { ex.Message };
+            }
+            catch (Exception ex)
+            {
+                _response.Success = false;
+                _response.Data = null;
+                _response.Message = "Error";
+                _response.ErrorMessages = new List<string> { Convert.ToString(ex.Message) };
+            }
+            return _response;
         }
 
         public Task<ServiceResponse<TemplateStepDTO>> GetTemplateStepAsync(int id)
