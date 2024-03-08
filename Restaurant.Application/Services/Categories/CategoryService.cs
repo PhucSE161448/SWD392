@@ -148,7 +148,39 @@ namespace Restaurant.Application.Services.Categories
             }
             return _response;
         }
-
+        public async Task<ServiceResponse<CategoryDto>> GetCategoryAsync(int id)
+        {
+            var _response = new ServiceResponse<CategoryDto>();
+            try
+            {
+                var categorys = await _unitOfWork.CategoryRepository.GetAsync(x => x.Id == id);
+                if (categorys != null)
+                {
+                    _response.Success = true;
+                    _response.Message = "Category retrieved successfully";
+                    _response.Data = _mapper.Map<CategoryDto>(categorys);
+                }
+                else
+                {
+                    _response.Success = true;
+                    _response.Message = "Category not found";
+                }
+            }
+            catch (DbException ex)
+            {
+                _response.Success = false;
+                _response.Message = "Database error occurred.";
+                _response.ErrorMessages = new List<string> { ex.Message };
+            }
+            catch (Exception ex)
+            {
+                _response.Success = false;
+                _response.Data = null;
+                _response.Message = "Error";
+                _response.ErrorMessages = new List<string> { Convert.ToString(ex.Message) };
+            }
+            return _response;
+        }
         public async Task<ServiceResponse<CategoryDto>> UpdateCategoryAsync(int id, AddUpdateCategoryDTO CategoryDTO)
         {
             var response = new ServiceResponse<CategoryDto>();

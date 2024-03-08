@@ -20,6 +20,12 @@ namespace Restaurant.WebAPI.Controllers
             var result = await _categoryService.GetAllCategoryAsync();
             return Ok(result);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetCategory(int id)
+        {
+            var result = await _categoryService.GetCategoryAsync(id);
+            return Ok(result);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateCategory([FromBody] AddUpdateCategoryDTO createdCategoryDTO)
         {

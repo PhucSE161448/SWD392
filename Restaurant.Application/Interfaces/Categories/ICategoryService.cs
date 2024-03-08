@@ -12,6 +12,7 @@ namespace Restaurant.Application.Interfaces.Categories
     public interface ICategoryService
     {
         Task<ServiceResponse<IEnumerable<CategoryDto>>> GetAllCategoryAsync();
+        Task<ServiceResponse<CategoryDto>> GetCategoryAsync(int id);
         Task<ServiceResponse<CategoryDto>> CreateCategoryAsync(AddUpdateCategoryDTO CategoryDto);
         Task<ServiceResponse<CategoryDto>> UpdateCategoryAsync(int id, AddUpdateCategoryDTO CategoryDto);
         Task<ServiceResponse<bool>> DeleteCategoryAsync(int id);

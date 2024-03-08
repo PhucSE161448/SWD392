@@ -18,8 +18,15 @@ namespace Restaurant.WebAPI.Controllers.Ingredient_Type
             var result = await _IngredientTypeService.GetAllIngredientTypeAsync();
             return Ok(result);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetIngredientType(int id)
+        {
+            var result = await _IngredientTypeService.GetIngredientTypeAsync(id);
+            return Ok(result);
+        }
+
         [HttpPost]
-        public async Task<IActionResult> CreateIngredientType([FromBody] IngredientTypeDTO createdIngredientTypeDTO)
+        public async Task<IActionResult> CreateIngredientType([FromBody] AddUpdateIngredientTypeDTO createdIngredientTypeDTO)
         {
             var result = await _IngredientTypeService.CreateIngredientTypeAsync(createdIngredientTypeDTO);
             if (!result.Success)
@@ -34,7 +41,7 @@ namespace Restaurant.WebAPI.Controllers.Ingredient_Type
 
         /*[Authorize(Roles = "admin")]*/
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateIngredientType(int id, [FromBody] IngredientTypeDTO IngredientTypeDTO)
+        public async Task<IActionResult> UpdateIngredientType(int id, [FromBody] AddUpdateIngredientTypeDTO IngredientTypeDTO)
         {
             var result = await _IngredientTypeService.UpdateIngredientTypeAsync(id, IngredientTypeDTO);
             if (!result.Success)

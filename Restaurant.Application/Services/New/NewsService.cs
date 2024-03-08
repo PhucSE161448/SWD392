@@ -176,7 +176,39 @@ namespace Restaurant.Application.Services.Newss
             }
             return _response;
         }
-
+        public async Task<ServiceResponse<NewsDTO>> GetNewsAsync(int id)
+        {
+            var _response = new ServiceResponse<NewsDTO>();
+            try
+            {
+                 var Newss = await _unitOfWork.NewsRepository.GetAsync(x => x.Id == id);
+                if (Newss != null)
+                {
+                    _response.Success = true;
+                    _response.Message = "News retrieved successfully";
+                    _response.Data = _mapper.Map<NewsDTO>(Newss);
+                }
+                else
+                {
+                    _response.Success = true;
+                    _response.Message = "News not found";
+                }
+            }
+            catch (DbException ex)
+            {
+                _response.Success = false;
+                _response.Message = "Database error occurred.";
+                _response.ErrorMessages = new List<string> { ex.Message };
+            }
+            catch (Exception ex)
+            {
+                _response.Success = false;
+                _response.Data = null;
+                _response.Message = "Error";
+                _response.ErrorMessages = new List<string> { Convert.ToString(ex.Message) };
+            }
+            return _response;
+        }
         public async Task<ServiceResponse<IEnumerable<NewsDTO>>> GetSortedNewsAsync()
         {
             var response = new ServiceResponse<IEnumerable<NewsDTO>>();
