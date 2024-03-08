@@ -19,13 +19,6 @@ namespace Restaurant.Domain.Entities
         public string ImageUrl { get; set; } = null!;
         public decimal Price { get; set; }
         public int StoreId { get; set; }
-        public string? CreatedBy { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public DateTime? ModifiedDate { get; set; }
-        public string? ModifiedBy { get; set; }
-        public string? DeletedBy { get; set; }
-        public DateTime? DeletedDate { get; set; }
-       // public bool? IsDeleted { get; set; }
 
         public virtual Category Category { get; set; } = null!;
         public virtual Store Store { get; set; } = null!;

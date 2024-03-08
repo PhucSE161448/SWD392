@@ -2,8 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Restaurant.Application.Interfaces.ProductTemplates;
 using Restaurant.Application.ViewModels.ProductTemplateDTO;
+using Restaurant.Domain.Entities;
 
-namespace Restaurant.WebAPI.Controllers.ProductTemplate
+namespace Restaurant.WebAPI.Controllers.ProductTemplates
 {
     public class ProductTemplateController : BaseController
     {

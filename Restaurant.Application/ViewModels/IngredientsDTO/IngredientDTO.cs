@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant.Application.ViewModels.Ingredient_TypeDTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,6 @@ namespace Restaurant.Application.ViewModels.IngredientsDTO
         public int Calo { get; set; }
         public string Description { get; set; } = null!;
         public string ImageUrl { get; set; } = null!;
-        public int IngredientTypeId { get; set; }
+        public IngredientTypeDTO IngredientType { get; set; }
     }
 }

@@ -116,7 +116,7 @@ namespace Restaurant.Application.Services.Ingredients
             var _response = new ServiceResponse<IEnumerable<IngredientDTO>>();
             try
             {
-                var Ingredients = await _unitOfWork.IngredientRepository.GetAllAsync();
+                var Ingredients = await _unitOfWork.IngredientRepository.GetAllAsync(includeProperties:"IngredientType");
                 var IngredientDTOs = new List<IngredientDTO>();
                 foreach (var pro in Ingredients)
                 {
@@ -157,7 +157,7 @@ namespace Restaurant.Application.Services.Ingredients
             var _response = new ServiceResponse<IngredientDTO>();
             try
             {
-                var Ingredients = await _unitOfWork.IngredientRepository.GetAsync(x => x.Id == id);
+                var Ingredients = await _unitOfWork.IngredientRepository.GetAsync(x => x.Id == id, includeProperties: "IngredientType");
                 if (Ingredients != null)
                 {
                     _response.Success = true;
