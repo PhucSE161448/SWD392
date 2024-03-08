@@ -47,6 +47,12 @@ using Restaurant.Application.IRepositories.TemplateSteps;
 using Restaurant.Infrastructure.Repositories.TemplateSteps;
 using Restaurant.Application.Interfaces.TemplateSteps;
 using Restaurant.Application.Services.TemplateSteps;
+using Restaurant.Application.Interfaces.Payments;
+using Restaurant.Application.Services.Payments;
+using Restaurant.Application.IRepositories.Orders;
+using Restaurant.Infrastructure.Repositories.Orders;
+using Restaurant.Application.Interfaces.Orders;
+using Restaurant.Application.Services.Orders;
 
 namespace Restaurant.Infrastructure
 {
@@ -87,6 +93,13 @@ namespace Restaurant.Infrastructure
 
             services.AddScoped<ITemplateStepRepository, TemplateStepRepository>();
             services.AddScoped<ITemplateStepService, TemplateStepService>();
+
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderService, OrderService>();
+
+            services.AddScoped<IPaypalService, PaypalService>();
+
+            services.AddScoped<IVNPayService, VNPayService>();
 
             services.AddSingleton<ICurrentTime, CurrentTime>();
             services.AddDbContext<MixFoodContext>(options =>

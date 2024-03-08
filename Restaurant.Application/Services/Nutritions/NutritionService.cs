@@ -152,6 +152,43 @@ namespace Restaurant.Application.Services.Nutritions
             }
             return _response;
         }
+        public async Task<ServiceResponse<NutritionDTO>> GetNutritionByIngredientId(int ingredientId)
+        {
+            var response = new ServiceResponse<NutritionDTO>();
+            if(ingredientId == 0)
+            {
+                response.Success = false;
+                response.Message = "Ingredient not found";
+            }
+            try
+            {
+                var Nutritions = await _unitOfWork.NutritionRepository.GetAsync(x => x.IngredientId == ingredientId);
+                if (Nutritions != null)
+                {
+                    response.Success = true;
+                    response.Message = "Nutrition retrieved successfully";
+                    response.Data = _mapper.Map<NutritionDTO>(Nutritions);
+                }
+                else
+                {
+                    response.Success = true;
+                    response.Message = "Nutrition not found";
+                }
+            }
+            catch (DbException ex)
+            {
+                response.Success = false;
+                response.Message = "Database error occurred.";
+                response.ErrorMessages = new List<string> { ex.Message };
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Error";
+                response.ErrorMessages = new List<string> { ex.Message };
+            }
+            return response;
+        }
         public async Task<ServiceResponse<NutritionDTO>> GetNutritionAsync(int id)
         {
             var _response = new ServiceResponse<NutritionDTO>();

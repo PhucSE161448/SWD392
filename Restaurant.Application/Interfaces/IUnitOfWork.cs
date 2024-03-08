@@ -5,6 +5,7 @@ using Restaurant.Application.IRepositories.Ingredient_Type;
 using Restaurant.Application.IRepositories.Ingredients;
 using Restaurant.Application.IRepositories.New;
 using Restaurant.Application.IRepositories.Nutritions;
+using Restaurant.Application.IRepositories.Orders;
 using Restaurant.Application.IRepositories.Products;
 using Restaurant.Application.IRepositories.ProductTemplates;
 using Restaurant.Application.IRepositories.Stores;
@@ -29,6 +30,7 @@ namespace Restaurant.Application.Interfaces
         public INutritionRepository NutritionRepository { get; }
         public IStoreRepository StoreRepository { get; }
         public ITemplateStepRepository TemplateStepRepository { get; }
+        public IOrderRepository OrderRepository { get; }
         public Task<int> SaveChangeAsync();
     }
 }
