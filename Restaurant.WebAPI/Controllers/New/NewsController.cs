@@ -17,6 +17,12 @@ namespace Restaurant.WebAPI.Controllers.New
             var result = await _NewsService.GetAllNewsAsync(title);
             return Ok(result);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetNews(int id)
+        {
+            var result = await _NewsService.GetNewsAsync(id);
+            return Ok(result);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateNews([FromForm] AddNewsDTO createdNewsDTO)
         {

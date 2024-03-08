@@ -11,6 +11,7 @@ namespace Restaurant.Application.Interfaces.Nutrition
     public interface INutritionService
     {
         Task<ServiceResponse<IEnumerable<NutritionDTO>>> GetAllNutritionAsync();
+        Task<ServiceResponse<NutritionDTO>> GetNutritionAsync(int id);
         Task<ServiceResponse<NutritionDTO>> CreateNutritionAsync(NutritionAddDTO CreatedNutritionDTO, string url);
         Task<ServiceResponse<NutritionDTO>> UpdateNutritionAsync(int id, NutritionUpdateDTO NutritionDTO, string url);
         Task<ServiceResponse<bool>> DeleteNutritionAsync(int id);

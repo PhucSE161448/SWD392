@@ -22,7 +22,7 @@ namespace Restaurant.Application.Services.Ingredient_Type
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<ServiceResponse<IngredientTypeDTO>> CreateIngredientTypeAsync(IngredientTypeDTO IngredientTypeDto)
+        public async Task<ServiceResponse<IngredientTypeDTO>> CreateIngredientTypeAsync(AddUpdateIngredientTypeDTO IngredientTypeDto)
         {
             var response = new ServiceResponse<IngredientTypeDTO>();
             try
@@ -140,8 +140,41 @@ namespace Restaurant.Application.Services.Ingredient_Type
             }
             return _response;
         }
+        public async Task<ServiceResponse<IngredientTypeDTO>> GetIngredientTypeAsync(int id)
+        {
+            var _response = new ServiceResponse<IngredientTypeDTO>();
+            try
+            {
+                var IngredientTypes = await _unitOfWork.IngredientTypeRepository.GetAsync(x => x.Id == id);
+                if (IngredientTypes != null)
+                {
+                    _response.Success = true;
+                    _response.Message = "IngredientType retrieved successfully";
+                    _response.Data = _mapper.Map<IngredientTypeDTO>(IngredientTypes);
+                }
+                else
+                {
+                    _response.Success = true;
+                    _response.Message = "IngredientType not found";
+                }
+            }
+            catch (DbException ex)
+            {
+                _response.Success = false;
+                _response.Message = "Database error occurred.";
+                _response.ErrorMessages = new List<string> { ex.Message };
+            }
+            catch (Exception ex)
+            {
+                _response.Success = false;
+                _response.Data = null;
+                _response.Message = "Error";
+                _response.ErrorMessages = new List<string> { Convert.ToString(ex.Message) };
+            }
+            return _response;
+        }
 
-        public async Task<ServiceResponse<IngredientTypeDTO>> UpdateIngredientTypeAsync(int id, IngredientTypeDTO IngredientTypeDTO)
+        public async Task<ServiceResponse<IngredientTypeDTO>> UpdateIngredientTypeAsync(int id, AddUpdateIngredientTypeDTO IngredientTypeDTO)
         {
             var response = new ServiceResponse<IngredientTypeDTO>();
             var exist = await _unitOfWork.IngredientTypeRepository.GetAsync(x => x.Id == id);

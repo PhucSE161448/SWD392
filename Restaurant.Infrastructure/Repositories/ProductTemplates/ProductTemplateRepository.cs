@@ -20,7 +20,7 @@ namespace Restaurant.Infrastructure.Repositories.ProductTemplates
         public async Task<List<ProductTemplate>> GetThreeProductsPerCategoryAsync(string? size = null)
         {
             // Retrieve all products and categories
-            var products = await _dbContext.ProductTemplates.ToListAsync();
+            var products = await _dbContext.ProductTemplates.Include(x => x.Category).ToListAsync();
             var categories = await _dbContext.Categories.ToListAsync();
 
             // Group products by category

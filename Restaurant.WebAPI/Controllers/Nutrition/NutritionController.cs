@@ -17,6 +17,12 @@ namespace Restaurant.WebAPI.Controllers.Nutrition
             var result = await _NutritionService.GetAllNutritionAsync();
             return Ok(result);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetNutrition(int id)
+        {
+            var result = await _NutritionService.GetNutritionAsync(id);
+            return Ok(result);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateNutrition([FromForm] NutritionAddDTO createdNutritionDTO)
         {

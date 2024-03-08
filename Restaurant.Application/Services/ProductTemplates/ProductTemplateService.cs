@@ -116,10 +116,17 @@ namespace Restaurant.Application.Services.ProductTemplates
             var _response = new ServiceResponse<IEnumerable<ProductTemplateDTO>>();
             try
             {
-                //  var ProductTemplates = await  _unitOfWork.ProductTemplateRepository.GetThreeProductsPerCategoryAsync(size);
-                var ProductTemplates = await _unitOfWork.ProductTemplateRepository.GetAllAsync(includeProperties:"Category");
+                List<ProductTemplate> productTemplates = new List<ProductTemplate>();
+                if (size != null)
+                {
+                    productTemplates = await _unitOfWork.ProductTemplateRepository.GetThreeProductsPerCategoryAsync(size);
+                }
+                else
+                {
+                    productTemplates = await _unitOfWork.ProductTemplateRepository.GetAllAsync(includeProperties: "Category");
+                }
                 var ProductTemplateDTOs = new List<ProductTemplateDTO>();
-                foreach (var pro in ProductTemplates)
+                foreach (var pro in productTemplates)
                 {
                     if ((bool)!pro.IsDeleted)
                     {
@@ -131,6 +138,39 @@ namespace Restaurant.Application.Services.ProductTemplates
                     _response.Success = true;
                     _response.Message = "ProductTemplate retrieved successfully";
                     _response.Data = ProductTemplateDTOs;
+                }
+                else
+                {
+                    _response.Success = true;
+                    _response.Message = "ProductTemplate not found";
+                }
+            }
+            catch (DbException ex)
+            {
+                _response.Success = false;
+                _response.Message = "Database error occurred.";
+                _response.ErrorMessages = new List<string> { ex.Message };
+            }
+            catch (Exception ex)
+            {
+                _response.Success = false;
+                _response.Data = null;
+                _response.Message = "Error";
+                _response.ErrorMessages = new List<string> { Convert.ToString(ex.Message) };
+            }
+            return _response;
+        }
+        public async Task<ServiceResponse<ProductTemplateDTO>> GetProductTemplateAsync(int id)
+        {
+            var _response = new ServiceResponse<ProductTemplateDTO>();
+            try
+            {
+                var productTemplates = await _unitOfWork.ProductTemplateRepository.GetAsync(x => x.Id == id, includeProperties: "Category");
+                if (productTemplates != null)
+                {
+                    _response.Success = true;
+                    _response.Message = "ProductTemplate retrieved successfully";
+                    _response.Data = _mapper.Map<ProductTemplateDTO>(productTemplates);
                 }
                 else
                 {

@@ -17,6 +17,12 @@ namespace Restaurant.WebAPI.Controllers.Ingredient
             var result = await _IngredientService.GetAllIngredientAsync();
             return Ok(result);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetIngredient(int id)
+        {
+            var result = await _IngredientService.GetIngredientAsync(id);
+            return Ok(result);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateIngredient([FromForm] IngredientAddDTO createdIngredientDTO)
         {

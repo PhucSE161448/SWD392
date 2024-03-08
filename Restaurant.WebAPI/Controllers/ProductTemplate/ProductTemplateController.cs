@@ -18,6 +18,12 @@ namespace Restaurant.WebAPI.Controllers.ProductTemplate
             var result = await _ProductTemplateService.GetAllProductTemplateAsync(size);
             return Ok(result);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProductTemplate( int id )
+        {
+            var result = await _ProductTemplateService.GetProductTemplateAsync(id);
+            return Ok(result);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateProductTemplate([FromForm] ProductTemplateCreateDTO createdProductTemplateDTO)
         {

@@ -12,8 +12,9 @@ namespace Restaurant.Application.Interfaces.Ingredient_Type
     public interface IIngredientTypeService
     {
         Task<ServiceResponse<IEnumerable<IngredientTypeDTO>>> GetAllIngredientTypeAsync();
-        Task<ServiceResponse<IngredientTypeDTO>> CreateIngredientTypeAsync(IngredientTypeDTO IngredientTypeDto);
-        Task<ServiceResponse<IngredientTypeDTO>> UpdateIngredientTypeAsync(int id, IngredientTypeDTO IngredientTypeDto);
+        Task<ServiceResponse<IngredientTypeDTO>> GetIngredientTypeAsync(int id);
+        Task<ServiceResponse<IngredientTypeDTO>> CreateIngredientTypeAsync(AddUpdateIngredientTypeDTO IngredientTypeDto);
+        Task<ServiceResponse<IngredientTypeDTO>> UpdateIngredientTypeAsync(int id, AddUpdateIngredientTypeDTO IngredientTypeDto);
         Task<ServiceResponse<bool>> DeleteIngredientTypeAsync(int id);
     }
 }

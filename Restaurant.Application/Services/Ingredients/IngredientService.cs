@@ -152,7 +152,39 @@ namespace Restaurant.Application.Services.Ingredients
             }
             return _response;
         }
-
+        public async Task<ServiceResponse<IngredientDTO>> GetIngredientAsync(int id)
+        {
+            var _response = new ServiceResponse<IngredientDTO>();
+            try
+            {
+                var Ingredients = await _unitOfWork.IngredientRepository.GetAsync(x => x.Id == id);
+                if (Ingredients != null)
+                {
+                    _response.Success = true;
+                    _response.Message = "Ingredient retrieved successfully";
+                    _response.Data = _mapper.Map<IngredientDTO>(Ingredients);
+                }
+                else
+                {
+                    _response.Success = true;
+                    _response.Message = "Ingredient not found";
+                }
+            }
+            catch (DbException ex)
+            {
+                _response.Success = false;
+                _response.Message = "Database error occurred.";
+                _response.ErrorMessages = new List<string> { ex.Message };
+            }
+            catch (Exception ex)
+            {
+                _response.Success = false;
+                _response.Data = null;
+                _response.Message = "Error";
+                _response.ErrorMessages = new List<string> { Convert.ToString(ex.Message) };
+            }
+            return _response;
+        }
         public async Task<ServiceResponse<IEnumerable<IngredientDTO>>> GetSortedIngredientAsync()
         {
             var response = new ServiceResponse<IEnumerable<IngredientDTO>>();
