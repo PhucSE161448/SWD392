@@ -12,8 +12,8 @@ namespace Restaurant.Application.ViewModels.NewsDTO
 
         public int AccountId { get; set; }
         public string Description { get; set; } = null!;
-        public string Image { get; set; } = null!;
-        public IFormFile? formFile { get; set; } = null!;
+        //public string Image { get; set; } = null!;
+        public IFormFile? formFile { get; set; }
         public string Status { get; set; } = null!;
         public string Title { get; set; } = null;
     }
