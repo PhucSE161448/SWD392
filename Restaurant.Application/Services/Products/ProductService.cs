@@ -2,6 +2,8 @@
 using Restaurant.Application.Interfaces;
 using Restaurant.Application.Interfaces.Products;
 using Restaurant.Application.ViewModels.ProductDTO;
+using Restaurant.Application.ViewModels.ProductTemplateDTO;
+using Restaurant.Application.ViewModels.TemplateStepsDTO;
 using Restaurant.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -22,32 +24,26 @@ namespace Restaurant.Application.Services.Products
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
+      
         public async Task<ServiceResponse<ProductDTO>> CreateProductAsync(CreatedProductDTO CreatedProductDTO)
         {
             var response = new ServiceResponse<ProductDTO>();
-            var exist = await _unitOfWork.ProductRepository.CheckNameProductExited(CreatedProductDTO.Name);
-            if (exist)
-            {
-                response.Success = false;
-                response.Message = "Product already exist";
-                return response;
-            }
             try
             {
-                var product = _mapper.Map<Product>(CreatedProductDTO);
-                await _unitOfWork.ProductRepository.AddAsync(product);
-                var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
+                var productTemplate = await _unitOfWork.ProductTemplateRepository.GetAsync(x => x.Id == CreatedProductDTO.ProductTemplateId);
+                var (isSuccess, Product) = await _unitOfWork.ProductRepository.CreateProductAsync(CreatedProductDTO, _mapper.Map<ProductTemplateDTO>(productTemplate));
                 if (isSuccess)
                 {
-                    var productDTO = _mapper.Map<ProductDTO>(product);
-                    response.Data = productDTO;
+                    var p = await _unitOfWork.ProductRepository.GetAsync(x => x.Id == Product.Id, includeProperties: "IngredientProducts");
+                    var pro = _mapper.Map<ProductDTO>(p);
+                    response.Data = pro;
                     response.Success = true;
                     response.Message = "Product created successfully";
                 }
                 else
                 {
                     response.Success = false;
-                    response.Message = "Create product failed";
+                    response.Message = "Create Product failed";
                 }
 
             }
@@ -65,7 +61,6 @@ namespace Restaurant.Application.Services.Products
             }
             return response;
         }
-
         public async Task<ServiceResponse<bool>> DeleteProductAsync(int id)
         {
             var response = new ServiceResponse<bool>();
@@ -147,87 +142,39 @@ namespace Restaurant.Application.Services.Products
             }
             return _response;
         }
-
-        public async Task<ServiceResponse<IEnumerable<ProductDTO>>> GetSortedProductAsync()
+        public async Task<ServiceResponse<ProductDTO>> GetProductAsync(int id)
         {
-            var response = new ServiceResponse<IEnumerable<ProductDTO>>();
+            var _response = new ServiceResponse<ProductDTO>();
             try
             {
-                var products = await _unitOfWork.ProductRepository.GetSortedProductAsync();
-                var productDTOs = new List<ProductDTO>();
-                foreach (var pro in products)
+                var products = await _unitOfWork.ProductRepository.GetProduct(id);
+
+                if (products != null)
                 {
-                    if ((bool)!pro.IsDeleted)
-                    {
-                        productDTOs.Add(_mapper.Map<ProductDTO>(pro));
-                    }
-                }
-                if (productDTOs.Count != 0)
-                {
-                    response.Success = true;
-                    response.Message = "Product retrieved successfully";
-                    response.Data = productDTOs;
+                    _response.Success = true;
+                    _response.Message = "Product retrieved successfully";
+                    _response.Data = products;
                 }
                 else
                 {
-                    response.Success = true;
-                    response.Message = "Product not found";
+                    _response.Success = true;
+                    _response.Message = "Product not found";
                 }
             }
             catch (DbException ex)
             {
-                response.Success = false;
-                response.Message = "Database error occurred.";
-                response.ErrorMessages = new List<string> { ex.Message };
+                _response.Success = false;
+                _response.Message = "Database error occurred.";
+                _response.ErrorMessages = new List<string> { ex.Message };
             }
             catch (Exception ex)
             {
-                response.Success = false;
-                response.Message = "Error";
-                response.ErrorMessages = new List<string> { ex.Message };
+                _response.Success = false;
+                _response.Data = null;
+                _response.Message = "Error";
+                _response.ErrorMessages = new List<string> { Convert.ToString(ex.Message) };
             }
-            return response;
-        }
-
-        public async Task<ServiceResponse<IEnumerable<ProductDTO>>> SearchProductByNameAsync(string name)
-        {
-            var response = new ServiceResponse<IEnumerable<ProductDTO>>();
-            try
-            {
-                var products = await _unitOfWork.ProductRepository.SearchProductByNameAsync(name);
-                var productDTOs = new List<ProductDTO>();
-                foreach (var pro in products)
-                {
-                    if ((bool)!pro.IsDeleted)
-                    {
-                        productDTOs.Add(_mapper.Map<ProductDTO>(pro));
-                    }
-                }
-                if (productDTOs.Count != 0)
-                {
-                    response.Success = true;
-                    response.Message = "Product retrieved successfully";
-                    response.Data = productDTOs;
-                }
-                else
-                {
-                    response.Success = true;
-                    response.Message = "Product not found";
-                }
-            }
-            catch (DbException ex)
-            {
-                response.Success = false;
-                response.Message = "Database error occurred.";
-                response.ErrorMessages = new List<string> { ex.Message };
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Error";
-                response.ErrorMessages = new List<string> { ex.Message };
-            }
-            return response;
+            return _response;
         }
 
         public async Task<ServiceResponse<ProductDTO>> UpdateProductAsync(int id, ProductDTO ProductDTO)

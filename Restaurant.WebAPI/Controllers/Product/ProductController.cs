@@ -20,6 +20,12 @@ namespace Restaurant.WebAPI.Controllers
             var result = await _productService.GetAllProductAsync();
             return Ok(result);
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProduct(int id)
+        {
+            var result = await _productService.GetProductAsync(id);
+            return Ok(result);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] CreatedProductDTO createdProductDTO)
         {

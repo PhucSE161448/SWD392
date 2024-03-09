@@ -60,26 +60,38 @@ namespace Restaurant.Infrastructure.Repositories.TemplateSteps
         public async Task<IEnumerable<TemplateStepIngredientDTO>> GetTemplateStepsByProductId(int productTemplateId)
         {
             var result = await (from ts in _dbContext.TemplateSteps
-                         where ts.ProuctTemplateId == productTemplateId
-                         select new TemplateStepIngredientDTO
-                         {
-                             TemplateStep = _mapper.Map<TemplateStepDTO>(ts),
-                             Ingredients = (from its in _dbContext.IngredientTypeTemplateSteps
-                                            join i in _dbContext.Ingredients
-                                            on its.IngredientTypeId equals i.IngredientTypeId
-                                            where its.TemplateStepId == ts.Id
-                                            select new IngredientDTO
-                                            {
-                                                Id = i.Id,
-                                                Name = i.Name,
-                                                ImageUrl = i.ImageUrl,
-                                                Calo = i.Calo,
-                                                IngredientType = _mapper.Map<IngredientTypeDTO>(i.IngredientType)
-                                            })
-                                            .ToList(),
-                         
-                         }).ToListAsync();
+                                where ts.ProuctTemplateId == productTemplateId
+                                select new TemplateStepIngredientDTO
+                                {
+                                    TemplateStep = _mapper.Map<TemplateStepDTO>(ts),
+                                    Ingredients = (from its in _dbContext.IngredientTypeTemplateSteps
+                                                   join i in _dbContext.Ingredients
+                                                   on its.IngredientTypeId equals i.IngredientTypeId
+                                                   where its.TemplateStepId == ts.Id
+                                                   select new IngredientDTO
+                                                   {
+                                                       Id = i.Id,
+                                                       Name = i.Name,
+                                                       ImageUrl = i.ImageUrl,
+                                                       Calo = i.Calo,
+                                                       Price = i.Price,
+                                                      // IngredientType = _mapper.Map<IngredientTypeDTO>(i.IngredientType)
+                                                   })
+                                                   .ToList(),
+                                    IngredientTypes = (from its in _dbContext.IngredientTypeTemplateSteps
+                                                       join it in _dbContext.IngredientTypes
+                                                       on its.IngredientTypeId equals it.Id
+                                                       where its.TemplateStepId == ts.Id
+                                                       select new IngredientTypeDTO
+                                                       {
+                                                           Id = it.Id,
+                                                           Name = it.Name,
+                                                       }).ToList()
+
+                                }).ToListAsync();
             return result;
         }
+
     }
 }
+

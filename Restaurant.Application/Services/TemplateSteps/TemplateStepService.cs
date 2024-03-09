@@ -31,7 +31,8 @@ namespace Restaurant.Application.Services.TemplateSteps
                 var (isSuccess,templateStep) = await _unitOfWork.TemplateStepRepository.CreateTemplateAsync(CreatedTemplateStepDTO);
                 if (isSuccess)
                 {
-                    var TemplateStepDTO = _mapper.Map<TemplateStepDTO>(templateStep);
+                    var tem = _unitOfWork.TemplateStepRepository.GetAsync(x => x.Id == templateStep.Id, includeProperties:"IngredientTypeTemplateStep");
+                    var TemplateStepDTO = _mapper.Map<TemplateStepDTO>(tem);
                     response.Data = TemplateStepDTO;
                     response.Success = true;
                     response.Message = "TemplateStep created successfully";
