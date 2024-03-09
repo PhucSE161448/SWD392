@@ -75,18 +75,9 @@ namespace Restaurant.Infrastructure.Repositories.TemplateSteps
                                                        ImageUrl = i.ImageUrl,
                                                        Calo = i.Calo,
                                                        Price = i.Price,
-                                                      // IngredientType = _mapper.Map<IngredientTypeDTO>(i.IngredientType)
+                                                       IngredientType = _mapper.Map<IngredientTypeDTO>(i.IngredientType)
                                                    })
-                                                   .ToList(),
-                                    IngredientTypes = (from its in _dbContext.IngredientTypeTemplateSteps
-                                                       join it in _dbContext.IngredientTypes
-                                                       on its.IngredientTypeId equals it.Id
-                                                       where its.TemplateStepId == ts.Id
-                                                       select new IngredientTypeDTO
-                                                       {
-                                                           Id = it.Id,
-                                                           Name = it.Name,
-                                                       }).ToList()
+                                                   .ToList()
 
                                 }).ToListAsync();
             return result;
