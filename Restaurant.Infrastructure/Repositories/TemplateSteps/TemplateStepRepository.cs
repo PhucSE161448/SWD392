@@ -14,6 +14,11 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Infrastructure.Repositories.TemplateSteps
 {
+    public class IngredientGroupDTO
+    {
+        public IngredientTypeDTO IngredientType { get; set; }
+        public List<IngredientDTO> Ingredients { get; set; }
+    }
     public class TemplateStepRepository : GenericRepository<TemplateStep>, ITemplateStepRepository
     {
         private readonly MixFoodContext _dbContext;
@@ -59,30 +64,54 @@ namespace Restaurant.Infrastructure.Repositories.TemplateSteps
 
         public async Task<IEnumerable<TemplateStepIngredientDTO>> GetTemplateStepsByProductId(int productTemplateId)
         {
+            var list = new List<GetIngredientTemplatStep>();
             var result = await (from ts in _dbContext.TemplateSteps
                                 where ts.ProuctTemplateId == productTemplateId
-                                select new TemplateStepIngredientDTO
+                                select new 
                                 {
                                     TemplateStep = _mapper.Map<TemplateStepDTO>(ts),
-                                    Ingredients = (from its in _dbContext.IngredientTypeTemplateSteps
-                                                   join i in _dbContext.Ingredients
-                                                   on its.IngredientTypeId equals i.IngredientTypeId
-                                                   where its.TemplateStepId == ts.Id
-                                                   select new IngredientDTO
-                                                   {
-                                                       Id = i.Id,
-                                                       Name = i.Name,
-                                                       ImageUrl = i.ImageUrl,
-                                                       Calo = i.Calo,
-                                                       Price = i.Price,
-                                                       IngredientType = _mapper.Map<IngredientTypeDTO>(i.IngredientType)
-                                                   })
-                                                   .ToList()
-
+                                    Ingredients = _dbContext.IngredientTypeTemplateSteps
+                                                .Where(its => its.TemplateStepId == ts.Id)
+                                                .Join(_dbContext.Ingredients,
+                                                      its => its.IngredientTypeId,
+                                                      i => i.IngredientTypeId,
+                                                      (its, i) => new { its, i })
+                                                .Join(_dbContext.IngredientTypes,
+                                                      x => x.i.IngredientTypeId,
+                                                      it => it.Id,
+                                                      (x, it) => new { x.its, x.i, it })
+                                                .ToList() // Convert to List
                                 }).ToListAsync();
-            return result;
-        }
 
+            // At this point, the query is evaluated to a list
+            // Now, we perform the grouping in memory
+            var groupedResult = result.Select(x => new
+            {
+                TemplateStep = x.TemplateStep,
+                Ingredients = x.Ingredients
+                                        .GroupBy(x => x.it) // Group by IngredientType in memory
+                                        .Select(g => new IngredientTemplateStep
+                                        {
+                                            IngredientType = _mapper.Map<IngredientTypeDTO>(g.Key),
+                                            items = g.Select(x => new GetIngredientTemplatStep
+                                            {
+                                                Id = x.i.Id,
+                                                Name = x.i.Name,
+                                                Price = x.i.Price,
+                                                Calo = x.i.Calo,
+                                                Description = x.i.Description,
+                                                ImageUrl = x.i.ImageUrl
+                                            }).ToList()
+                                        }).ToList()
+            }).ToList();
+
+            return groupedResult.Select(x => new TemplateStepIngredientDTO
+            {
+                TemplateStep = x.TemplateStep,
+                Ingredients = x.Ingredients
+            }).ToList();
+
+        }
     }
 }
 

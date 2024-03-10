@@ -12,7 +12,6 @@ namespace Restaurant.Application.ViewModels.TemplateStepsDTO
     public class TemplateStepIngredientDTO
     {
         public TemplateStepDTO TemplateStep { get; set; }
-        public List<IngredientDTO> Ingredients { get; set; }
-        public List<IngredientTypeDTO> IngredientTypes { get; set; }
+        public List<IngredientTemplateStep> Ingredients { get; set; }
     }
 }

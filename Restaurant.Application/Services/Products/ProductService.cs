@@ -106,15 +106,19 @@ namespace Restaurant.Application.Services.Products
             var _response = new ServiceResponse<IEnumerable<ProductDTO>>();
             try
             {
-                var products = await _unitOfWork.ProductRepository.GetAllAsync();
+                var products = await _unitOfWork.ProductRepository.GetAllAsync(includeProperties: "IngredientProducts,Ingredient");
                 var productDTOs = new List<ProductDTO>();
-                foreach (var pro in products)
-                {
-                    if ((bool)!pro.IsDeleted)
-                    {
-                        productDTOs.Add(_mapper.Map<ProductDTO>(pro));
-                    }
-                }
+                 foreach (var pro in products)
+                 {
+
+                     if ((bool)!pro.IsDeleted)
+                     {
+                         productDTOs.Add(_mapper.Map<ProductDTO>(pro));
+                     }
+                 }
+                
+                
+
                 if (productDTOs.Count != 0)
                 {
                     _response.Success = true;
