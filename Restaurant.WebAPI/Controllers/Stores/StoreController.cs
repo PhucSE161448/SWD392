@@ -18,7 +18,7 @@ namespace Restaurant.WebAPI.Controllers.Stores
             return Ok(result);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateStore([FromBody] AddStoreDTO AddStoreDTO)
+        public async Task<IActionResult> CreateStore([FromForm] AddStoreDTO AddStoreDTO)
         {
             var result = await _storeService.CreateStoreAsync(AddStoreDTO);
             if (!result.Success)
@@ -31,7 +31,7 @@ namespace Restaurant.WebAPI.Controllers.Stores
             }
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateStore(int id, [FromBody] AddStoreDTO StoreDTO)
+        public async Task<IActionResult> UpdateStore(int id, [FromForm] AddStoreDTO StoreDTO)
         {
             var result = await _storeService.UpdateStoreAsync(id, StoreDTO);
             if (!result.Success)

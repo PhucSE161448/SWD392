@@ -27,7 +27,7 @@ namespace Restaurant.WebAPI.Controllers
             return Ok(result);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateCategory([FromBody] AddUpdateCategoryDTO createdCategoryDTO)
+        public async Task<IActionResult> CreateCategory([FromForm] AddUpdateCategoryDTO createdCategoryDTO)
         {
             var result = await _categoryService.CreateCategoryAsync(createdCategoryDTO);
             if (!result.Success)
@@ -42,7 +42,7 @@ namespace Restaurant.WebAPI.Controllers
 
         /*[Authorize(Roles = "admin")]*/
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCategory(int id, [FromBody] AddUpdateCategoryDTO CategoryDTO)
+        public async Task<IActionResult> UpdateCategory(int id, [FromForm] AddUpdateCategoryDTO CategoryDTO)
         {
             var result = await _categoryService.UpdateCategoryAsync(id, CategoryDTO);
             if (!result.Success)
