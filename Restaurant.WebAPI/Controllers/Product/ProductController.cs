@@ -51,7 +51,7 @@ namespace Restaurant.WebAPI.Controllers
             }
             return Ok(result);
         }
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
