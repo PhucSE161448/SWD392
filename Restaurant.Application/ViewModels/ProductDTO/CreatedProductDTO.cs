@@ -11,6 +11,5 @@ namespace Restaurant.Application.ViewModels.ProductDTO
         public int ProductTemplateId { get; set; }
         public List<int> IngredientId {  get; set; }
 
-        public int Quantity { get; set; }
     }
 }

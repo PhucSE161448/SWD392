@@ -12,11 +12,9 @@ namespace Restaurant.Application.IRepositories.Products
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
-        Task<bool> CheckProductExited(int id);
-        Task<bool> CheckNameProductExited(string name);
-        Task<IEnumerable<Product>> SearchProductByNameAsync(string name);
-        Task<IEnumerable<Product>> GetSortedProductAsync();
+
         Task<(bool success, Product product)> CreateProductAsync(CreatedProductDTO pro, ProductTemplateDTO productTemplate);
         Task<ProductDTO> GetProduct(int id);
+        Task<List<ProductDTO>> GetProductsByUserId();
     }
 }

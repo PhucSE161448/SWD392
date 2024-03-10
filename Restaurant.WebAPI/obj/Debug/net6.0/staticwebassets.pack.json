@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\ProductImage\\Ricee.jpg"
     },
     {
+      "Id": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Teriyaki.png",
+      "PackagePath": "staticwebassets\\ProductImage\\Teriyaki.png"
+    },
+    {
       "Id": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\White Rice.jpg",
       "PackagePath": "staticwebassets\\ProductImage\\White Rice.jpg"
     },

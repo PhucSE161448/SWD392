@@ -19,6 +19,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
     {
         private readonly MixFoodContext _dbContext;
         private readonly IMapper _mapper;
+        private readonly IClaimsService _claimsService;
         public ProductRepository(
             MixFoodContext context,
             ICurrentTime timeService,
@@ -29,28 +30,10 @@ namespace Restaurant.Infrastructure.Repositories.Products
         {
             _dbContext = context;
             _mapper = mapper;
+            _claimsService = claimsService;
         }
 
-        public Task<bool> CheckNameProductExited(string name)
-        {
-            return _dbContext.Products.AnyAsync(p => p.Name == name);
-        }
 
-        public Task<bool> CheckProductExited(int id)
-        {
-            return _dbContext.Products.AnyAsync(p => p.Id == id);
-        }
-
-        public async Task<IEnumerable<Product>> GetSortedProductAsync()
-        {
-
-            return await _dbContext.Products.OrderBy(p => p.Name).ToListAsync();
-        }
-
-        public async Task<IEnumerable<Product>> SearchProductByNameAsync(string name)
-        {
-            return await _dbContext.Products.Where(p => p.Name.Contains(name)).ToListAsync();
-        }
         public async Task<ProductDTO> GetProduct(int id)
         {
             var product = await _dbContext.Products
@@ -69,6 +52,30 @@ namespace Restaurant.Infrastructure.Repositories.Products
 
             return productDTO;
         }
+
+        public async Task<List<ProductDTO>> GetProductsByUserId()
+        {
+
+            var products = await _dbContext.Products
+                .Include(p => p.IngredientProducts)
+                    .ThenInclude(ip => ip.Ingredient)
+                .Where(p => p.IsDeleted == false) 
+                .ToListAsync();
+            List<ProductDTO> productDTOs = new List<ProductDTO>();
+            if(products != null)
+            {
+                productDTOs = products.Select(product => new ProductDTO
+                {
+                    Id = product.Id,
+                    Name = product.Name,
+                    Price = product.Price,
+                    ProductTemplateId = product.ProductTemplateId,
+                    Ingredients = product.IngredientProducts.Select(ip => ip.Ingredient.Name).ToList()
+                }).ToList();
+            }
+            return productDTOs;
+        }
+
         public async Task<(bool success, Product product)> CreateProductAsync(CreatedProductDTO pro, ProductTemplateDTO productTemplate)
         {
             try
@@ -84,7 +91,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
                     {
                         ProductId = product.Id,
                         IngredientId = ingredientId,
-                        Quantity = pro.Quantity,
+                        Quantity = 1,
                     };
                     await _dbContext.IngredientProducts.AddAsync(ingredientProduct);
                 }

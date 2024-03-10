@@ -32,6 +32,8 @@ namespace Restaurant.Infrastructures.Mappers
             CreateMap<CreatedProductDTO, ProductDTO>();
 
             CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<AddUpdateCategoryDTO, CategoryDto>().ReverseMap();
+            CreateMap<AddUpdateCategoryDTO, Category>().ReverseMap();
 
             CreateMap<ProductTemplate, ProductTemplateDTO>().ReverseMap();
             CreateMap<ProductTemplateCreateDTO, ProductTemplate>();

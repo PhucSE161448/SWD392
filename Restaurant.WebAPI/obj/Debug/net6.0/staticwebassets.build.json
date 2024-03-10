@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ih8l+CWHPVoZuhkVJyPO59V8etaAbRj9roCmwc9lcsM=",
+  "Hash": "mJbX7/eQTnFPdPvmfUWNZjSX4lDFf0NQtRMXXZCQvew=",
   "Source": "Restaurant.WebAPI",
   "BasePath": "_content/Restaurant.WebAPI",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ProductImage\\Ricee.jpg"
+    },
+    {
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Teriyaki.png",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "BasePath": "_content/Restaurant.WebAPI",
+      "RelativePath": "ProductImage/Teriyaki.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProductImage\\Teriyaki.png"
     },
     {
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\true.jpg",

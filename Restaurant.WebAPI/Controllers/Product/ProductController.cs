@@ -36,7 +36,7 @@ namespace Restaurant.WebAPI.Controllers
             }
             else
             {
-                return Ok(result);
+                return RedirectToAction(nameof(GetProductList));
             }
         }
 
