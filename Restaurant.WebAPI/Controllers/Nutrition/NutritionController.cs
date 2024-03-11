@@ -36,7 +36,7 @@ namespace Restaurant.WebAPI.Controllers.Nutrition
             if (createdNutritionDTO.Image != null)
             {
                 string fileName = createdNutritionDTO.Name + Path.GetExtension(createdNutritionDTO.Image.FileName);
-                string filePath = @"wwwroot\ProductImage\" + fileName;
+                string filePath = @"wwwroot\NutritionImage\" + fileName;
 
                 var directoryLocation = Path.Combine(Directory.GetCurrentDirectory(), filePath);
 
@@ -53,11 +53,11 @@ namespace Restaurant.WebAPI.Controllers.Nutrition
                 }
 
                 var baseUrl = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host.Value}{HttpContext.Request.PathBase.Value}";
-                url = baseUrl + "/ProductImage/" + fileName;
+                url = baseUrl + "/NutritionImage/" + fileName;
             }
             else
             {
-                url = "https://placehold.co/600x400";
+                url = "https://placehold.co/683x1024";
             }
 
             var result = await _NutritionService.CreateNutritionAsync(createdNutritionDTO, url);
@@ -79,7 +79,7 @@ namespace Restaurant.WebAPI.Controllers.Nutrition
             if (NutritionDTO.Image != null)
             {
                 string fileName = NutritionDTO.Name + Path.GetExtension(NutritionDTO.Image.FileName);
-                string filePath = @"wwwroot\ProductImage\" + fileName;
+                string filePath = @"wwwroot\NutritionImage\" + fileName;
 
                 var directoryLocation = Path.Combine(Directory.GetCurrentDirectory(), filePath);
 
@@ -96,7 +96,7 @@ namespace Restaurant.WebAPI.Controllers.Nutrition
                 }
 
                 var baseUrl = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host.Value}{HttpContext.Request.PathBase.Value}";
-                url = baseUrl + "/ProductImage/" + fileName;
+                url = baseUrl + "/NutritionImage/" + fileName;
             }
 
             var result = await _NutritionService.UpdateNutritionAsync(id, NutritionDTO, url);
