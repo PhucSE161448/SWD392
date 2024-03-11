@@ -26,6 +26,7 @@
   <ItemGroup>
     <Folder Include="Controllers\Account\" />
     <Folder Include="Controllers\Authenticate\" />
+    <Folder Include="wwwroot\NutritionImage\" />
     <Folder Include="wwwroot\ProductImage\" />
   </ItemGroup>
 
