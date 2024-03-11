@@ -10,7 +10,11 @@ namespace Restaurant.Application.IRepositories.TemplateSteps
 {
     public interface ITemplateStepRepository : IGenericRepository<TemplateStep>
     {
-        public Task<(bool success, TemplateStep templateStep)> CreateTemplateAsync(TemplateStepCreateDTO templateStep);
-        public Task<IEnumerable<TemplateStepIngredientDTO>> GetTemplateStepsByProductId(int productTemplateId);
+        Task<(bool success, TemplateStep templateStep)> CreateTemplateAsync(TemplateStepCreateDTO templateStep);
+        Task<(bool success, TemplateStep templateStep)> UpdateTemplateAsync(int id, TemplateStepUpdateDTO templateStep);
+        Task<IEnumerable<TemplateStepIngredientDTO>> GetTemplateStepsByProductId(int? productTemplateId);
+        Task<TemplateStepIngredientDTO> GetTemplateStepByTemplateStepId(int? templateStepId);
+
+        Task<bool> DeleteTemplateAsync(int TemplateStepId);
     }
 }

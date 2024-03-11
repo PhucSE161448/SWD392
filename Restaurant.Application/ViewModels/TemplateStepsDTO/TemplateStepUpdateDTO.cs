@@ -8,5 +8,8 @@ namespace Restaurant.Application.ViewModels.TemplateStepsDTO
 {
     public class TemplateStepUpdateDTO
     {
+        public List<int> IngredientTypeId { get; set; }
+        public int Max { get; set; }
+        public int Min { get; set; }
     }
 }

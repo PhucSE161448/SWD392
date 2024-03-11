@@ -80,6 +80,7 @@ namespace Restaurant.Infrastructure.Repositories
         {
             entity.IsDeleted = true;
             entity.DeletedBy = _claimsService.GetCurrentUserId;
+            entity.DeletedDate = _timeService.GetCurrentTime();
             _dbSet.Update(entity);
         }
 

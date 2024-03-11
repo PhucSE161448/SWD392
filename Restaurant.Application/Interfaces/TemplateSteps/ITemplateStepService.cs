@@ -1,5 +1,6 @@
 ﻿using Restaurant.Application.Services;
 using Restaurant.Application.ViewModels.TemplateStepsDTO;
+using Restaurant.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,10 @@ namespace Restaurant.Application.Interfaces.TemplateSteps
 {
     public interface ITemplateStepService
     {
-        Task<ServiceResponse<IEnumerable<TemplateStepIngredientDTO>>> GetAllTemplateStepAsync(int id);
-        Task<ServiceResponse<TemplateStepDTO>> GetTemplateStepAsync(int id);
+        Task<ServiceResponse<IEnumerable<TemplateStepIngredientDTO>>> GetAllTemplateStepAsync(int? id);
+        Task<ServiceResponse<TemplateStepIngredientDTO>> GetTemplateStepAsync(int? id);
         Task<ServiceResponse<TemplateStepDTO>> CreateTemplateStepAsync(TemplateStepCreateDTO CreatedTemplateStepDTO);
-        Task<ServiceResponse<TemplateStepDTO>> UpdateTemplateStepAsync(int id, TemplateStepUpdateDTO TemplateStepDTO);
+        Task<ServiceResponse<TemplateStepDTO>> UpdateTemplateAsync(int id, TemplateStepUpdateDTO templateStep);
         Task<ServiceResponse<bool>> DeleteTemplateStepAsync(int id);
     }
 }
