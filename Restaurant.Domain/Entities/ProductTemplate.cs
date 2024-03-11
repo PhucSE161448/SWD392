@@ -19,6 +19,7 @@ namespace Restaurant.Domain.Entities
         public string ImageUrl { get; set; } = null!;
         public decimal Price { get; set; }
         public int StoreId { get; set; }
+        public string? Description { get; set; }
 
         public virtual Category Category { get; set; } = null!;
         public virtual Store Store { get; set; } = null!;

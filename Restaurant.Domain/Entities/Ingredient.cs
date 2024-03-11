@@ -19,6 +19,7 @@ namespace Restaurant.Domain.Entities
         public string ImageUrl { get; set; } = null!;
         public int IngredientTypeId { get; set; }
 
+
         public virtual IngredientType IngredientType { get; set; } = null!;
         public virtual Nutrition? Nutrition { get; set; }
         public virtual ICollection<IngredientProduct> IngredientProducts { get; set; }

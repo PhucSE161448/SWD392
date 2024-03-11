@@ -12,10 +12,16 @@ namespace Restaurant.WebAPI.Controllers.TemplateSteps
         {
             _service = service;
         }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetTemplateStepsByProductId(int id)
+        [HttpGet]
+        public async Task<IActionResult> GetTemplateStepsByProductId([FromQuery] int? productTemplateId = null)
         {
-            var result = await _service.GetAllTemplateStepAsync(id);
+            var result = await _service.GetAllTemplateStepAsync(productTemplateId);
+            return Ok(result);
+        }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProductTemplate(int id)
+        {
+            var result = await _service.GetTemplateStepAsync(id);
             return Ok(result);
         }
         [HttpPost]
@@ -23,6 +29,7 @@ namespace Restaurant.WebAPI.Controllers.TemplateSteps
         {
 
             var result = await _service.CreateTemplateStepAsync(templateStepCreateDTO);
+
             if (!result.Success)
             {
                 return BadRequest(result);
@@ -31,6 +38,30 @@ namespace Restaurant.WebAPI.Controllers.TemplateSteps
             {
                 return Ok(result);
             }
+        }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateIngredientTypeTemplateSteps(int id, [FromBody] TemplateStepUpdateDTO templateStepUpdateDTO)
+        {
+                var success = await _service.UpdateTemplateAsync(id, templateStepUpdateDTO);
+
+                if (success.Success)
+                {
+                    return Ok(success);
+                }
+                else
+                {
+                    return BadRequest(success);
+                }
+            }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProductTemplate(int id)
+        {
+            var result = await _service.DeleteTemplateStepAsync(id);
+            if (!result.Success)
+            {
+                return NotFound(result);
+            }
+            return Ok(result);
         }
     }
 }

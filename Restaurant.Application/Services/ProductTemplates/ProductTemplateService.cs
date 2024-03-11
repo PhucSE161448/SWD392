@@ -30,6 +30,7 @@ namespace Restaurant.Application.Services.ProductTemplates
                 var ProductTemplate = _mapper.Map<ProductTemplate>(CreatedProductTemplateDTO);
                 ProductTemplate.ImageUrl = url;
                 ProductTemplate.Size = "S";
+                ProductTemplate.Quantity = 0;
                 await _unitOfWork.ProductTemplateRepository.AddAsync(ProductTemplate);
                 var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                 if (isSuccess)
@@ -195,87 +196,6 @@ namespace Restaurant.Application.Services.ProductTemplates
             return _response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<ProductTemplateDTO>>> GetSortedProductTemplateAsync()
-        {
-            var response = new ServiceResponse<IEnumerable<ProductTemplateDTO>>();
-            try
-            {
-                var ProductTemplates = await _unitOfWork.ProductTemplateRepository.GetAllAsync();
-                var ProductTemplateDTOs = new List<ProductTemplateDTO>();
-                foreach (var pro in ProductTemplates)
-                {
-                    if ((bool)!pro.IsDeleted)
-                    {
-                        ProductTemplateDTOs.Add(_mapper.Map<ProductTemplateDTO>(pro));
-                    }
-                }
-                if (ProductTemplateDTOs.Count != 0)
-                {
-                    response.Success = true;
-                    response.Message = "ProductTemplate retrieved successfully";
-                    response.Data = ProductTemplateDTOs;
-                }
-                else
-                {
-                    response.Success = true;
-                    response.Message = "ProductTemplate not found";
-                }
-            }
-            catch (DbException ex)
-            {
-                response.Success = false;
-                response.Message = "Database error occurred.";
-                response.ErrorMessages = new List<string> { ex.Message };
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Error";
-                response.ErrorMessages = new List<string> { ex.Message };
-            }
-            return response;
-        }
-
-        public async Task<ServiceResponse<IEnumerable<ProductTemplateDTO>>> SearchProductTemplateByNameAsync(string name)
-        {
-            var response = new ServiceResponse<IEnumerable<ProductTemplateDTO>>();
-            try
-            {
-                var ProductTemplates = await _unitOfWork.ProductTemplateRepository.GetAllAsync();
-                var ProductTemplateDTOs = new List<ProductTemplateDTO>();
-                foreach (var pro in ProductTemplates)
-                {
-                    if ((bool)!pro.IsDeleted)
-                    {
-                        ProductTemplateDTOs.Add(_mapper.Map<ProductTemplateDTO>(pro));
-                    }
-                }
-                if (ProductTemplateDTOs.Count != 0)
-                {
-                    response.Success = true;
-                    response.Message = "ProductTemplate retrieved successfully";
-                    response.Data = ProductTemplateDTOs;
-                }
-                else
-                {
-                    response.Success = true;
-                    response.Message = "ProductTemplate not found";
-                }
-            }
-            catch (DbException ex)
-            {
-                response.Success = false;
-                response.Message = "Database error occurred.";
-                response.ErrorMessages = new List<string> { ex.Message };
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Error";
-                response.ErrorMessages = new List<string> { ex.Message };
-            }
-            return response;
-        }
 
         public async Task<ServiceResponse<ProductTemplateDTO>> UpdateProductTemplateAsync(int id, ProductTemplateUpdateDTO ProductTemplateDTO, string url)
         {
@@ -298,6 +218,8 @@ namespace Restaurant.Application.Services.ProductTemplates
                 {
                     ProductTemplate.ImageUrl = url;
                 }
+                ProductTemplate.Size = "S";
+                ProductTemplate.Quantity = 0;
                 _unitOfWork.ProductTemplateRepository.Update(ProductTemplate);
                 var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                 if (isSuccess)

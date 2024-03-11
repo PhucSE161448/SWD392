@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Application.ViewModels.TemplateStepsDTO
 {
-    public class TemplateStepIngredient
+    public class IngredientTypeTemplateSteps
     {
-        public int TemplateId { get; set; }
         public int IngredientTypeId { get; set; }
-        public int Min {  get; set; }
-        public int Max { get; set; }
+        public int QuantityMin { get; set; }
+        public int QuantityMax { get; set; }
     }
 }

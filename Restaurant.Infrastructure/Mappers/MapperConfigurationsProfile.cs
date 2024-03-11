@@ -60,6 +60,7 @@ namespace Restaurant.Infrastructures.Mappers
 
             CreateMap<TemplateStepCreateDTO, TemplateStep>().ReverseMap();
             CreateMap<TemplateStepCreateDTO, TemplateStepDTO>().ReverseMap();
+            CreateMap<TemplateStep, TemplateStepDTO>().ReverseMap();    
             CreateMap<TemplateStepDTO, TemplateStep>().ReverseMap();
             CreateMap<TemplateStepUpdateDTO, TemplateStep>().ReverseMap();
         }

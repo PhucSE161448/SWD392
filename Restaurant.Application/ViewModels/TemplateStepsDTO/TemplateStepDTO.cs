@@ -11,6 +11,6 @@ namespace Restaurant.Application.ViewModels.TemplateStepsDTO
         public int Id { get; set; }
         public int ProuctTemplateId { get; set; }
         public string Name { get; set; }
-        public TemplateStepIngredient TemplateStepIngredient { get; set; }
+        public IngredientTypeTemplateSteps TemplateStepIngredient { get; set; }
     }
 }

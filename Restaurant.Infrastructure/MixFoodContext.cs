@@ -265,8 +265,6 @@ namespace Restaurant.Infrastructure
 
                 entity.Property(e => e.DeletedDate).HasColumnType("date");
 
-                entity.Property(e => e.Description).HasMaxLength(255);
-
                 entity.Property(e => e.Image)
                     .HasMaxLength(255)
                     .IsUnicode(false);
@@ -304,8 +302,6 @@ namespace Restaurant.Infrastructure
                 entity.Property(e => e.DeletedBy).HasMaxLength(255);
 
                 entity.Property(e => e.DeletedDate).HasColumnType("date");
-
-                entity.Property(e => e.Description).HasMaxLength(255);
 
                 entity.Property(e => e.HealthValue).HasMaxLength(255);
 
