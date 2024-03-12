@@ -133,7 +133,7 @@ namespace Restaurant.Infrastructure.Repositories.TemplateSteps
                                     TemplateStep = _mapper.Map<TemplateStepDTO>(ts),
                                     Ingredients = _dbContext.IngredientTypeTemplateSteps
                                                 .Where(its => its.TemplateStepId == ts.Id)
-                                                .Join(_dbContext.Ingredients,
+                                                .Join(_dbContext.Ingredients.Where(i => i.IsDeleted == false),
                                                       its => its.IngredientTypeId,
                                                       i => i.IngredientTypeId,
                                                       (its, i) => new { its, i })

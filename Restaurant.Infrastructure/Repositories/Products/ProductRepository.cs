@@ -103,5 +103,16 @@ namespace Restaurant.Infrastructure.Repositories.Products
                 return (false, null);
             }
         }
+        public decimal CalculateTotalPrice(IEnumerable<ProductDTO> products)
+        {
+            decimal totalPrice = 0;
+
+            foreach (var product in products)
+            {
+                totalPrice += product.Price ;
+            }
+
+            return totalPrice;
+        }
     }
 }

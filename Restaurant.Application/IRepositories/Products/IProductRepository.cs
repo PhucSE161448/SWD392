@@ -16,5 +16,6 @@ namespace Restaurant.Application.IRepositories.Products
         Task<(bool success, Product product)> CreateProductAsync(CreatedProductDTO pro, ProductTemplateDTO productTemplate);
         Task<ProductDTO> GetProduct(int id);
         Task<List<ProductDTO>> GetProductsByUserId();
+        decimal CalculateTotalPrice(IEnumerable<ProductDTO> products);
     }
 }
