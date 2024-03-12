@@ -18,5 +18,6 @@ namespace Restaurant.Application.Interfaces.Accounts
         Task<ServiceResponse<IEnumerable<AccountDTO>>> SearchAccountByNameAsync(string name);
         Task<ServiceResponse<IEnumerable<AccountDTO>>> SearchAccountByRoleNameAsync(string name);
         Task<ServiceResponse<IEnumerable<AccountDTO>>> GetSortedAccountsAsync();
+        Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool isDeleted);
     }
 }
