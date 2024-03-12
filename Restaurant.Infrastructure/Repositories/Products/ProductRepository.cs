@@ -80,16 +80,33 @@ namespace Restaurant.Infrastructure.Repositories.Products
         {
             try
             {
+                var temId =  _dbContext.TemplateSteps.FirstOrDefault(x => x.ProuctTemplateId == pro.ProductTemplateId);
                 var product = _mapper.Map<Product>(pro);
                 product.Name = productTemplate.Name;
                 product.Price = productTemplate.Price;
-                await _dbContext.Products.AddAsync(product);
-                await _dbContext.SaveChangesAsync();
-                foreach (var kvp in pro.Ingredients)
+                product.CreatedDate = DateTime.Now;
+                product.CreatedBy = _claimsService.GetCurrentUserId;
+               
+
+                foreach (var ingredientTypeEntry in pro.Ingredients)
                 {
-                    var ingredientTypeId = kvp.Key;
-                    foreach (var ingredientId in kvp.Value)
+                    var ingredientTypeId = ingredientTypeEntry.Key;
+                    var ingredientIds = ingredientTypeEntry.Value;
+
+                    var maxLimit = await _dbContext.IngredientTypeTemplateSteps
+                                                .Where(its => its.IngredientTypeId == ingredientTypeId && its.TemplateStepId == temId.Id)
+                                                .Select(its => its.QuantityMax)
+                                                .FirstOrDefaultAsync();
+
+                    foreach (var ingredientId in ingredientIds)
                     {
+                       
+                        if (maxLimit != 0 && ingredientIds.Count > maxLimit)
+                        {
+                            // Max limit exceeded for this ingredient type
+                            return (false, null);
+                        }
+
                         var ingredientProduct = new IngredientProduct
                         {
                             ProductId = product.Id,
@@ -99,7 +116,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
                         await _dbContext.IngredientProducts.AddAsync(ingredientProduct);
                     }
                 }
-
+                await _dbContext.Products.AddAsync(product);
                 await _dbContext.SaveChangesAsync();
                 return (true, product);
             }

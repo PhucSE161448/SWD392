@@ -10,6 +10,8 @@ namespace Restaurant.Application.ViewModels.IngredientsDTO
     public class IngredientTemplateStep
     {
         public IngredientTypeDTO IngredientType { get; set; }
-        public List<GetIngredientTemplatStep> items {  get; set; } 
+        public List<GetIngredientTemplatStep> items {  get; set; }
+        public int? Min { get; set; }
+        public int? Max { get; set; }
     }
 }
