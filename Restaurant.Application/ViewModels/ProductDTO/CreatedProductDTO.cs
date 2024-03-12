@@ -9,7 +9,7 @@ namespace Restaurant.Application.ViewModels.ProductDTO
     public class CreatedProductDTO
     {
         public int ProductTemplateId { get; set; }
-        public List<int> IngredientId {  get; set; }
+        public Dictionary<int, List<int>> Ingredients { get; set; }
 
     }
 }
