@@ -85,16 +85,21 @@ namespace Restaurant.Infrastructure.Repositories.Products
                 product.Price = productTemplate.Price;
                 await _dbContext.Products.AddAsync(product);
                 await _dbContext.SaveChangesAsync();
-                foreach (var ingredientId in pro.IngredientId)
+                foreach (var kvp in pro.Ingredients)
                 {
-                    var ingredientProduct = new IngredientProduct
+                    var ingredientTypeId = kvp.Key;
+                    foreach (var ingredientId in kvp.Value)
                     {
-                        ProductId = product.Id,
-                        IngredientId = ingredientId,
-                        Quantity = 1,
-                    };
-                    await _dbContext.IngredientProducts.AddAsync(ingredientProduct);
+                        var ingredientProduct = new IngredientProduct
+                        {
+                            ProductId = product.Id,
+                            IngredientId = ingredientId,
+                            Quantity = 1,
+                        };
+                        await _dbContext.IngredientProducts.AddAsync(ingredientProduct);
+                    }
                 }
+
                 await _dbContext.SaveChangesAsync();
                 return (true, product);
             }
