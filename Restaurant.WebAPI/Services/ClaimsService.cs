@@ -7,8 +7,8 @@ namespace Restaurant.WebAPI.Services
     {
         public ClaimsService(IHttpContextAccessor httpContextAccessor)
         {
-            var emailClaim = httpContextAccessor.HttpContext?.User?.FindFirst("Email");
-            GetCurrentUserId = emailClaim?.Value ?? string.Empty;
+            var emailClaim = httpContextAccessor.HttpContext?.User?.FindFirstValue("Name");
+            GetCurrentUserId = string.IsNullOrEmpty(emailClaim) ? "" : emailClaim;
         }
 
         public string? GetCurrentUserId { get; }

@@ -2115,11 +2115,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj",
+      "projectUniqueName": "D:\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj",
       "projectName": "Restaurant.Application",
-      "projectPath": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj",
+      "projectPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Application\\obj\\",
+      "outputPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2140,8 +2140,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj": {
-              "projectPath": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj"
+            "D:\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj": {
+              "projectPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj"
             }
           }
         }
@@ -2180,26 +2180,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.27, 6.0.27]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.27, 6.0.27]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.27, 6.0.27]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   },

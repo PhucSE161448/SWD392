@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EgbDgn4Zu3la/1LVBhy+uH6hJInEVfx/21OcjFEWoGlIbbG1XntR21H91IonGFy1/1blgVusrvBsWxfLWtCHww==",
+  "dgSpecHash": "o9vSffu43CmT7M0XA+b82gOB98TiX5wDkDQOXvf3oRuKJpr7003y6eAUZLExG/B2zu1NyI4HgSBK8VUXyJy+tA==",
   "success": true,
-  "projectFilePath": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj",
+  "projectFilePath": "D:\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
@@ -48,10 +48,7 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.27\\microsoft.windowsdesktop.app.ref.6.0.27.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.27\\microsoft.netcore.app.ref.6.0.27.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.27\\microsoft.aspnetcore.app.ref.6.0.27.nupkg.sha512"
+    "C:\\Users\\ADMIN\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
   "logs": [
     {

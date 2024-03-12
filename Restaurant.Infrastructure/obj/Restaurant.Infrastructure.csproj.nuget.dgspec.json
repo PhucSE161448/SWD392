@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj": {}
+    "D:\\C#\\SWD\\SWD392\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj": {}
   },
   "projects": {
-    "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj": {
+    "D:\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj",
+        "projectUniqueName": "D:\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj",
         "projectName": "Restaurant.Application",
-        "projectPath": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj",
+        "projectPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Application\\obj\\",
+        "outputPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj": {
-                "projectPath": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj"
+              "D:\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj": {
+                "projectPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj"
               }
             }
           }
@@ -72,37 +72,23 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj": {
+    "D:\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj",
+        "projectUniqueName": "D:\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj",
         "projectName": "Restaurant.Domain",
-        "projectPath": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj",
+        "projectPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Domain\\Restaurant.Domain.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Domain\\obj\\",
+        "outputPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -157,37 +143,23 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj": {
+    "D:\\C#\\SWD\\SWD392\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj",
+        "projectUniqueName": "D:\\C#\\SWD\\SWD392\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj",
         "projectName": "Restaurant.Infrastructure",
-        "projectPath": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj",
+        "projectPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Infrastructure\\obj\\",
+        "outputPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -208,8 +180,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj": {
-                "projectPath": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj"
+              "D:\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj": {
+                "projectPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj"
               }
             }
           }
@@ -254,26 +226,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.27, 6.0.27]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
