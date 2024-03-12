@@ -34,7 +34,7 @@ namespace Restaurant.Application.Services.Accounts
             try
             {
                 var account = _mapper.Map<Account>(createdAccountDTO);
-                account.Password = HashPassword.HashWithSHA256(createdAccountDTO.PasswordHash);
+                account.Password = HashPassword.HashWithSHA256(createdAccountDTO.Password);
 
                 account.Status = "true";
                 await _unitOfWork.AccountRepository.AddAsync(account);
@@ -119,10 +119,9 @@ namespace Restaurant.Application.Services.Accounts
 
                 foreach (var acc in accounts)
                 {
-                    if ((bool)!acc.IsDeleted)
-                    {
-                        accountDTOs.Add(_mapper.Map<AccountDTO>(acc));
-                    }
+
+                    accountDTOs.Add(_mapper.Map<AccountDTO>(acc));
+
                 }
 
                 if (accountDTOs.Count != 0)
@@ -363,6 +362,45 @@ namespace Restaurant.Application.Services.Accounts
                     response.Message = "Not have Account";
                 }
 
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Error";
+                response.ErrorMessages = new List<string> { ex.Message };
+            }
+
+            return response;
+        }
+
+        public async Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool isDeleted)
+        {
+            var response = new ServiceResponse<bool>();
+
+            var exist = await _unitOfWork.AccountRepository.GetByIdAsync(id);
+            if (exist == null)
+            {
+                response.Success = false;
+                response.Message = "Account is not existed";
+                return response;
+            }
+
+            try
+            {
+                exist.IsDeleted = isDeleted;
+                _unitOfWork.AccountRepository.Update(exist);
+
+                var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
+                if (isSuccess)
+                {
+                    response.Success = true;
+                    response.Message = "Account deleted successfully.";
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Error deleting the account.";
+                }
             }
             catch (Exception ex)
             {

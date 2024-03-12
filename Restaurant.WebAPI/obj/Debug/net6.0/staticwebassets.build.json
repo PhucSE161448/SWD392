@@ -1,5 +1,6 @@
 {
   "Version": 1,
+  "Hash": "X/qgwDKK1guSbRYb5M4BBpmLh27pWMWR2QMjSIumC+I=",
   "Hash": "bdEmdJUhCHv6wvBe9zwqbymG36kR3Y4VvfjQWASyGq8=",
   "Source": "Restaurant.WebAPI",
   "BasePath": "_content/Restaurant.WebAPI",
@@ -10,6 +11,7 @@
     {
       "Name": "Restaurant.WebAPI\\wwwroot",
       "Source": "Restaurant.WebAPI",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "Pattern": "**"
@@ -17,6 +19,10 @@
   ],
   "Assets": [
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\ SPICY CHICKEN.png",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\ SPICY CHICKEN.png",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -26,6 +32,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -34,6 +42,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\ SPICY CHICKEN.png"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\BEAN SPROUTS.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\BEAN SPROUTS.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -43,6 +55,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -51,6 +65,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\BEAN SPROUTS.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\BLACK BEANS.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\BLACK BEANS.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -60,6 +78,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -68,6 +88,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\BLACK BEANS.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\CARROTS.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\CARROTS.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -77,6 +101,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -85,6 +111,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\CARROTS.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\CORN.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\CHICKEN.png",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -111,6 +141,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -119,6 +151,29 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\CORN.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\CHICKEN.png",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "BasePath": "_content/Restaurant.WebAPI",
+      "RelativePath": "NutritionImage/CHICKEN.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\NutritionImage\\CHICKEN.png"
+    },
+    {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\KOREAN BBQ BEEF.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\KOREAN BBQ BEEF.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -128,6 +183,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -136,6 +193,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\KOREAN BBQ BEEF.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\ORGANIC TOFU.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\ORGANIC TOFU.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -145,6 +206,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -153,6 +216,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\ORGANIC TOFU.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\PURPLE RICE.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\PURPLE RICE.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -162,6 +229,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -170,6 +239,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\PURPLE RICE.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\ROMAINE LETTUCE.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\ROMAINE LETTUCE.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -179,6 +252,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -187,6 +262,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\ROMAINE LETTUCE.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\STEAK.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\STEAK.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -196,6 +275,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -204,6 +285,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\STEAK.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\SUPERGREEN SALAD.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\SUPERGREEN SALAD.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -213,6 +298,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -221,6 +308,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\SUPERGREEN SALAD.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\SWEET POTATO NOODLES.png",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\SWEET POTATO NOODLES.png",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -230,6 +321,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -238,6 +331,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\SWEET POTATO NOODLES.png"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\WHITE RICE.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\WHITE RICE.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -247,6 +344,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -255,6 +354,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\WHITE RICE.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Big Bowl.png",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Big Bowl.png",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -264,6 +367,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -272,6 +377,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Big Bowl.png"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Big Bowls.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Big Bowls.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -281,6 +390,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -289,6 +400,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Big Bowls.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Red Rice.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Red Rice.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -298,6 +413,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -306,6 +423,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Red Rice.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Red Rice.png",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Red Rice.png",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -315,6 +436,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -323,6 +446,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Red Rice.png"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Ricee.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Ricee.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -332,6 +459,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -340,6 +469,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Ricee.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Teriyaki.png",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Teriyaki.png",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -349,6 +482,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -357,6 +492,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Teriyaki.png"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\true.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\true.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -366,6 +505,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
@@ -374,6 +515,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\true.jpg"
     },
     {
+      "Identity": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\White Rice.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\University\\GitHub\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\White Rice.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
@@ -383,6 +528,8 @@
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",

@@ -37,7 +37,6 @@ namespace Restaurant.WebAPI.Controllers
             }
         }
 
-        [Authorize(Roles = "admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] AccountDTO accountDTO)
         {
@@ -49,7 +48,6 @@ namespace Restaurant.WebAPI.Controllers
             return Ok(updatedUser);
         }
 
-        [Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
@@ -59,6 +57,17 @@ namespace Restaurant.WebAPI.Controllers
                 return NotFound(deletedUser);
             }
             return Ok(deletedUser);
+        }
+
+        [HttpPut("Status/{id}")]
+        public async Task<IActionResult> UpdateIsDelete(int id, bool isDeleted)
+        {
+            var updatedUser = await _accountService.UpdateIsDelete(id, isDeleted);
+            if (!updatedUser.Success)
+            {
+                return NotFound(updatedUser);
+            }
+            return Ok(updatedUser);
         }
     }
 }
