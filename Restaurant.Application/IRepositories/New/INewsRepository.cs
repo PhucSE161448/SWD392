@@ -9,6 +9,6 @@ namespace Restaurant.Application.IRepositories.New
 {
     public interface INewsRepository : IGenericRepository<News>
     {
-
+        public Task<List<News>> GetListNewBySize(string size = null);
     }
 }
