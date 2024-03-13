@@ -76,7 +76,7 @@ namespace Restaurant.WebAPI.Controllers
         }
 
         [HttpPut("Status/{id}")]
-        public async Task<IActionResult> UpdateIsDelete(int id, bool isDeleted)
+        public async Task<IActionResult> UpdateIsDelete(int id,[FromQuery] bool? isDeleted)
         {
             var updatedUser = await _accountService.UpdateIsDelete(id, isDeleted);
             if (!updatedUser.Success)
