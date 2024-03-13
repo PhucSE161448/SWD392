@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Restaurant.Application.Interfaces.Accounts;
+using Restaurant.Application.ViewModels.AccountDTO;
 
 namespace Restaurant.WebAPI.Controllers
 {
@@ -21,7 +22,12 @@ namespace Restaurant.WebAPI.Controllers
             var User = await _accountService.GetAccountAsync();
             return Ok(User);
         }
-
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetAccountAsyncById(int id) 
+        {
+            var User = await _accountService.GetAccountByIdAsync(id);
+            return Ok(User);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] CreatedAccountDTO createdAccountDTO)
         {
@@ -37,6 +43,16 @@ namespace Restaurant.WebAPI.Controllers
             }
         }
 
+        [HttpPut("Profile/id")]
+        public async Task<IActionResult> UpdateProfile(int id, [FromForm] UpdateProfileAccountDTO accountDTO)
+        {
+            var updateProfile = await _accountService.UpdateProfileAsync(id, accountDTO);
+            if (!updateProfile.Success)
+            {
+                return NotFound(updateProfile);
+            }
+            return Ok(updateProfile);
+        }
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] AccountDTO accountDTO)
         {

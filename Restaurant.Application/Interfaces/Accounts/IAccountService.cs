@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Restaurant.Application.ViewModels.AccountDTO;
 
 namespace Restaurant.Application.Interfaces.Accounts
 {
@@ -19,5 +20,7 @@ namespace Restaurant.Application.Interfaces.Accounts
         Task<ServiceResponse<IEnumerable<AccountDTO>>> SearchAccountByRoleNameAsync(string name);
         Task<ServiceResponse<IEnumerable<AccountDTO>>> GetSortedAccountsAsync();
         Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool isDeleted);
+        Task<ServiceResponse<UpdateProfileAccountDTO>> UpdateProfileAsync(int id, UpdateProfileAccountDTO accountDTO);
+        Task<ServiceResponse<AccountDTO>> GetAccountByIdAsync(int id);
     }
 }

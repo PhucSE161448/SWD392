@@ -6,6 +6,8 @@ using Application.ViewModels.AccountDTO;
 using AutoMapper;
 using Restaurant.Domain.Entities;
 using Restaurant.Application.Interfaces.Accounts;
+using Restaurant.Application.ViewModels.AccountDTO;
+using Restaurant.Application.ViewModels.NewsDTO;
 
 namespace Restaurant.Application.Services.Accounts
 {
@@ -409,6 +411,82 @@ namespace Restaurant.Application.Services.Accounts
                 response.ErrorMessages = new List<string> { ex.Message };
             }
 
+            return response;
+        }
+
+        public async Task<ServiceResponse<UpdateProfileAccountDTO>> UpdateProfileAsync(int id, UpdateProfileAccountDTO accountDTO)
+        {
+            var response = new ServiceResponse<UpdateProfileAccountDTO>();
+            var exist = await _unitOfWork.AccountRepository.GetByIdAsync(id);
+            if (exist == null)
+            {
+                response.Success = false;
+                response.Message = "account not found";
+                return response;
+            }
+            try
+            {
+                var acc = _mapper.Map(accountDTO, exist);
+                _unitOfWork.AccountRepository.Update(acc);
+                var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
+                if (isSuccess)
+                {
+                    response.Success = true;
+                    response.Message = "Account updated successfully";
+                    response.Data = _mapper.Map<UpdateProfileAccountDTO>(acc);
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Account News failed";
+                }
+            }
+            catch (DbException ex)
+            {
+                response.Success = false;
+                response.Message = "Database error occurred.";
+                response.ErrorMessages = new List<string> { ex.Message };
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Error";
+                response.ErrorMessages = new List<string> { ex.Message };
+            }
+            return response;
+        }
+
+        public async Task<ServiceResponse<AccountDTO>> GetAccountByIdAsync(int id)
+        {
+            var response = new ServiceResponse<AccountDTO>();
+            try
+            {
+                var acc = await _unitOfWork.AccountRepository.GetAsync(x => x.Id == id);
+                if (acc != null)
+                {
+                    response.Success = true;
+                    response.Message = "Account retrieved successfully";
+                    response.Data = _mapper.Map<AccountDTO>(acc);
+                }
+                else
+                {
+                    response.Success = true;
+                    response.Message = "Account not found";
+                }
+            }
+            catch (DbException ex)
+            {
+                response.Success = false;
+                response.Message = "Database error occurred.";
+                response.ErrorMessages = new List<string> { ex.Message };
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Data = null;
+                response.Message = "Error";
+                response.ErrorMessages = new List<string> { Convert.ToString(ex.Message) };
+            }
             return response;
         }
     }
