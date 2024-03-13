@@ -50,7 +50,12 @@ namespace Restaurant.Application.Services.Authenticates
                     response.Message = "Invalid username or password";
                     return response;
                 }
-
+                if(user.IsDeleted == true)
+                {
+                    response.Success = true;
+                    response.Message = "Account is deleted";
+                    return response;
+                }   
                 var token = user.GenerateJsonWebToken(
                     _configuration,
                     _configuration.JWTSection.SecretKey,

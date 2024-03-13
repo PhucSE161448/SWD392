@@ -252,130 +252,9 @@ namespace Restaurant.Application.Services.Accounts
 
         }
 
-        public async Task<ServiceResponse<IEnumerable<AccountDTO>>> SearchAccountByNameAsync(string name)
-        {
-            var response = new ServiceResponse<IEnumerable<AccountDTO>>();
+     
 
-            try
-            {
-                var accounts = await _unitOfWork.AccountRepository.SearchAccountByNameAsync(name);
-
-                var accountDTOs = new List<AccountDTO>();
-
-                foreach (var acc in accounts)
-                {
-                    if ((bool)!acc.IsDeleted)
-                    {
-                        accountDTOs.Add(_mapper.Map<AccountDTO>(acc));
-                    }
-                }
-
-                if (accountDTOs.Count != 0)
-                {
-                    response.Success = true;
-                    response.Message = "Account retrieved successfully";
-                    response.Data = accountDTOs;
-                }
-                else
-                {
-                    response.Success = false;
-                    response.Message = "Not have Account";
-                }
-
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Error";
-                response.ErrorMessages = new List<string> { ex.Message };
-            }
-
-            return response;
-        }
-
-        public async Task<ServiceResponse<IEnumerable<AccountDTO>>> SearchAccountByRoleNameAsync(string roleName)
-        {
-            var response = new ServiceResponse<IEnumerable<AccountDTO>>();
-
-            try
-            {
-                var accounts = await _unitOfWork.AccountRepository.SearchAccountByRoleNameAsync(roleName);
-
-                var accountDTOs = new List<AccountDTO>();
-
-                foreach (var acc in accounts)
-                {
-                    if ((bool)!acc.IsDeleted)
-                    {
-                        accountDTOs.Add(_mapper.Map<AccountDTO>(acc));
-                    }
-                }
-
-                if (accountDTOs.Count != 0)
-                {
-                    response.Success = true;
-                    response.Message = "Account retrieved successfully";
-                    response.Data = accountDTOs;
-                }
-                else
-                {
-                    response.Success = false;
-                    response.Message = "Not have Account";
-                }
-
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Error";
-                response.ErrorMessages = new List<string> { ex.Message };
-            }
-
-            return response;
-        }
-
-        public async Task<ServiceResponse<IEnumerable<AccountDTO>>> GetSortedAccountsAsync()
-        {
-            var response = new ServiceResponse<IEnumerable<AccountDTO>>();
-
-            try
-            {
-                var accounts = await _unitOfWork.AccountRepository.GetSortedAccountAsync();
-
-                var accountDTOs = new List<AccountDTO>();
-
-                foreach (var acc in accounts)
-                {
-                    if ((bool)!acc.IsDeleted)
-                    {
-                        accountDTOs.Add(_mapper.Map<AccountDTO>(acc));
-                    }
-                }
-
-                if (accountDTOs.Count != 0)
-                {
-                    response.Success = true;
-                    response.Message = "Account retrieved successfully";
-                    response.Data = accountDTOs;
-                }
-                else
-                {
-                    response.Success = false;
-                    response.Message = "Not have Account";
-                }
-
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-                response.Message = "Error";
-                response.ErrorMessages = new List<string> { ex.Message };
-            }
-
-            return response;
-        }
-
-        public async Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool isDeleted)
+        public async Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool? isDeleted)
         {
             var response = new ServiceResponse<bool>();
 
@@ -389,19 +268,22 @@ namespace Restaurant.Application.Services.Accounts
 
             try
             {
-                exist.IsDeleted = isDeleted;
+                if(isDeleted.HasValue)
+                {
+                    exist.IsDeleted = isDeleted;
+                }
                 _unitOfWork.AccountRepository.Update(exist);
 
                 var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                 if (isSuccess)
                 {
                     response.Success = true;
-                    response.Message = "Account deleted successfully.";
+                    response.Message = "Account update successfully.";
                 }
                 else
                 {
                     response.Success = false;
-                    response.Message = "Error deleting the account.";
+                    response.Message = "Error update the account.";
                 }
             }
             catch (Exception ex)

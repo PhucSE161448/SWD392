@@ -16,10 +16,7 @@ namespace Restaurant.Application.Interfaces.Accounts
         Task<ServiceResponse<AccountDTO>> UpdateUserAsync(int id, AccountDTO accountDTO);
         Task<ServiceResponse<bool>> DeleteUserAsync(int id);
         Task<ServiceResponse<string>> ChangePasswordAsync(int userId, ChangePasswordDTO changePasswordDto);
-        Task<ServiceResponse<IEnumerable<AccountDTO>>> SearchAccountByNameAsync(string name);
-        Task<ServiceResponse<IEnumerable<AccountDTO>>> SearchAccountByRoleNameAsync(string name);
-        Task<ServiceResponse<IEnumerable<AccountDTO>>> GetSortedAccountsAsync();
-        Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool isDeleted);
+        Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool? isDeleted);
         Task<ServiceResponse<UpdateProfileAccountDTO>> UpdateProfileAsync(int id, UpdateProfileAccountDTO accountDTO);
         Task<ServiceResponse<AccountDTO>> GetAccountByIdAsync(int id);
     }
