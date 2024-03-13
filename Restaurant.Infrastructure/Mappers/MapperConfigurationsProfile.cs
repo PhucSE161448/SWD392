@@ -12,6 +12,7 @@ using Restaurant.Application.ViewModels.IngredientsDTO;
 using Restaurant.Application.ViewModels.NutritionsDTO;
 using Restaurant.Application.ViewModels.StoreDTO;
 using Restaurant.Application.ViewModels.TemplateStepsDTO;
+using Restaurant.Application.ViewModels.AccountDTO;
 
 namespace Restaurant.Infrastructures.Mappers
 {
@@ -23,6 +24,7 @@ namespace Restaurant.Infrastructures.Mappers
             CreateMap<Account, AccountDTO>().ReverseMap();
             CreateMap<CreatedAccountDTO, Account>();
             CreateMap<CreatedAccountDTO, AccountDTO>();
+            CreateMap<UpdateProfileAccountDTO, Account>().ReverseMap();
 
             CreateMap<RegisterAccountDTO, Account>();
             CreateMap<RegisterAccountDTO, AccountDTO>();

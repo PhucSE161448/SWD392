@@ -123,7 +123,7 @@ namespace Restaurant.Application.Services.Newss
             return response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<NewsDTO>>> GetAllNewsAsync(int? id, string title)
+        public async Task<ServiceResponse<IEnumerable<NewsDTO>>> GetAllNewsAsync(int? id, string title, string size = null)
         {
             var _response = new ServiceResponse<IEnumerable<NewsDTO>>();
             try
@@ -135,6 +135,9 @@ namespace Restaurant.Application.Services.Newss
                 }else if (id != 0 && id != null)
                 {
                     Newss = await _unitOfWork.NewsRepository.GetAllAsync(x => x.Id == id);
+                }else if (size != null)
+                {
+                    Newss = await _unitOfWork.NewsRepository.GetListNewBySize(size);
                 }
                 else
                 { 
