@@ -83,7 +83,10 @@ namespace Restaurant.Infrastructure.Repositories.Products
                 var temId =  _dbContext.TemplateSteps.FirstOrDefault(x => x.ProuctTemplateId == pro.ProductTemplateId);
                 var product = _mapper.Map<Product>(pro);
                 product.Name = productTemplate.Name;
-                product.Price = productTemplate.Price;
+                if(pro.Ingredients.ContainsKey(4) && pro.Ingredients.Count == 1)
+                {
+                    product.Price = productTemplate.Price;
+                }
                 product.CreatedDate = DateTime.Now;
                 product.CreatedBy = _claimsService.GetCurrentUserId;
                
@@ -100,7 +103,10 @@ namespace Restaurant.Infrastructure.Repositories.Products
 
                     foreach (var ingredientId in ingredientIds)
                     {
-                       
+                        var ingredientPrice = await _dbContext.Ingredients
+                                           .Where(i => i.Id == ingredientId)
+                                           .Select(i => i.Price)
+                                           .FirstOrDefaultAsync();
                         if (maxLimit != 0 && ingredientIds.Count > maxLimit)
                         {
                             // Max limit exceeded for this ingredient type
@@ -113,7 +119,8 @@ namespace Restaurant.Infrastructure.Repositories.Products
                             IngredientId = ingredientId,
                             Quantity = 1,
                         };
-                        await _dbContext.IngredientProducts.AddAsync(ingredientProduct);
+                        product.Price = ingredientPrice;
+                          await _dbContext.IngredientProducts.AddAsync(ingredientProduct);
                     }
                 }
                 await _dbContext.Products.AddAsync(product);
