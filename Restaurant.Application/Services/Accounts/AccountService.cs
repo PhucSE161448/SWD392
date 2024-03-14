@@ -371,5 +371,39 @@ namespace Restaurant.Application.Services.Accounts
             }
             return response;
         }
+
+        public async Task<ServiceResponse<UpdateProfileAccountDTO>> GetAccountProfileById(int id)
+        {
+            var response = new ServiceResponse<UpdateProfileAccountDTO>();
+            try
+            {
+                var acc = await _unitOfWork.AccountRepository.GetAsync(x => x.Id == id);
+                if (acc != null)
+                {
+                    response.Success = true;
+                    response.Message = "Account retrieved successfully";
+                    response.Data = _mapper.Map<UpdateProfileAccountDTO>(acc);
+                }
+                else
+                {
+                    response.Success = true;
+                    response.Message = "Account not found";
+                }
+            }
+            catch (DbException ex)
+            {
+                response.Success = false;
+                response.Message = "Database error occurred.";
+                response.ErrorMessages = new List<string> { ex.Message };
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Data = null;
+                response.Message = "Error";
+                response.ErrorMessages = new List<string> { Convert.ToString(ex.Message) };
+            }
+            return response;
+        }
     }
 }
