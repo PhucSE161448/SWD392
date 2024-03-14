@@ -25,6 +25,8 @@ namespace Restaurant.Infrastructures.Mappers
             CreateMap<CreatedAccountDTO, Account>();
             CreateMap<CreatedAccountDTO, AccountDTO>();
             CreateMap<UpdateProfileAccountDTO, Account>().ReverseMap();
+            CreateMap<ProfileAccountDTO, Account>().ReverseMap();
+
 
             CreateMap<RegisterAccountDTO, Account>();
             CreateMap<RegisterAccountDTO, AccountDTO>();
