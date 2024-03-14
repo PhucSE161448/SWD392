@@ -44,7 +44,7 @@ namespace Restaurant.WebAPI.Controllers
         }
 
         [HttpPut("Profile/{id}")]
-        public async Task<IActionResult> UpdateProfile(int id, [FromForm] UpdateProfileAccountDTO accountDTO)
+        public async Task<IActionResult> UpdateProfile(int id, [FromBody] UpdateProfileAccountDTO accountDTO)
         {
             var updateProfile = await _accountService.UpdateProfileAsync(id, accountDTO);
             if (!updateProfile.Success)
