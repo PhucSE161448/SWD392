@@ -45,14 +45,14 @@ namespace Restaurant.Infrastructure.Repositories.TemplateSteps
                 template.CreatedDate = DateTime.Now;
                 await _dbContext.TemplateSteps.AddAsync(template);
                 await _dbContext.SaveChangesAsync();
-                foreach (var ingredientId in templateStep.IngredientTypeId)
+                foreach (var ingredients in templateStep.IngredientType)
                 {
                     var ingredientProduct = new IngredientTypeTemplateStep
                     {
                         TemplateStepId = template.Id,
-                        IngredientTypeId = ingredientId,
-                        QuantityMax = templateStep.Max,
-                        QuantityMin = templateStep.Min,
+                        IngredientTypeId = ingredients.IngredientTypeId,
+                        QuantityMax = ingredients.QuantityMax,
+                        QuantityMin = ingredients.QuantityMin,
                     };
                     await _dbContext.IngredientTypeTemplateSteps.AddAsync(ingredientProduct);
                 }
