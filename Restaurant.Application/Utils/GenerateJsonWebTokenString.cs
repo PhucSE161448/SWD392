@@ -20,6 +20,7 @@ namespace Restaurant.Application.Utils
                 new Claim("Id", user.Id.ToString()),
                 new Claim("Email" ,user.Email),
                 new Claim("Name", user.Username),
+                new Claim("Role" , user.Role),
                 new Claim(ClaimTypes.Role ,user.Role),
             };
             var token = new JwtSecurityToken(
