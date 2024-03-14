@@ -28,6 +28,12 @@ namespace Restaurant.WebAPI.Controllers
             var User = await _accountService.GetAccountByIdAsync(id);
             return Ok(User);
         }
+        [HttpGet("Profile/{id}")]
+        public async Task<IActionResult> GetAccountProfileById(int id)
+        {
+            var User = await _accountService.GetAccountProfileById(id);
+            return Ok(User);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] CreatedAccountDTO createdAccountDTO)
         {

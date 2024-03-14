@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <PackageReference Include="MimeKit" Version="4.4.0" />
     <PackageReference Include="PayPal" Version="1.9.1" />
   </ItemGroup>
 

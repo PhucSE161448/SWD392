@@ -430,3 +430,10 @@ F:\Code\C#\SWD\SWD392\Restaurant.WebAPI\obj\Debug\net6.0\refint\Restaurant.WebAP
 F:\Code\C#\SWD\SWD392\Restaurant.WebAPI\obj\Debug\net6.0\Restaurant.WebAPI.pdb
 F:\Code\C#\SWD\SWD392\Restaurant.WebAPI\obj\Debug\net6.0\Restaurant.WebAPI.genruntimeconfig.cache
 F:\Code\C#\SWD\SWD392\Restaurant.WebAPI\obj\Debug\net6.0\ref\Restaurant.WebAPI.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\MimeKit.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\System.Formats.Asn1.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
