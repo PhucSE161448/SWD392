@@ -9,8 +9,6 @@ namespace Restaurant.Application.Utils
 {
     public static class GenerateJsonWebTokenString
     {
-
-
         public static string GenerateJsonWebToken(this Account user, AppConfiguration appSettingConfiguration, string secretKey, DateTime now)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
@@ -29,7 +27,6 @@ namespace Restaurant.Application.Utils
                 claims: claims,
                 expires: now.AddMinutes(15),
                 signingCredentials: credentials);
-
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
