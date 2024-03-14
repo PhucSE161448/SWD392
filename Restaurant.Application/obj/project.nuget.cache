@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "XdkQO13hzA4630NKdJuznV6cY1PpECROTz/63+Epvq+qVWv6YfdbHwBXL/IwY1GDzBPhMOS0ZKARE1ukNVmDNA==",
+  "dgSpecHash": "h3GSQoxW7mmWqEgPqG0bYDlJfYA+yv94BpuzEObR0nw8lkz3sXgL4B3ELkFyl74Q+Juz2H1XA7f7/9Dp3O6meg==",
   "success": true,
   "projectFilePath": "E:\\University\\GitHub\\SWD392\\Restaurant.Application\\Restaurant.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nhath\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\nhath\\.nuget\\packages\\bouncycastle.cryptography\\2.3.0\\bouncycastle.cryptography.2.3.0.nupkg.sha512",
+    "C:\\Users\\nhath\\.nuget\\packages\\mailkit\\4.4.0\\mailkit.4.4.0.nupkg.sha512",
     "C:\\Users\\nhath\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\nhath\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\nhath\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
@@ -34,6 +35,7 @@
     "C:\\Users\\nhath\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\nhath\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\nhath\\.nuget\\packages\\mimekit\\4.4.0\\mimekit.4.4.0.nupkg.sha512",
+    "C:\\Users\\nhath\\.nuget\\packages\\netcore.mailkit\\2.1.0\\netcore.mailkit.2.1.0.nupkg.sha512",
     "C:\\Users\\nhath\\.nuget\\packages\\newtonsoft.json\\7.0.1\\newtonsoft.json.7.0.1.nupkg.sha512",
     "C:\\Users\\nhath\\.nuget\\packages\\paypal\\1.9.1\\paypal.1.9.1.nupkg.sha512",
     "C:\\Users\\nhath\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",

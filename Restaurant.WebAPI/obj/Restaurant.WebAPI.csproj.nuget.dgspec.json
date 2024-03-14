@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[12.0.1, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[5.0.17, )"
@@ -63,6 +67,10 @@
             "MimeKit": {
               "target": "Package",
               "version": "[4.4.0, )"
+            },
+            "NETCore.MailKit": {
+              "target": "Package",
+              "version": "[2.1.0, )"
             },
             "PayPal": {
               "target": "Package",
