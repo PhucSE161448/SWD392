@@ -372,9 +372,9 @@ namespace Restaurant.Application.Services.Accounts
             return response;
         }
 
-        public async Task<ServiceResponse<UpdateProfileAccountDTO>> GetAccountProfileById(int id)
+        public async Task<ServiceResponse<ProfileAccountDTO>> GetAccountProfileById(int id)
         {
-            var response = new ServiceResponse<UpdateProfileAccountDTO>();
+            var response = new ServiceResponse<ProfileAccountDTO>();
             try
             {
                 var acc = await _unitOfWork.AccountRepository.GetAsync(x => x.Id == id);
@@ -382,7 +382,7 @@ namespace Restaurant.Application.Services.Accounts
                 {
                     response.Success = true;
                     response.Message = "Account retrieved successfully";
-                    response.Data = _mapper.Map<UpdateProfileAccountDTO>(acc);
+                    response.Data = _mapper.Map<ProfileAccountDTO>(acc);
                 }
                 else
                 {

@@ -19,7 +19,7 @@ namespace Restaurant.Application.Interfaces.Accounts
         Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool? isDeleted);
         Task<ServiceResponse<UpdateProfileAccountDTO>> UpdateProfileAsync(int id, UpdateProfileAccountDTO accountDTO);
         Task<ServiceResponse<AccountDTO>> GetAccountByIdAsync(int id);
-        Task<ServiceResponse<UpdateProfileAccountDTO>> GetAccountProfileById(int id);
+        Task<ServiceResponse<ProfileAccountDTO>> GetAccountProfileById(int id);
 
     }
 }
