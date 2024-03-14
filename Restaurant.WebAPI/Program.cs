@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Text.Json.Serialization;
+using Restaurant.WebAPI.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 // parse the configuration in appsettings
@@ -72,12 +73,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseMiddleware<ConfirmationTokenMiddleware>();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();
 app.MapControllers();
+
 
 app.Run();
 public partial class Program { }

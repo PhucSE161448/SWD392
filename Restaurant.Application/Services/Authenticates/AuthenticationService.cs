@@ -82,17 +82,13 @@ namespace Restaurant.Application.Services.Authenticates
             return response;
         }
 
-        public async Task<ServiceResponse<AccountDTO>> RegisterAsync(
-            RegisterAccountDTO registerAccountDTO
-        )
+        public async Task<ServiceResponse<AccountDTO>> RegisterAsync(RegisterAccountDTO registerAccountDTO)
         {
             var response = new ServiceResponse<AccountDTO>();
 
             try
             {
-                var exist = await _unitOfWork.AccountRepository.CheckEmailNameExited(
-                    registerAccountDTO.Email
-                );
+                var exist = await _unitOfWork.AccountRepository.CheckEmailNameExited(registerAccountDTO.Email);
                 if (exist)
                 {
                     response.Success = false;
@@ -110,19 +106,29 @@ namespace Restaurant.Application.Services.Authenticates
                 account.Status = "true";
                 account.Role = "Customer";
                 await _unitOfWork.AccountRepository.AddAsync(account);
-
-                var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
-                if (isSuccess)
+                var confirmationLink = $"https://localhost:7082/swagger/confirm?token={account.ConfirmationToken}";
+                var emailSent = await SendEmail.SendConfirmationEmail(account.Email, confirmationLink);
+                if (!emailSent)
                 {
-                    var accountDTO = _mapper.Map<AccountDTO>(account);
-                    response.Data = accountDTO; // Chuyển đổi sang AccountDTO
-                    response.Success = true;
-                    response.Message = "Register successfully.";
-                }
-                else
-                {
+                    // Xử lý khi gửi email không thành công
                     response.Success = false;
-                    response.Message = "Error saving the account.";
+                    response.Message = "Error sending confirmation email.";
+                    return response;
+                }
+                else {
+                    var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
+                    if (isSuccess)
+                    {
+                        var accountDTO = _mapper.Map<AccountDTO>(account);
+                        response.Data = accountDTO; // Chuyển đổi sang AccountDTO
+                        response.Success = true;
+                        response.Message = "Register successfully.";
+                    }
+                    else
+                    {
+                        response.Success = false;
+                        response.Message = "Error saving the account.";
+                    }
                 }
             }
             catch (DbException ex)
