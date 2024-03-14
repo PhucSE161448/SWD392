@@ -38,9 +38,9 @@ namespace Restaurant.Infrastructure.Repositories.Products
         {
             var product = await _dbContext.Products
                 .Include(p => p.IngredientProducts)
-                    .ThenInclude(ip => ip.Ingredient) 
+                    .ThenInclude(ip => ip.Ingredient)
                 .FirstOrDefaultAsync(p => p.Id == id);
-                
+
             var productDTO = new ProductDTO
             {
                 Id = product.Id,
@@ -59,10 +59,10 @@ namespace Restaurant.Infrastructure.Repositories.Products
             var products = await _dbContext.Products
                 .Include(p => p.IngredientProducts)
                     .ThenInclude(ip => ip.Ingredient)
-                .Where(p => p.IsDeleted == false) 
+                .Where(p => p.IsDeleted == false)
                 .ToListAsync();
             List<ProductDTO> productDTOs = new List<ProductDTO>();
-            if(products != null)
+            if (products != null)
             {
                 productDTOs = products.Select(product => new ProductDTO
                 {
@@ -80,26 +80,28 @@ namespace Restaurant.Infrastructure.Repositories.Products
         {
             try
             {
-                var temId =  _dbContext.TemplateSteps.FirstOrDefault(x => x.ProuctTemplateId == pro.ProductTemplateId);
+                var temId = _dbContext.TemplateSteps.FirstOrDefault(x => x.ProuctTemplateId == pro.ProductTemplateId);
                 var product = _mapper.Map<Product>(pro);
                 product.Name = productTemplate.Name;
-                if(pro.Ingredients.ContainsKey(4) && pro.Ingredients.Count == 1)
-                {
-                    product.Price = productTemplate.Price;
-                }
+                product.Price = productTemplate.Price;
                 product.CreatedDate = DateTime.Now;
                 product.CreatedBy = _claimsService.GetCurrentUserId;
-               
+                await _dbContext.Products.AddAsync(product);
+                await _dbContext.SaveChangesAsync();
 
                 foreach (var ingredientTypeEntry in pro.Ingredients)
                 {
                     var ingredientTypeId = ingredientTypeEntry.Key;
                     var ingredientIds = ingredientTypeEntry.Value;
 
-                    var maxLimit = await _dbContext.IngredientTypeTemplateSteps
+                    var minLimit = await _dbContext.IngredientTypeTemplateSteps
                                                 .Where(its => its.IngredientTypeId == ingredientTypeId && its.TemplateStepId == temId.Id)
-                                                .Select(its => its.QuantityMax)
+                                                .Select(its => its.QuantityMin)
                                                 .FirstOrDefaultAsync();
+                    if (ingredientIds.Count < minLimit)
+                    {
+                        return (false, null);
+                    }
 
                     foreach (var ingredientId in ingredientIds)
                     {
@@ -107,11 +109,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
                                            .Where(i => i.Id == ingredientId)
                                            .Select(i => i.Price)
                                            .FirstOrDefaultAsync();
-                        if (maxLimit != 0 && ingredientIds.Count > maxLimit)
-                        {
-                            // Max limit exceeded for this ingredient type
-                            return (false, null);
-                        }
+                       
 
                         var ingredientProduct = new IngredientProduct
                         {
@@ -119,11 +117,10 @@ namespace Restaurant.Infrastructure.Repositories.Products
                             IngredientId = ingredientId,
                             Quantity = 1,
                         };
-                        product.Price = ingredientPrice;
-                          await _dbContext.IngredientProducts.AddAsync(ingredientProduct);
+                        product.Price += ingredientPrice;
+                        await _dbContext.IngredientProducts.AddAsync(ingredientProduct);
                     }
                 }
-                await _dbContext.Products.AddAsync(product);
                 await _dbContext.SaveChangesAsync();
                 return (true, product);
             }
@@ -138,7 +135,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
 
             foreach (var product in products)
             {
-                totalPrice += product.Price ;
+                totalPrice += product.Price;
             }
 
             return totalPrice;

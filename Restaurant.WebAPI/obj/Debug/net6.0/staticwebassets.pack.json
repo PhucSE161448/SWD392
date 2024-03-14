@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\ProductImage\\Big Bowls.jpg"
     },
     {
+      "Id": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Free.jpg",
+      "PackagePath": "staticwebassets\\ProductImage\\Free.jpg"
+    },
+    {
       "Id": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Red Rice.jpg",
       "PackagePath": "staticwebassets\\ProductImage\\Red Rice.jpg"
     },

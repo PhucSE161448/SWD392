@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bdEmdJUhCHv6wvBe9zwqbymG36kR3Y4VvfjQWASyGq8=",
+  "Hash": "rrjigeRs7GKsuy2uRRUA2Rrjz1REJmRl4sBwNpaDkQE=",
   "Source": "Restaurant.WebAPI",
   "BasePath": "_content/Restaurant.WebAPI",
   "Mode": "Default",
@@ -287,6 +287,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ProductImage\\Big Bowls.jpg"
+    },
+    {
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Free.jpg",
+      "SourceId": "Restaurant.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "BasePath": "_content/Restaurant.WebAPI",
+      "RelativePath": "ProductImage/Free.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProductImage\\Free.jpg"
     },
     {
       "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Red Rice.jpg",
