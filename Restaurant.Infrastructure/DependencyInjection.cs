@@ -53,6 +53,8 @@ using Restaurant.Application.IRepositories.Orders;
 using Restaurant.Infrastructure.Repositories.Orders;
 using Restaurant.Application.Interfaces.Orders;
 using Restaurant.Application.Services.Orders;
+using Restaurant.Application.Services.Help;
+using Restaurant.Application.Interfaces.Help;
 
 namespace Restaurant.Infrastructure
 {
@@ -100,6 +102,8 @@ namespace Restaurant.Infrastructure
             services.AddScoped<IPaypalService, PaypalService>();
 
             services.AddScoped<IVNPayService, VNPayService>();
+
+            services.AddScoped<IHelpService, HelpService>();
 
             services.AddSingleton<ICurrentTime, CurrentTime>();
             services.AddDbContext<MixFoodContext>(options =>
