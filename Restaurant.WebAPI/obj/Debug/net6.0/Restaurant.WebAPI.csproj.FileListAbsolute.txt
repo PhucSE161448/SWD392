@@ -446,3 +446,14 @@ D:\C#\SWD\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\System.Security.Cryptography
 D:\C#\SWD\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
 D:\C#\SWD\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
 D:\C#\SWD\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\System.Text.Json.dll
+E:\University\GitHub\SWD392\Restaurant.WebAPI\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll

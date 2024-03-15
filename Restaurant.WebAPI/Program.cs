@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Text.Json.Serialization;
 using Restaurant.WebAPI.Middlewares;
+using Restaurant.Application.ViewModels.Help;
 
 var builder = WebApplication.CreateBuilder(args);
 // parse the configuration in appsettings
@@ -57,8 +58,8 @@ builder.Services.AddSwaggerGen(setup =>
         { jwtSecurityScheme, Array.Empty<string>() }
     });
 });
-
-
+/*
+builder.Services.Configure<EmailConfiguration>(builder.Configuration.GetSection("EmailConfiguration"));*/
 builder.Services.AddSingleton(configuration);
 var app = builder.Build();
 app.UseCors(options =>

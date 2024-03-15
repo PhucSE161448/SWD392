@@ -12,9 +12,18 @@ namespace Restaurant.Application.Commons
         public string Issuer { get; set; }
         public string Audience { get; set; }
     }
+    public class EmailConfig
+    {
+        public string From { get; set; }
+        public string SmtpServer { get; set; }
+        public int Port { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+    }
     public class AppConfiguration
     {
         public string DatabaseConnection { get; set; }
         public JWTSection JWTSection { get; set; }
+        public EmailConfig EmailConfiguration { get; set; }  
     }
 }
