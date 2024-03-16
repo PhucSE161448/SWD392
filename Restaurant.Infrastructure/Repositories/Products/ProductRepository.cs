@@ -20,6 +20,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
         private readonly MixFoodContext _dbContext;
         private readonly IMapper _mapper;
         private readonly IClaimsService _claimsService;
+        private readonly string _currentUserId;
         public ProductRepository(
             MixFoodContext context,
             ICurrentTime timeService,
@@ -31,6 +32,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
             _dbContext = context;
             _mapper = mapper;
             _claimsService = claimsService;
+            _currentUserId = claimsService.GetCurrentUserId;
         }
 
 
@@ -95,7 +97,10 @@ namespace Restaurant.Infrastructure.Repositories.Products
                 var product = _mapper.Map<Product>(pro);
                 product.Name = productTemplate.Name;
                 product.Price = productTemplate.Price;
-
+                product.CreatedBy = _currentUserId;
+                product.CreatedDate = DateTime.Now;
+                await _dbContext.Products.AddAsync(product);
+                await _dbContext.SaveChangesAsync();
                 foreach (var ingredientTypeEntry in pro.Ingredients)
                 {
                     var ingredientTypeId = ingredientTypeEntry.Key;
@@ -120,7 +125,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
 
                         var ingredientProduct = new IngredientProduct
                         {
-                            ProductId = product.Id,
+                            Product = product,
                             IngredientId = ingredientId,
                             Quantity = 1,
                         };

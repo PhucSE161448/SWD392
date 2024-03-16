@@ -33,9 +33,8 @@ namespace Restaurant.Application.Services.Products
             {
                 var productTemplate = await _unitOfWork.ProductTemplateRepository.GetAsync(x => x.Id == CreatedProductDTO.ProductTemplateId);
                 var (isSuccess, Product) = await _unitOfWork.ProductRepository.CreateProductAsync(CreatedProductDTO, _mapper.Map<ProductTemplateDTO>(productTemplate));
-                await _unitOfWork.ProductRepository.AddAsync(Product);
-                var finish = await _unitOfWork.SaveChangeAsync() > 0;
-                if (isSuccess && finish)
+               
+                if (isSuccess)
                 {
                     var p = await _unitOfWork.ProductRepository.GetAsync(x => x.Id == Product.Id, includeProperties: "IngredientProducts");
                     var pro = _mapper.Map<ProductDTO>(p);
