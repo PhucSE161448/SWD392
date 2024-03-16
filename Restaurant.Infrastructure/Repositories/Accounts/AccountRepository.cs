@@ -45,7 +45,7 @@ namespace Restaurant.Infrastructure.Repositories.Accounts
         public async Task<Account> GetUserByConfirmationToken(string token)
         {
             return await _dbContext.Accounts.SingleOrDefaultAsync(
-                u => u.Status == token
+                u => u.ConfirmationToken == token
             );
         }
 

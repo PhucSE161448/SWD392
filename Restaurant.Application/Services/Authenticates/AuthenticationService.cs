@@ -112,7 +112,7 @@ namespace Restaurant.Application.Services.Authenticates
                 account.Status = "true";
                 account.Role = "Customer";
                 await _unitOfWork.AccountRepository.AddAsync(account);
-                var confirmationLink = $"https://localhost:7082/swagger/confirm?token={account.ConfirmationToken}";
+                var confirmationLink = $"https://mixfood.azurewebsites.net/swagger/confirm?token={account.ConfirmationToken}";
                 var emailSent = await SendEmail.SendConfirmationEmail(account.Email, confirmationLink);
                 if (!emailSent)
                 {
