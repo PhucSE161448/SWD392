@@ -16,5 +16,6 @@ namespace Restaurant.Application.ViewModels.NutritionsDTO
         public string? Vitamin { get; set; }
         public string? HealthValue { get; set; }
         public string? Nutrition1 { get; set; }
+        public bool? IsDeleted { get; set; }
     }
 }
