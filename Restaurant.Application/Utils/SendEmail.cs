@@ -33,43 +33,57 @@ namespace Restaurant.Application.Utils
             message.Body = new TextPart("html")
             {
                 Text =
-                    @"
-                    <html>
-                        <head>
-                            <style>
-                                body {
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    height: 100vh;
-                                    margin: 0;
-                                    font-family: Arial, sans-serif;
-                                }
-                                .content {
-                                    text-align: center;
-                                }
-                                .button {
-                                    display: inline-block;
-                                    padding: 10px 20px;
-                                    background-color: #000;
-                                    color: #ffffff;
-                                    text-decoration: none;
-                                    border-radius: 5px;
-                                    font-size: 16px;
-                                }
-                            </style>
-                        </head>
-                        <body>
-                            <div class='content'>
-                                <p>Please click the button below to confirm your email:</p>
-                                <a class='button' href='"
-                    + confirmationLink
-                    + "'>Confirm Email</a>"
-                    + @"
-                            </div>
-                        </body>
-                    </html>
-                "
+        @"
+        <html>
+            <head>
+                <style>
+                    body {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                        margin: 0;
+                        font-family: 'Arial', sans-serif;
+                        background-color: #fff3e0; /* Màu nền nhẹ nhàng */
+                    }
+                    .content {
+                        text-align: center;
+                        padding: 20px;
+                        background-color: #ffe0b2; /* Màu nền cho khối nội dung */
+                        border-radius: 10px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng cho khối nội dung */
+                    }
+                    .header {
+                        color: #ff6f00; /* Màu cho tiêu đề */
+                        font-size: 24px;
+                        margin-bottom: 20px;
+                    }
+                    .button {
+                        display: inline-block;
+                        padding: 10px 20px;
+                        background-color: #ff9800; /* Màu nền cho nút */
+                        color: #ffffff; /* Màu chữ cho nút */
+                        text-decoration: none;
+                        border-radius: 5px;
+                        font-size: 16px;
+                        transition: background-color 0.3s ease; /* Hiệu ứng khi hover */
+                    }
+                    .button:hover {
+                        background-color: #fb8c00; /* Thay đổi màu khi hover */
+                    }
+                </style>
+            </head>
+            <body>
+                <div class='content'>
+                    <div class='header'>Welcome to MixFoodie's Heaven!</div>
+                    <p>Please click the button below to confirm your email and start exploring delicious recipes:</p>
+                    <a class='button' href='"
+        + confirmationLink
+        + @"'>Confirm Email</a>
+                </div>
+            </body>
+        </html>
+    "
             };
 
             using (var client = new SmtpClient())
