@@ -15,5 +15,6 @@ namespace Restaurant.Application.Interfaces.ProductTemplates
         Task<ServiceResponse<ProductTemplateDTO>> CreateProductTemplateAsync(ProductTemplateCreateDTO CreatedProductTemplateDTO, string url);
         Task<ServiceResponse<ProductTemplateDTO>> UpdateProductTemplateAsync(int id, ProductTemplateUpdateDTO ProductTemplateDTO,string url);
         Task<ServiceResponse<bool>> DeleteProductTemplateAsync(int id);
+        Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool? isDeleted);
     }
 }

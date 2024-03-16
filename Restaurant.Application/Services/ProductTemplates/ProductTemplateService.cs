@@ -196,6 +196,47 @@ namespace Restaurant.Application.Services.ProductTemplates
             return _response;
         }
 
+        public async Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool? isDeleted)
+        {
+            var response = new ServiceResponse<bool>();
+
+            var exist = await _unitOfWork.ProductTemplateRepository.GetByIdAsync(id);
+            if (exist == null)
+            {
+                response.Success = false;
+                response.Message = "Account is not existed";
+                return response;
+            }
+
+            try
+            {
+                if (isDeleted.HasValue)
+                {
+                    exist.IsDeleted = isDeleted;
+                }
+                _unitOfWork.ProductTemplateRepository.Update(exist);
+
+                var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
+                if (isSuccess)
+                {
+                    response.Success = true;
+                    response.Message = "Account update successfully.";
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Error update the account.";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Error";
+                response.ErrorMessages = new List<string> { ex.Message };
+            }
+
+            return response;
+        }
 
         public async Task<ServiceResponse<ProductTemplateDTO>> UpdateProductTemplateAsync(int id, ProductTemplateUpdateDTO ProductTemplateDTO, string url)
         {

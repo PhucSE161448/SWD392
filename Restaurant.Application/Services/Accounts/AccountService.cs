@@ -231,7 +231,7 @@ namespace Restaurant.Application.Services.Accounts
                 response.Message = "New password and confirmation do not match";
                 return response;
             }
-
+             
             // Băm mật khẩu mới
             var hashedNewPassword = HashPassword.HashWithSHA256(changePasswordDto.NewPassword);
 
