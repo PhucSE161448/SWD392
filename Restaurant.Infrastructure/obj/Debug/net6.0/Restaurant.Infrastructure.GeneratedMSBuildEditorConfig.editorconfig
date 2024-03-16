@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Restaurant.Infrastructure
-build_property.ProjectDir = D:\C#\SWD\SWD392\Restaurant.Infrastructure\
+build_property.ProjectDir = E:\University\GitHub\SWD392\Restaurant.Infrastructure\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
