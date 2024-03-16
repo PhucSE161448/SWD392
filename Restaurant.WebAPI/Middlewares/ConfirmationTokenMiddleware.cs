@@ -32,6 +32,7 @@ namespace Restaurant.WebAPI.Middlewares
                         //user.ConfirmationToken = null;
                         await unitOfWork.SaveChangeAsync();
 
+
                        await context.Response.WriteAsync("Email has been confirmed successfully!");
                         return;
                     }
