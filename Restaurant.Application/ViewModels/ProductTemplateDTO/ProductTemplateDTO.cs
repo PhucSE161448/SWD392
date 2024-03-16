@@ -18,6 +18,7 @@ namespace Restaurant.Application.ViewModels.ProductTemplateDTO
         public decimal Price { get; set; }
         public int StoreId { get; set; }
         public string Description { get; set; }
+        public bool? isDeleted { get; set; }
         public CategoryDto Category {  get; set; }
     }
 }
