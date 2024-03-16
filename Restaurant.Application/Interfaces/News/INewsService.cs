@@ -16,6 +16,7 @@ namespace Restaurant.Application.Interfaces.News
         Task<ServiceResponse<NewsDTO>> CreateNewsAsync(AddNewsDTO AddNewsDTO, string image);
         Task<ServiceResponse<NewsDTO>> UpdateNewsAsync(int id, AddNewsDTO NewsDTO, string image);
         Task<ServiceResponse<bool>> DeleteNewsAsync(int id);
+        Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool? isDeleted);
         Task<ServiceResponse<IEnumerable<NewsDTO>>> SearchNewsByNameAsync(string name);
         Task<ServiceResponse<IEnumerable<NewsDTO>>> GetSortedNewsAsync();
     }

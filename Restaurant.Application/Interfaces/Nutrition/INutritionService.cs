@@ -19,5 +19,6 @@ namespace Restaurant.Application.Interfaces.Nutrition
         Task<ServiceResponse<IEnumerable<NutritionDTO>>> GetSortedNutritionAsync();
         Task<ServiceResponse<IEnumerable<NutritionDTO>>> GetNutritionByIngredientIdAsync(int id);
         Task<ServiceResponse<NutritionDTO>> GetNutritionByIngredientId(int ingredientId);
+        Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool? isDeleted);
     }
 }
