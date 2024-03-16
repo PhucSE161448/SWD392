@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Restaurant.Application.Interfaces;
 using Restaurant.Application.Interfaces.Products;
 using Restaurant.Application.ViewModels.ProductDTO;
@@ -32,7 +33,9 @@ namespace Restaurant.Application.Services.Products
             {
                 var productTemplate = await _unitOfWork.ProductTemplateRepository.GetAsync(x => x.Id == CreatedProductDTO.ProductTemplateId);
                 var (isSuccess, Product) = await _unitOfWork.ProductRepository.CreateProductAsync(CreatedProductDTO, _mapper.Map<ProductTemplateDTO>(productTemplate));
-                if (isSuccess)
+                await _unitOfWork.ProductRepository.AddAsync(Product);
+                var finish = await _unitOfWork.SaveChangeAsync() > 0;
+                if (isSuccess && finish)
                 {
                     var p = await _unitOfWork.ProductRepository.GetAsync(x => x.Id == Product.Id, includeProperties: "IngredientProducts");
                     var pro = _mapper.Map<ProductDTO>(p);
@@ -101,12 +104,12 @@ namespace Restaurant.Application.Services.Products
             return response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<ProductDTO>>> GetAllProductAsync()
+        public async Task<ServiceResponse<IEnumerable<ProductDTO>>> GetAllProductAsync(string? name = null)
         {
             var _response = new ServiceResponse<IEnumerable<ProductDTO>>();
             try
             {
-                var products = await _unitOfWork.ProductRepository.GetProductsByUserId();
+                var products = await _unitOfWork.ProductRepository.GetProductsByUserId(name);
                 if (products.Count != 0)
                 {
                     _response.Success = true;

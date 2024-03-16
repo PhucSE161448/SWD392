@@ -147,10 +147,7 @@ namespace Restaurant.Application.Services.Newss
                 var NewsDTOs = new List<NewsDTO>();
                 foreach (var pro in Newss)
                 {
-                    if ((bool)!pro.IsDeleted)
-                    {
                         NewsDTOs.Add(_mapper.Map<NewsDTO>(pro));
-                    }
                 }
                 if (NewsDTOs.Count != 0)
                 {

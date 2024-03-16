@@ -130,10 +130,7 @@ namespace Restaurant.Application.Services.ProductTemplates
                 var ProductTemplateDTOs = new List<ProductTemplateDTO>();
                 foreach (var pro in productTemplates)
                 {
-                    if ((bool)!pro.IsDeleted)
-                    {
                         ProductTemplateDTOs.Add(_mapper.Map<ProductTemplateDTO>(pro));
-                    }
                 }
                 if (ProductTemplateDTOs.Count != 0)
                 {

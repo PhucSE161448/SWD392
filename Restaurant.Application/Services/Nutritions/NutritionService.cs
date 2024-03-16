@@ -120,10 +120,7 @@ namespace Restaurant.Application.Services.Nutritions
                 var NutritionDTOs = new List<NutritionDTO>();
                 foreach (var pro in Nutritions)
                 {
-                    if ((bool)!pro.IsDeleted)
-                    {
                         NutritionDTOs.Add(_mapper.Map<NutritionDTO>(pro));
-                    }
                 }
                 if (NutritionDTOs.Count != 0)
                 {
@@ -231,7 +228,7 @@ namespace Restaurant.Application.Services.Nutritions
                 var NutritionDTOs = new List<NutritionDTO>();
                 foreach (var pro in Nutritions)
                 {
-                    if ((bool)!pro.IsDeleted)
+                    if ((bool)pro.IsDeleted)
                     {
                         NutritionDTOs.Add(_mapper.Map<NutritionDTO>(pro));
                     }
@@ -363,7 +360,7 @@ namespace Restaurant.Application.Services.Nutritions
                 var NutritionDTOs = new List<NutritionDTO>();
                 foreach (var pro in Nutritions)
                 {
-                    if ((bool)!pro.IsDeleted && pro.IngredientId == id)
+                    if ((bool)pro.IsDeleted && pro.IngredientId == id)
                     {
                         NutritionDTOs.Add(_mapper.Map<NutritionDTO>(pro));
                     }

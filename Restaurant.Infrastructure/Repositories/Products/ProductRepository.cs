@@ -53,14 +53,25 @@ namespace Restaurant.Infrastructure.Repositories.Products
             return productDTO;
         }
 
-        public async Task<List<ProductDTO>> GetProductsByUserId()
+        public async Task<List<ProductDTO>> GetProductsByUserId(string? name)
         {
-
-            var products = await _dbContext.Products
-                .Include(p => p.IngredientProducts)
-                    .ThenInclude(ip => ip.Ingredient)
-                .Where(p => p.IsDeleted == false)
-                .ToListAsync();
+            List<Product> products = new List<Product>();
+            if(!string.IsNullOrEmpty(name))
+            {
+                products = await _dbContext.Products
+               .Include(p => p.IngredientProducts)
+                   .ThenInclude(ip => ip.Ingredient)
+               .Where(p => p.IsDeleted == false && p.CreatedBy == name)
+               .ToListAsync();
+            }
+            else
+            {
+                products = await _dbContext.Products
+               .Include(p => p.IngredientProducts)
+                   .ThenInclude(ip => ip.Ingredient)
+               .Where(p => p.IsDeleted == false)
+               .ToListAsync();
+            }
             List<ProductDTO> productDTOs = new List<ProductDTO>();
             if (products != null)
             {
@@ -84,10 +95,6 @@ namespace Restaurant.Infrastructure.Repositories.Products
                 var product = _mapper.Map<Product>(pro);
                 product.Name = productTemplate.Name;
                 product.Price = productTemplate.Price;
-                product.CreatedDate = DateTime.Now;
-                product.CreatedBy = _claimsService.GetCurrentUserId;
-                await _dbContext.Products.AddAsync(product);
-                await _dbContext.SaveChangesAsync();
 
                 foreach (var ingredientTypeEntry in pro.Ingredients)
                 {

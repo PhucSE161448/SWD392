@@ -25,17 +25,16 @@ namespace Restaurant.WebAPI.Middlewares
                 if (!string.IsNullOrEmpty(token))
                 {
                     var user = await unitOfWork.AccountRepository.GetUserByConfirmationToken(token);
-                    await context.Response.WriteAsync("Email has been confirmed successfully!");
-                    //if (user != null && !user.IsConfirmed)
-                    //{
-                    //    // Xác nhận tài khoản
-                    //    user.IsConfirmed = true;
-                    //    //user.ConfirmationToken = null;
-                    //    await unitOfWork.SaveChangeAsync();
+                    if (user != null && user.IsConfirmed != true)
+                    {
+                        // Xác nhận tài khoản
+                        user.IsConfirmed = true;
+                        //user.ConfirmationToken = null;
+                        await unitOfWork.SaveChangeAsync();
 
-                    //    await context.Response.WriteAsync("Email has been confirmed successfully!");
-                    //    return;
-                    //}
+                       await context.Response.WriteAsync("Email has been confirmed successfully!");
+                        return;
+                    }
                 }
             }
 

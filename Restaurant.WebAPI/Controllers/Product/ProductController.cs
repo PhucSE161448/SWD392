@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Restaurant.Application.Interfaces;
 using Restaurant.Application.Interfaces.Products;
 using Restaurant.Application.ViewModels.ProductDTO;
 using Restaurant.Domain.Entities;
@@ -10,14 +11,17 @@ namespace Restaurant.WebAPI.Controllers
     public class ProductController : BaseController
     {
         private readonly IProductService _productService;
-        public ProductController(IProductService productService)
+        private readonly IClaimsService _claimsService;
+        public ProductController(IProductService productService, IClaimsService claimsService)
         {
             _productService = productService;
+            _claimsService = claimsService;
         }
         [HttpGet]
         public async Task<IActionResult> GetProductList()
         {
-            var result = await _productService.GetAllProductAsync();
+            var name = _claimsService.GetCurrentUserId;
+            var result = await _productService.GetAllProductAsync(name);
             return Ok(result);
         }
         [HttpGet("{id}")]

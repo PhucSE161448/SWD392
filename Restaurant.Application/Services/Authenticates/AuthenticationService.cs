@@ -55,7 +55,13 @@ namespace Restaurant.Application.Services.Authenticates
                     response.Success = true;
                     response.Message = "Account is deleted";
                     return response;
-                }   
+                }
+                if (user.IsConfirmed == false)
+                {
+                    response.Success = true;
+                    response.Message = "Please confirm via link in your email box";
+                    return response;
+                }
                 var token = user.GenerateJsonWebToken(
                     _configuration,
                     _configuration.JWTSection.SecretKey,

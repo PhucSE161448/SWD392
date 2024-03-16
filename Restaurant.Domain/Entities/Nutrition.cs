@@ -13,7 +13,7 @@ namespace Restaurant.Domain.Entities
         public string? Vitamin { get; set; }
         public string? HealthValue { get; set; }
         public string? Nutrition1 { get; set; }
-
+ 
         public virtual Ingredient? Ingredient { get; set; }
     }
 }

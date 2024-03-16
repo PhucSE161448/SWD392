@@ -121,8 +121,11 @@ namespace Restaurant.Application.Services.Accounts
 
                 foreach (var acc in accounts)
                 {
-
-                    accountDTOs.Add(_mapper.Map<AccountDTO>(acc));
+                    if (acc.IsConfirmed == true)
+                    {
+                        accountDTOs.Add(_mapper.Map<AccountDTO>(acc));
+                    }
+                   
 
                 }
 

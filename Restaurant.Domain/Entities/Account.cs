@@ -18,11 +18,12 @@ namespace Restaurant.Domain.Entities
         public string Password { get; set; } = null!;
         public string Role { get; set; } = null!;
         public string Status { get; set; } = null!;
-        //public bool IsConfirmed { get; set; }
         public string Phone { get; set; } = null!;
         public string? Avatar { get; set; }
+
         public string? ConfirmationToken { get; set; }
         public string Gender { get; set; } = null!;
+        public bool? IsConfirmed { get; set; }
 
         public virtual ICollection<FeedBack> FeedBacks { get; set; }
         public virtual ICollection<News> News { get; set; }
