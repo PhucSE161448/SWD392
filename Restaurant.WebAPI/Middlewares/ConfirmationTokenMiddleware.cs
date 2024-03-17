@@ -60,10 +60,11 @@ namespace Restaurant.WebAPI.Middlewares
                         await context.Response.WriteAsync(emailContent);
                         return;
                     }
+                    context.Response.ContentType = "text/html";
+                    await context.Response.WriteAsync("<html><body><p>Invalid token or account already confirmed.</p></body></html>");
                 }
             }
-            context.Response.ContentType = "text/html";
-            await context.Response.WriteAsync("<html><body><p>Invalid token or account already confirmed.</p></body></html>");
+           
             await _next(context);
         }
     }
