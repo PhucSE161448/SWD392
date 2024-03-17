@@ -1,27 +1,33 @@
 ﻿using Application.ViewModels.AccountDTO;
+using AutoMapper;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using PayPal.Api;
+using Restaurant.Application.Interfaces;
 using Restaurant.Application.Interfaces.Accounts;
 using Restaurant.Application.Interfaces.Orders;
 using Restaurant.Application.Interfaces.Payments;
 using Restaurant.Application.Interfaces.Products;
+using Restaurant.Application.IRepositories.Accounts;
 using Restaurant.Application.ViewModels.OrderDTO;
 
 namespace Restaurant.WebAPI.Controllers.Payments
 {
     public class PaypalController : BaseController
     {
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IPaypalService _paypalService;
         private readonly IProductService _productService;
         private readonly IAccountService _accountService;
         private readonly IOrderService _orderService;
+
         private readonly ILogger<PaypalController> _logger;
         private IHttpContextAccessor _httpContextAccessor;
+        private readonly IMapper _mapper;
         IConfiguration _configuration;
         private PayPal.Api.Payment payment;
         public PaypalController(IPaypalService paypalService, ILogger<PaypalController> logger, IHttpContextAccessor context, IConfiguration iconfiguration,
-            IProductService productService, IAccountService accountService, IOrderService orderService)
+            IProductService productService, IAccountService accountService, IOrderService orderService, IMapper mapper, IUnitOfWork unitOfWork)
         {
             _logger = logger;
             _httpContextAccessor = context;
@@ -30,6 +36,8 @@ namespace Restaurant.WebAPI.Controllers.Payments
             _productService = productService;
             _accountService = accountService;
             _orderService = orderService;
+            _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet("PaymentPaypal/{accountId}")]
@@ -137,8 +145,8 @@ namespace Restaurant.WebAPI.Controllers.Payments
 
 
             //----------------------------SỬA Ở ĐÂY-----------------------------------
-            //AccountDTO customerData = await _accountService.GetAccountAsync(accountId);
-            //var data = await _cartService.GetCustomerCart(customerId);
+            var userName = _accountService.GetAccountByIdAsync(accountId).Result.Data.Username;
+            //var data = await _productService.GetProductAsync();
             var itemList = new ItemList()
             {
                 items = new List<Item>()
@@ -149,7 +157,7 @@ namespace Restaurant.WebAPI.Controllers.Payments
             //----------------------------SỬA Ở ĐÂY-----------------------------------
             //itemList.items.Add(new Item()
             //{
-            //    name = customerData.CustomerName,
+            //    name = userName,
             //    currency = "USD",
             //    price = data.totalDiscount.ToString(),
             //    quantity = data.totalAmount.ToString(),

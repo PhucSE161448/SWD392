@@ -26,7 +26,7 @@ namespace Restaurant.WebAPI.Controllers.Nutrition
         [HttpGet("Ingredient/{ingredientId}")]
         public async Task<IActionResult> GetNutritionByIngredientId(int ingredientId)
         {
-            var result = await _NutritionService.GetNutritionByIngredientIdAsync(ingredientId);
+            var result = await _NutritionService.GetNutritionByIngredientId(ingredientId);
             return Ok(result);
         }
         [HttpPost]
