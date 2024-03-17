@@ -114,13 +114,15 @@ namespace Restaurant.Application.Services.Ingredients
         public async Task<ServiceResponse<IEnumerable<IngredientDTO>>> GetAllIngredientAsync()
         {
             var _response = new ServiceResponse<IEnumerable<IngredientDTO>>();
+            var ingredient = await _unitOfWork.IngredientTypeRepository.GetAllAsync();
+            var ingredientDeletionStatus = ingredient.ToDictionary(ing => ing.Id, ing => ing.IsDeleted);
             try
             {
                 var Ingredients = await _unitOfWork.IngredientRepository.GetAllAsync(includeProperties:"IngredientType");
                 var IngredientDTOs = new List<IngredientDTO>();
                 foreach (var pro in Ingredients)
                 {
-                    if ((bool)!pro.IsDeleted)
+                    if (!ingredientDeletionStatus.TryGetValue(pro.IngredientTypeId, out var isDeleted) || isDeleted == false)
                     {
                         IngredientDTOs.Add(_mapper.Map<IngredientDTO>(pro));
                     }
@@ -314,6 +316,47 @@ namespace Restaurant.Application.Services.Ingredients
                 response.Message = "Error";
                 response.ErrorMessages = new List<string> { ex.Message };
             }
+            return response;
+        }
+        public async Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool? isDeleted)
+        {
+            var response = new ServiceResponse<bool>();
+
+            var exist = await _unitOfWork.IngredientRepository.GetByIdAsync(id);
+            if (exist == null)
+            {
+                response.Success = false;
+                response.Message = "Ingredient is not existed";
+                return response;
+            }
+
+            try
+            {
+                if (isDeleted.HasValue)
+                {
+                    exist.IsDeleted = isDeleted;
+                }
+                _unitOfWork.IngredientRepository.Update(exist);
+
+                var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
+                if (isSuccess)
+                {
+                    response.Success = true;
+                    response.Message = "Ingredient update successfully.";
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Error update the Ingredient";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Error";
+                response.ErrorMessages = new List<string> { ex.Message };
+            }
+
             return response;
         }
     }

@@ -111,5 +111,15 @@ namespace Restaurant.WebAPI.Controllers.Ingredient
             }
             return Ok(result);
         }
+        [HttpPut("Status/{id}")]
+        public async Task<IActionResult> UpdateIsDelete(int id, [FromQuery] bool? isDeleted)
+        {
+            var updatedUser = await _IngredientService.UpdateIsDelete(id, isDeleted);
+            if (!updatedUser.Success)
+            {
+                return NotFound(updatedUser);
+            }
+            return Ok(updatedUser);
+        }
     }
 }

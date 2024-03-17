@@ -108,10 +108,7 @@ namespace Restaurant.Application.Services.Ingredient_Type
                 var IngredientTypeDTOs = new List<IngredientTypeDTO>();
                 foreach (var pro in IngredientTypes)
                 {
-                    if ((bool)!pro.IsDeleted)
-                    {
-                        IngredientTypeDTOs.Add(_mapper.Map<IngredientTypeDTO>(pro));
-                    }
+                    IngredientTypeDTOs.Add(_mapper.Map<IngredientTypeDTO>(pro));
                 }
                 if (IngredientTypeDTOs.Count != 0)
                 {
@@ -214,6 +211,47 @@ namespace Restaurant.Application.Services.Ingredient_Type
                 response.Message = "Error";
                 response.ErrorMessages = new List<string> { ex.Message };
             }
+            return response;
+        }
+        public async Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool? isDeleted)
+        {
+            var response = new ServiceResponse<bool>();
+
+            var exist = await _unitOfWork.IngredientTypeRepository.GetByIdAsync(id);
+            if (exist == null)
+            {
+                response.Success = false;
+                response.Message = "IngredientType is not existed";
+                return response;
+            }
+
+            try
+            {
+                if (isDeleted.HasValue)
+                {
+                    exist.IsDeleted = isDeleted;
+                }
+                _unitOfWork.IngredientTypeRepository.Update(exist);
+
+                var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
+                if (isSuccess)
+                {
+                    response.Success = true;
+                    response.Message = "IngredientType update successfully.";
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Error update the IngredientType.";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Error";
+                response.ErrorMessages = new List<string> { ex.Message };
+            }
+
             return response;
         }
     }

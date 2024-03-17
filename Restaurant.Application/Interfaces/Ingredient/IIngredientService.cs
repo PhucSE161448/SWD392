@@ -17,5 +17,6 @@ namespace Restaurant.Application.Interfaces.Ingredient
         Task<ServiceResponse<bool>> DeleteIngredientAsync(int id);
         Task<ServiceResponse<IEnumerable<IngredientDTO>>> SearchIngredientByNameAsync(string name);
         Task<ServiceResponse<IEnumerable<IngredientDTO>>> GetSortedIngredientAsync();
+        Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool? isDeleted);
     }
 }

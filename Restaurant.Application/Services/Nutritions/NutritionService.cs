@@ -399,7 +399,7 @@ namespace Restaurant.Application.Services.Nutritions
             if (exist == null)
             {
                 response.Success = false;
-                response.Message = "Account is not existed";
+                response.Message = "Nutrition is not existed";
                 return response;
             }
 
@@ -415,12 +415,12 @@ namespace Restaurant.Application.Services.Nutritions
                 if (isSuccess)
                 {
                     response.Success = true;
-                    response.Message = "Account update successfully.";
+                    response.Message = "Nutrition update successfully.";
                 }
                 else
                 {
                     response.Success = false;
-                    response.Message = "Error update the account.";
+                    response.Message = "Error update the Nutrition.";
                 }
             }
             catch (Exception ex)

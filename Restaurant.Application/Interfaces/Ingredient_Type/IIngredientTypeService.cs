@@ -16,5 +16,6 @@ namespace Restaurant.Application.Interfaces.Ingredient_Type
         Task<ServiceResponse<IngredientTypeDTO>> CreateIngredientTypeAsync(AddUpdateIngredientTypeDTO IngredientTypeDto);
         Task<ServiceResponse<IngredientTypeDTO>> UpdateIngredientTypeAsync(int id, AddUpdateIngredientTypeDTO IngredientTypeDto);
         Task<ServiceResponse<bool>> DeleteIngredientTypeAsync(int id);
+        Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool? isDeleted);
     }
 }

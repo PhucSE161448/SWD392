@@ -125,8 +125,6 @@ namespace Restaurant.Application.Services.Accounts
                     {
                         accountDTOs.Add(_mapper.Map<AccountDTO>(acc));
                     }
-                   
-
                 }
 
                 if (accountDTOs.Count != 0)

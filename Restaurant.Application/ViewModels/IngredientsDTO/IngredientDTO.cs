@@ -15,6 +15,7 @@ namespace Restaurant.Application.ViewModels.IngredientsDTO
         public int Calo { get; set; }
         public string Description { get; set; } = null!;
         public string ImageUrl { get; set; } = null!;
+        public bool? IsDeleted { get; set; }
         public IngredientTypeDTO IngredientType { get; set; }
     }
 }

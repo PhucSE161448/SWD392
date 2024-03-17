@@ -16,5 +16,6 @@ namespace Restaurant.Application.Interfaces.Categories
         Task<ServiceResponse<CategoryDto>> CreateCategoryAsync(AddUpdateCategoryDTO CategoryDto);
         Task<ServiceResponse<CategoryDto>> UpdateCategoryAsync(int id, AddUpdateCategoryDTO CategoryDto);
         Task<ServiceResponse<bool>> DeleteCategoryAsync(int id);
+        Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool? isDeleted);
     }
 }

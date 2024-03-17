@@ -116,10 +116,7 @@ namespace Restaurant.Application.Services.Categories
                 var CategoryDTOs = new List<CategoryDto>();
                 foreach (var pro in categorys)
                 {
-                    if ((bool)!pro.IsDeleted)
-                    {
-                        CategoryDTOs.Add(_mapper.Map<CategoryDto>(pro));
-                    }
+                    CategoryDTOs.Add(_mapper.Map<CategoryDto>(pro));
                 }
                 if (CategoryDTOs.Count != 0)
                 {
@@ -194,7 +191,7 @@ namespace Restaurant.Application.Services.Categories
             }
             try
             {
-                var category = _mapper.Map(CategoryDTO,exist);
+                var category = _mapper.Map(CategoryDTO, exist);
                 _unitOfWork.CategoryRepository.Update(category);
                 var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                 if (isSuccess)
@@ -221,6 +218,46 @@ namespace Restaurant.Application.Services.Categories
                 response.Message = "Error";
                 response.ErrorMessages = new List<string> { ex.Message };
             }
+            return response;
+        }
+        public async Task<ServiceResponse<bool>> UpdateIsDelete(int id, bool? isDeleted)
+        {
+            var response = new ServiceResponse<bool>();
+
+            var exist = await _unitOfWork.CategoryRepository.GetByIdAsync(id);
+            if (exist == null)
+            {
+                response.Success = false;
+                response.Message = "Category is not existed";
+                return response;
+            }
+            try
+            {
+                if (isDeleted.HasValue)
+                {
+                    exist.IsDeleted = isDeleted;
+                }
+                _unitOfWork.CategoryRepository.Update(exist);
+
+                var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
+                if (isSuccess)
+                {
+                    response.Success = true;
+                    response.Message = "Category update successfully.";
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "Error update the Category.";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                response.Message = "Error";
+                response.ErrorMessages = new List<string> { ex.Message };
+            }
+
             return response;
         }
     }

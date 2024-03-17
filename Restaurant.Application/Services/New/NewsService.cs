@@ -348,7 +348,7 @@ namespace Restaurant.Application.Services.Newss
             if (exist == null)
             {
                 response.Success = false;
-                response.Message = "Account is not existed";
+                response.Message = "News is not existed";
                 return response;
             }
 
@@ -364,12 +364,12 @@ namespace Restaurant.Application.Services.Newss
                 if (isSuccess)
                 {
                     response.Success = true;
-                    response.Message = "Account update successfully.";
+                    response.Message = "News update successfully.";
                 }
                 else
                 {
                     response.Success = false;
-                    response.Message = "Error update the account.";
+                    response.Message = "Error update the News.";
                 }
             }
             catch (Exception ex)
