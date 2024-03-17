@@ -116,6 +116,8 @@ namespace Restaurant.Application.Services.ProductTemplates
         public async Task<ServiceResponse<IEnumerable<ProductTemplateDTO>>> GetAllProductTemplateAsync(string size = null)
         {
             var _response = new ServiceResponse<IEnumerable<ProductTemplateDTO>>();
+            var category = await _unitOfWork.CategoryRepository.GetAllAsync();
+            var categoryDeletionStatus = category.ToDictionary(cat => cat.Id, cat => cat.IsDeleted);
             try
             {
                 List<ProductTemplate> productTemplates = new List<ProductTemplate>();
@@ -130,7 +132,10 @@ namespace Restaurant.Application.Services.ProductTemplates
                 var ProductTemplateDTOs = new List<ProductTemplateDTO>();
                 foreach (var pro in productTemplates)
                 {
+                    if(!categoryDeletionStatus.TryGetValue(pro.CategoryId, out var isDeleted) || isDeleted == false)
+                    {
                         ProductTemplateDTOs.Add(_mapper.Map<ProductTemplateDTO>(pro));
+                    }
                 }
                 if (ProductTemplateDTOs.Count != 0)
                 {

@@ -50,11 +50,20 @@ namespace Restaurant.WebAPI.Controllers.Ingredient_Type
             }
             return Ok(result);
         }
-        [Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteIngredientType(int id)
         {
             var result = await _IngredientTypeService.DeleteIngredientTypeAsync(id);
+            if (!result.Success)
+            {
+                return NotFound(result);
+            }
+            return Ok(result);
+        }
+        [HttpPut("Status/{id}")]
+        public async Task<IActionResult> UpdateIsDelete(int id, [FromQuery] bool? isDeleted)
+        {
+            var result = await _IngredientTypeService.UpdateIsDelete(id, isDeleted);
             if (!result.Success)
             {
                 return NotFound(result);

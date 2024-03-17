@@ -62,5 +62,15 @@ namespace Restaurant.WebAPI.Controllers
             }
             return Ok(result);
         }
+        [HttpPut("Status/{id}")]
+        public async Task<IActionResult> UpdateIsDelete(int id, [FromQuery] bool? isDeleted)
+        {
+            var updatedUser = await _categoryService.UpdateIsDelete(id, isDeleted);
+            if (!updatedUser.Success)
+            {
+                return NotFound(updatedUser);
+            }
+            return Ok(updatedUser);
+        }
     }
 }
