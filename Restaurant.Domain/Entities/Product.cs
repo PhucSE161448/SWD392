@@ -8,7 +8,7 @@ namespace Restaurant.Domain.Entities
         public Product()
         {
             IngredientProducts = new HashSet<IngredientProduct>();
-            Orders = new HashSet<Order>();
+            OrderProducts = new HashSet<OrderProduct>();
         }
 
         public int Id { get; set; }
@@ -18,6 +18,6 @@ namespace Restaurant.Domain.Entities
 
         public virtual ProductTemplate ProductTemplate { get; set; } = null!;
         public virtual ICollection<IngredientProduct> IngredientProducts { get; set; }
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<OrderProduct> OrderProducts { get; set; }
     }
 }

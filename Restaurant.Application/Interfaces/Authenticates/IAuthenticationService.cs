@@ -7,7 +7,7 @@ namespace Restaurant.Application.Interfaces.Authenticates
 {
     public interface IAuthenticationService
     {
-        public Task<ServiceResponse<AccountDTO>> RegisterAsync(RegisterAccountDTO registerAccountDTO);
+        public Task<ServiceResponse<AccountsDTO>> RegisterAsync(RegisterAccountDTO registerAccountDTO);
         public Task<ServiceResponse<string>> LoginAsync(AuthenAccountDTO accountDto);
     }
 }

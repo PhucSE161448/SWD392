@@ -20,7 +20,6 @@ namespace Restaurant.Domain.Entities
         public string Status { get; set; } = null!;
         public string Phone { get; set; } = null!;
         public string? Avatar { get; set; }
-
         public string? ConfirmationToken { get; set; }
         public string Gender { get; set; } = null!;
         public bool? IsConfirmed { get; set; }

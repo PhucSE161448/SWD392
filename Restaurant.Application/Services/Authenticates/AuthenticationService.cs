@@ -88,9 +88,9 @@ namespace Restaurant.Application.Services.Authenticates
             return response;
         }
 
-        public async Task<ServiceResponse<AccountDTO>> RegisterAsync(RegisterAccountDTO registerAccountDTO)
+        public async Task<ServiceResponse<AccountsDTO>> RegisterAsync(RegisterAccountDTO registerAccountDTO)
         {
-            var response = new ServiceResponse<AccountDTO>();
+            var response = new ServiceResponse<AccountsDTO>();
 
             try
             {
@@ -125,7 +125,7 @@ namespace Restaurant.Application.Services.Authenticates
                     var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                     if (isSuccess)
                     {
-                        var accountDTO = _mapper.Map<AccountDTO>(account);
+                        var accountDTO = _mapper.Map<AccountsDTO>(account);
                         response.Data = accountDTO; // Chuyển đổi sang AccountDTO
                         response.Success = true;
                         response.Message = "Register successfully.";

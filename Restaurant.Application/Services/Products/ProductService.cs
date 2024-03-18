@@ -26,9 +26,9 @@ namespace Restaurant.Application.Services.Products
             _mapper = mapper;
         }
       
-        public async Task<ServiceResponse<ProductDTO>> CreateProductAsync(CreatedProductDTO CreatedProductDTO)
+        public async Task<ServiceResponse<ProductsDTO>> CreateProductAsync(CreatedProductDTO CreatedProductDTO)
         {
-            var response = new ServiceResponse<ProductDTO>();
+            var response = new ServiceResponse<ProductsDTO>();
             try
             {
                 var productTemplate = await _unitOfWork.ProductTemplateRepository.GetAsync(x => x.Id == CreatedProductDTO.ProductTemplateId);
@@ -37,7 +37,7 @@ namespace Restaurant.Application.Services.Products
                 if (isSuccess)
                 {
                     var p = await _unitOfWork.ProductRepository.GetAsync(x => x.Id == Product.Id, includeProperties: "IngredientProducts");
-                    var pro = _mapper.Map<ProductDTO>(p);
+                    var pro = _mapper.Map<ProductsDTO>(p);
                     response.Data = pro;
                     response.Success = true;
                     response.Message = "Product created successfully";
@@ -103,9 +103,9 @@ namespace Restaurant.Application.Services.Products
             return response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<ProductDTO>>> GetAllProductAsync(string? name = null)
+        public async Task<ServiceResponse<IEnumerable<ProductsDTO>>> GetAllProductAsync(string? name = null)
         {
-            var _response = new ServiceResponse<IEnumerable<ProductDTO>>();
+            var _response = new ServiceResponse<IEnumerable<ProductsDTO>>();
             try
             {
                 var products = await _unitOfWork.ProductRepository.GetProductsByUserId(name);
@@ -136,9 +136,9 @@ namespace Restaurant.Application.Services.Products
             }
             return _response;
         }
-        public async Task<ServiceResponse<ProductDTO>> GetProductAsync(int id)
+        public async Task<ServiceResponse<ProductsDTO>> GetProductAsync(int id)
         {
-            var _response = new ServiceResponse<ProductDTO>();
+            var _response = new ServiceResponse<ProductsDTO>();
             try
             {
                 var products = await _unitOfWork.ProductRepository.GetProduct(id);
@@ -171,9 +171,9 @@ namespace Restaurant.Application.Services.Products
             return _response;
         }
 
-        public async Task<ServiceResponse<ProductDTO>> UpdateProductAsync(int id, ProductDTO ProductDTO)
+        public async Task<ServiceResponse<ProductsDTO>> UpdateProductAsync(int id, ProductsDTO ProductDTO)
         {
-            var response = new ServiceResponse<ProductDTO>();
+            var response = new ServiceResponse<ProductsDTO>();
             var exist = await _unitOfWork.ProductRepository.GetByIdAsync(id);
             if (exist == null)
             {
@@ -190,7 +190,7 @@ namespace Restaurant.Application.Services.Products
                 {
                     response.Success = true;
                     response.Message = "Product updated successfully";
-                    response.Data = _mapper.Map<ProductDTO>(product);
+                    response.Data = _mapper.Map<ProductsDTO>(product);
                 }
                 else
                 {

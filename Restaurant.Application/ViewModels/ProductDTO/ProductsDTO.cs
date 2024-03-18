@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restaurant.Application.ViewModels.ProductDTO
 {
-    public class ProductDTO
+    public class ProductsDTO
     {
         public int Id { get; set; }
         public string Name { get; set; } 
