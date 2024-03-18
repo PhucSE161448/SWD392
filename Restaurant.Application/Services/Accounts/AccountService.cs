@@ -22,9 +22,9 @@ namespace Restaurant.Application.Services.Accounts
             _mapper = mapper;
         }
 
-        public async Task<ServiceResponse<AccountDTO>> CreateAccountAsync(CreatedAccountDTO createdAccountDTO)
+        public async Task<ServiceResponse<AccountsDTO>> CreateAccountAsync(CreatedAccountDTO createdAccountDTO)
         {
-            var response = new ServiceResponse<AccountDTO>();
+            var response = new ServiceResponse<AccountsDTO>();
 
             var exist = await _unitOfWork.AccountRepository.CheckEmailNameExited(createdAccountDTO.Email);
             if (exist)
@@ -44,7 +44,7 @@ namespace Restaurant.Application.Services.Accounts
                 var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                 if (isSuccess)
                 {
-                    var accountDTO = _mapper.Map<AccountDTO>(account);
+                    var accountDTO = _mapper.Map<AccountsDTO>(account);
                     response.Data = accountDTO; // Chuyển đổi sang AccountDTO
                     response.Success = true;
                     response.Message = "User created successfully.";
@@ -109,21 +109,21 @@ namespace Restaurant.Application.Services.Accounts
             return response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<AccountDTO>>> GetAccountAsync()
+        public async Task<ServiceResponse<IEnumerable<AccountsDTO>>> GetAccountAsync()
         {
-            var _response = new ServiceResponse<IEnumerable<AccountDTO>>();
+            var _response = new ServiceResponse<IEnumerable<AccountsDTO>>();
 
             try
             {
                 var accounts = await _unitOfWork.AccountRepository.GetAllAsync();
 
-                var accountDTOs = new List<AccountDTO>();
+                var accountDTOs = new List<AccountsDTO>();
 
                 foreach (var acc in accounts)
                 {
                     if (acc.IsConfirmed == true)
                     {
-                        accountDTOs.Add(_mapper.Map<AccountDTO>(acc));
+                        accountDTOs.Add(_mapper.Map<AccountsDTO>(acc));
                     }
                 }
 
@@ -151,9 +151,9 @@ namespace Restaurant.Application.Services.Accounts
             return _response;
         }
 
-        public async Task<ServiceResponse<AccountDTO>> UpdateUserAsync(int id, AccountDTO accountDTO)
+        public async Task<ServiceResponse<AccountsDTO>> UpdateUserAsync(int id, AccountsDTO accountDTO)
         {
-            var response = new ServiceResponse<AccountDTO>();
+            var response = new ServiceResponse<AccountsDTO>();
 
             try
             {
@@ -179,7 +179,7 @@ namespace Restaurant.Application.Services.Accounts
 
                 _unitOfWork.AccountRepository.Update(updated);
 
-                var updatedUserDto = _mapper.Map<AccountDTO>(updated);
+                var updatedUserDto = _mapper.Map<AccountsDTO>(updated);
                 var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                 if (isSuccess)
                 {
@@ -339,9 +339,9 @@ namespace Restaurant.Application.Services.Accounts
             return response;
         }
 
-        public async Task<ServiceResponse<AccountDTO>> GetAccountByIdAsync(int id)
+        public async Task<ServiceResponse<AccountsDTO>> GetAccountByIdAsync(int id)
         {
-            var response = new ServiceResponse<AccountDTO>();
+            var response = new ServiceResponse<AccountsDTO>();
             try
             {
                 var acc = await _unitOfWork.AccountRepository.GetAsync(x => x.Id == id);
@@ -349,7 +349,7 @@ namespace Restaurant.Application.Services.Accounts
                 {
                     response.Success = true;
                     response.Message = "Account retrieved successfully";
-                    response.Data = _mapper.Map<AccountDTO>(acc);
+                    response.Data = _mapper.Map<AccountsDTO>(acc);
                 }
                 else
                 {

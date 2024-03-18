@@ -27,6 +27,7 @@ namespace Restaurant.Infrastructure
         public virtual DbSet<News> News { get; set; } = null!;
         public virtual DbSet<Nutrition> Nutritions { get; set; } = null!;
         public virtual DbSet<Order> Orders { get; set; } = null!;
+        public virtual DbSet<OrderProduct> OrderProducts { get; set; } = null!;
         public virtual DbSet<Payment> Payments { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<ProductTemplate> ProductTemplates { get; set; } = null!;
@@ -36,7 +37,7 @@ namespace Restaurant.Infrastructure
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-          /*  if (!optionsBuilder.IsConfigured)
+            /*if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=(local);uid=sa;pwd=12345;database=MixFood;TrustServerCertificate=True");
@@ -337,17 +338,13 @@ namespace Restaurant.Infrastructure
 
                 entity.Property(e => e.AccountId).HasColumnName("Account_id");
 
-                entity.Property(e => e.CreateDate)
-                    .HasColumnType("datetime")
-                    .HasColumnName("Create_date");
+                entity.Property(e => e.CreatedDate).HasColumnType("date");
 
-                entity.Property(e => e.IsDelete)
-                    .IsRequired()
-                    .HasDefaultValueSql("('0')");
+                entity.Property(e => e.DeletedBy).HasMaxLength(255);
+
+                entity.Property(e => e.IsDeleted).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.PaymentMethodId).HasColumnName("Payment_method_id");
-
-                entity.Property(e => e.ProductId).HasColumnName("Product_Id");
 
                 entity.Property(e => e.Status)
                     .HasMaxLength(255)
@@ -369,17 +366,35 @@ namespace Restaurant.Infrastructure
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("order_payment_method_id_foreign");
 
-                entity.HasOne(d => d.Product)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.ProductId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_ProductID");
-
                 entity.HasOne(d => d.Store)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.StoreId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("order_store_id_foreign");
+            });
+
+            modelBuilder.Entity<OrderProduct>(entity =>
+            {
+                entity.HasKey(e => new { e.OrderId, e.ProductId })
+                    .HasName("PK__OrderPro__08D097C182F2AEC7");
+
+                entity.ToTable("OrderProduct");
+
+                entity.Property(e => e.OrderId).HasColumnName("OrderID");
+
+                entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+                entity.HasOne(d => d.Order)
+                    .WithMany(p => p.OrderProducts)
+                    .HasForeignKey(d => d.OrderId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__OrderProd__Order__2A164134");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.OrderProducts)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__OrderProd__Produ__2B0A656D");
             });
 
             modelBuilder.Entity<Payment>(entity =>

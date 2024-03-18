@@ -47,7 +47,7 @@ namespace Restaurant.WebAPI.Controllers
 
         [Authorize(Roles = "admin")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProduct(int id, [FromBody] ProductDTO productDTO)
+        public async Task<IActionResult> UpdateProduct(int id, [FromBody] ProductsDTO productDTO)
         {
             var result = await _productService.UpdateProductAsync(id, productDTO);
             if (!result.Success)

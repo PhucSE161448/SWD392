@@ -60,7 +60,7 @@ namespace Restaurant.WebAPI.Controllers
             return Ok(updateProfile);
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(int id, [FromBody] AccountDTO accountDTO)
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] AccountsDTO accountDTO)
         {
             var updatedUser = await _accountService.UpdateUserAsync(id, accountDTO);
             if (!updatedUser.Success)

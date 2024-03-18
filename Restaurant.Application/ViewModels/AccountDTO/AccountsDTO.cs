@@ -1,7 +1,7 @@
 
 namespace Application.ViewModels.AccountDTO
 {
-    public class AccountDTO
+    public class AccountsDTO
     {
         public int Id { get; set; }
         public string? Username { get; set; }

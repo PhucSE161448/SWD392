@@ -36,14 +36,14 @@ namespace Restaurant.Infrastructure.Repositories.Products
         }
 
 
-        public async Task<ProductDTO> GetProduct(int id)
+        public async Task<ProductsDTO> GetProduct(int id)
         {
             var product = await _dbContext.Products
                 .Include(p => p.IngredientProducts)
                     .ThenInclude(ip => ip.Ingredient)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
-            var productDTO = new ProductDTO
+            var productDTO = new ProductsDTO
             {
                 Id = product.Id,
                 Name = product.Name,
@@ -55,7 +55,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
             return productDTO;
         }
 
-        public async Task<List<ProductDTO>> GetProductsByUserId(string? name)
+        public async Task<List<ProductsDTO>> GetProductsByUserId(string? name)
         {
             List<Product> products = new List<Product>();
             if(!string.IsNullOrEmpty(name))
@@ -74,10 +74,10 @@ namespace Restaurant.Infrastructure.Repositories.Products
                .Where(p => p.IsDeleted == false)
                .ToListAsync();
             }
-            List<ProductDTO> productDTOs = new List<ProductDTO>();
+            List<ProductsDTO> productDTOs = new List<ProductsDTO>();
             if (products != null)
             {
-                productDTOs = products.Select(product => new ProductDTO
+                productDTOs = products.Select(product => new ProductsDTO
                 {
                     Id = product.Id,
                     Name = product.Name,
@@ -89,6 +89,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
             return productDTOs;
         }
 
+      
         public async Task<(bool success, Product product)> CreateProductAsync(CreatedProductDTO pro, ProductTemplateDTO productTemplate)
         {
             try
@@ -141,7 +142,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
                 return (false, null);
             }
         }
-        public decimal CalculateTotalPrice(IEnumerable<ProductDTO> products)
+        public decimal CalculateTotalPrice(IEnumerable<ProductsDTO> products)
         {
             decimal totalPrice = 0;
 

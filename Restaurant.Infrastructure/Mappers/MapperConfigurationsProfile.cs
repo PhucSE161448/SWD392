@@ -13,6 +13,7 @@ using Restaurant.Application.ViewModels.NutritionsDTO;
 using Restaurant.Application.ViewModels.StoreDTO;
 using Restaurant.Application.ViewModels.TemplateStepsDTO;
 using Restaurant.Application.ViewModels.AccountDTO;
+using Restaurant.Application.ViewModels.OrderDTO;
 
 namespace Restaurant.Infrastructures.Mappers
 {
@@ -21,19 +22,19 @@ namespace Restaurant.Infrastructures.Mappers
         public MapperConfigurationsProfile()
         {
 
-            CreateMap<Account, AccountDTO>().ReverseMap();
+            CreateMap<Account, AccountsDTO>().ReverseMap();
             CreateMap<CreatedAccountDTO, Account>();
-            CreateMap<CreatedAccountDTO, AccountDTO>();
+            CreateMap<CreatedAccountDTO, AccountsDTO>();
             CreateMap<UpdateProfileAccountDTO, Account>().ReverseMap();
             CreateMap<ProfileAccountDTO, Account>().ReverseMap();
 
 
             CreateMap<RegisterAccountDTO, Account>();
-            CreateMap<RegisterAccountDTO, AccountDTO>();
+            CreateMap<RegisterAccountDTO, AccountsDTO>();
 
-            CreateMap<Product, ProductDTO>().ReverseMap();
+            CreateMap<Product, ProductsDTO>().ReverseMap();
             CreateMap<CreatedProductDTO, Product>();
-            CreateMap<CreatedProductDTO, ProductDTO>();
+            CreateMap<CreatedProductDTO, ProductsDTO>();
 
             CreateMap<Category, CategoryDto>().ReverseMap();
             CreateMap<AddUpdateCategoryDTO, CategoryDto>().ReverseMap();
@@ -67,6 +68,10 @@ namespace Restaurant.Infrastructures.Mappers
             CreateMap<TemplateStep, TemplateStepDTO>().ReverseMap();    
             CreateMap<TemplateStepDTO, TemplateStep>().ReverseMap();
             CreateMap<TemplateStepUpdateDTO, TemplateStep>().ReverseMap();
+
+            CreateMap<OrderDto, Order>().ReverseMap();
+            CreateMap<OrderCreateDTO, Order>().ReverseMap();
+            CreateMap<OrderCreateDTO,OrderDto>().ReverseMap();
         }
     }
 }
