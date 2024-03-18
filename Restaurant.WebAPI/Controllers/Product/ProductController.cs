@@ -21,6 +21,7 @@ namespace Restaurant.WebAPI.Controllers
         public async Task<IActionResult> GetProductList()
         {
             var name = _claimsService.GetCurrentUserId;
+            var id = _claimsService.GetCurrentUser;
             var result = await _productService.GetAllProductAsync(name);
             return Ok(result);
         }

@@ -9,8 +9,11 @@ namespace Restaurant.WebAPI.Services
         {
             var emailClaim = httpContextAccessor.HttpContext?.User?.FindFirstValue("Name");
             GetCurrentUserId = string.IsNullOrEmpty(emailClaim) ? "" : emailClaim;
+            var Id = httpContextAccessor.HttpContext?.User?.FindFirstValue("Id");
+            GetCurrentUser = string.IsNullOrEmpty(Id) ? 0 : Convert.ToInt32(Id);
         }
 
         public string? GetCurrentUserId { get; }
+        public int? GetCurrentUser { get; }
     }
 }

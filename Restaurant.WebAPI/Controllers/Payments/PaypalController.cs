@@ -20,14 +20,15 @@ namespace Restaurant.WebAPI.Controllers.Payments
         private readonly IProductService _productService;
         private readonly IAccountService _accountService;
         private readonly IOrderService _orderService;
-
+        private readonly IClaimsService _claimsService;
         private readonly ILogger<PaypalController> _logger;
         private IHttpContextAccessor _httpContextAccessor;
         private readonly IMapper _mapper;
         IConfiguration _configuration;
         private PayPal.Api.Payment payment;
         public PaypalController(IPaypalService paypalService, ILogger<PaypalController> logger, IHttpContextAccessor context, IConfiguration iconfiguration,
-            IProductService productService, IAccountService accountService, IOrderService orderService, IMapper mapper, IUnitOfWork unitOfWork)
+            IProductService productService, IAccountService accountService, IOrderService orderService, IMapper mapper, IUnitOfWork unitOfWork
+            , IClaimsService claimsService)
         {
             _logger = logger;
             _httpContextAccessor = context;
@@ -38,6 +39,8 @@ namespace Restaurant.WebAPI.Controllers.Payments
             _orderService = orderService;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
+            _claimsService = claimsService;
+            _claimsService = claimsService;
         }
 
         [HttpGet("PaymentPaypal/{accountId}")]
@@ -145,8 +148,8 @@ namespace Restaurant.WebAPI.Controllers.Payments
 
 
             //----------------------------SỬA Ở ĐÂY-----------------------------------
-            var userName = _accountService.GetAccountByIdAsync(accountId).Result.Data.Username;
-            //var data = await _productService.GetProductAsync();
+            var userId = _claimsService.GetCurrentUserId;
+            var data = await _productService.GetAllProductAsync(userId);
             var itemList = new ItemList()
             {
                 items = new List<Item>()
@@ -157,10 +160,10 @@ namespace Restaurant.WebAPI.Controllers.Payments
             //----------------------------SỬA Ở ĐÂY-----------------------------------
             //itemList.items.Add(new Item()
             //{
-            //    name = userName,
+            //    name = userId,
             //    currency = "USD",
-            //    price = data.totalDiscount.ToString(),
-            //    quantity = data.totalAmount.ToString(),
+            //    price = data...ToString(),
+            //    //quantity = data.totalAmount.ToString(),
             //    sku = "asd"
             //});
             var payer = new Payer()
