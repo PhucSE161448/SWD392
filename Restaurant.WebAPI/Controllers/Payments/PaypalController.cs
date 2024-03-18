@@ -43,14 +43,19 @@ namespace Restaurant.WebAPI.Controllers.Payments
             _claimsService = claimsService;
         }
 
-        [HttpGet("PaymentPaypal/{accountId}")]
-        public async Task<ActionResult<string>> PaymentWithPaypal([FromRoute] int accountId, string paymentId = "", string Cancel = null, string blogId = "", string PayerID = "")
+        [HttpGet("PaymentPaypal/{orderId}")]
+        public async Task<ActionResult<string>> PaymentWithPaypal([FromRoute] int orderId)
         {
+            var blogId = "";
+            string Cancel = null;
+            var PayerID = "";
+            var paymentId = "";
             //getting the apiContext  
             var ClientID = _configuration.GetValue<string>("PayPal:Key");
             var ClientSecret = _configuration.GetValue<string>("PayPal:Secret");
             var mode = _configuration.GetValue<string>("PayPal:mode");
-
+            var userId = _claimsService.GetCurrentUser;
+            
             APIContext apiContext = _paypalService.GetAPIContext(ClientID, ClientSecret, mode);
 
             // apiContext.AccessToken="Bearer access_token$production$j27yms5fthzx9vzm$c123e8e154c510d70ad20e396dd28287";
@@ -66,16 +71,17 @@ namespace Restaurant.WebAPI.Controllers.Payments
                     //it is returned by the create function call of the payment class  
                     // Creating a payment  
                     // baseURL is the url on which paypal sendsback the data.  
-                    string baseURI = this.Request.Scheme + "://" + this.Request.Host + "/api/Paypal/CreatedPayment/";
+                    string baseURI = this.Request.Scheme + "://" + this.Request.Host + "/api/Paypal/PaymentPaypal/";
                     //return baseURI;
                     //here we are generating guid for storing the paymentID received in session  
                     //which will be used in the payment execution  
                     //var guidd = Convert.ToString((new Random()).Next(100000));
                     Guid guidd = Guid.NewGuid();
-                    int AccountId = accountId;
+                    
+                    //int AccountId = accountId;
                     //CreatePayment function gives us the payment approval url  
                     //on which payer is redirected for paypal account payment  
-                    var createdPayment = await this.CreatePayment(apiContext, baseURI + guidd, AccountId, blogId);
+                    var createdPayment = await this.CreatePayment(apiContext, baseURI + userId, orderId);
 
                     //get links returned from paypal in response to Create function call  
                     var links = createdPayment.links.GetEnumerator();
@@ -113,16 +119,16 @@ namespace Restaurant.WebAPI.Controllers.Payments
                     //If executed payment failed then we will show payment failure message to user  
                     if (executedPayment.state.ToLower() != "approved")
                     {
-                        return Redirect($"https://ctqmmec.azurewebsites.net/paymentfail/{accountId}");
+                        return Redirect($"https://ctqmmec.azurewebsites.net/paymentfail/{userId}");
                     }
                     var blogIds = executedPayment.transactions[0].item_list.items[0].sku;
                     CustomerPaymentDTO customerData = new CustomerPaymentDTO
                     {
-                        AccountId = accountId,
+                        AccountId = (int)userId,
                         Status = "Paypal"
                     };
                     //await _orderService.CustomerPayment(customerData);
-                    return Redirect($"https://ctqmmec.azurewebsites.net/paymentsuccess/{accountId}");
+                    return Redirect($"https://ctqmmec.azurewebsites.net/paymentsuccess/{userId}");
                 }
             }
             catch (Exception ex)
@@ -142,30 +148,30 @@ namespace Restaurant.WebAPI.Controllers.Payments
             };
             return this.payment.Execute(apiContext, paymentExecution);
         }
-        private async Task<Payment> CreatePayment(APIContext apiContext, string redirectUrl, int accountId, string blogId)
+        private async Task<Payment> CreatePayment(APIContext apiContext, string redirectUrl, int orderId)
         {
             //create itemlist and add item objects to it  
 
 
             //----------------------------SỬA Ở ĐÂY-----------------------------------
-            var userId = _claimsService.GetCurrentUserId;
-            var data = await _productService.GetAllProductAsync(userId);
+            var userName = _claimsService.GetCurrentUserId;
+            var data = await _orderService.GetOrderById(orderId);
             var itemList = new ItemList()
             {
                 items = new List<Item>()
             };
             //Adding Item Details like name, currency, price etc  
-
+            Console.WriteLine(data);
 
             //----------------------------SỬA Ở ĐÂY-----------------------------------
-            //itemList.items.Add(new Item()
-            //{
-            //    name = userId,
-            //    currency = "USD",
-            //    price = data...ToString(),
-            //    //quantity = data.totalAmount.ToString(),
-            //    sku = "asd"
-            //});
+            itemList.items.Add(new Item()
+            {
+                name = userName,
+                currency = "USD",
+                price = data.Data.TotalPrice.ToString(),
+                //quantity = data.totalAmount.ToString(),
+                sku = "asd"
+            });
             var payer = new Payer()
             {
                 payment_method = "paypal"
@@ -190,7 +196,7 @@ namespace Restaurant.WebAPI.Controllers.Payments
 
 
                 //----------------------------SỬA Ở ĐÂY-----------------------------------
-                //total = data.totalDiscount.ToString(), // Total must be equal to sum of tax, shipping and subtotal.  
+                total = data.Data.TotalPrice.ToString(), // Total must be equal to sum of tax, shipping and subtotal.  
                 //details = details
             };
             var transactionList = new List<Transaction>();

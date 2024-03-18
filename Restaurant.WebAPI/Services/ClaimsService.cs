@@ -14,6 +14,6 @@ namespace Restaurant.WebAPI.Services
         }
 
         public string? GetCurrentUserId { get; }
-        public int? GetCurrentUser { get; }
+        public int GetCurrentUser { get; }
     }
 }

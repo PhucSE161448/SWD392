@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
+using Restaurant.Application.Interfaces;
 using Restaurant.Application.Interfaces.Accounts;
 using Restaurant.Application.Interfaces.Orders;
 using Restaurant.Application.Interfaces.Payments;
@@ -16,13 +17,14 @@ namespace Restaurant.WebAPI.Controllers.Payments
         private readonly IProductService _productService;
         private readonly IOrderService _orderService;
         private readonly IAccountService _accountService;
+        private readonly IClaimsService _claimsService;
         private readonly ILogger<PaypalController> _logger;
         private IHttpContextAccessor _httpContextAccessor;
         //private readonly HttpContext _httpContext;
         IConfiguration _configuration;
 
         public VNPayController(IVNPayService vnpayService, ILogger<PaypalController> logger, IHttpContextAccessor context, IConfiguration iconfiguration,
-                    IProductService productService, IAccountService accountService, IOrderService orderService)
+                    IProductService productService, IAccountService accountService, IOrderService orderService, IClaimsService claimsService)
         {
             _logger = logger;
             _httpContextAccessor = context;
@@ -31,28 +33,30 @@ namespace Restaurant.WebAPI.Controllers.Payments
             _productService = productService;
             _accountService = accountService;
             _orderService = orderService;
+            _claimsService = claimsService;
             //_httpContext = httpContext;
         }
 
         [Authorize]
-        [HttpGet("PaymentVNPay/{accountId}")]
-        public async Task<ActionResult<string>> Payment([FromRoute] int accountId)
+        [HttpGet("PaymentVNPay/{orderId}")]
+        public async Task<ActionResult<string>> Payment([FromRoute] int orderId)
         {
             var url = _configuration.GetValue<string>("VNPay:Url");
             var returnUrl = _configuration.GetValue<string>("VNPay:ReturnUrl");
             var tmnCode = _configuration.GetValue<string>("VNPay:TmnCode");
             var hashSecret = _configuration.GetValue<string>("VNPay:HashSecret");
+            var userId = _claimsService.GetCurrentUser;
 
             PayLib pay = new PayLib();
             //----------------------------SỬA Ở ĐÂY-----------------------------------
-            //var cartData = await _cartService.GetCustomerCart(customerId);
+            var cartData = await _orderService.GetOrderById(orderId);
             Guid newGuid = Guid.NewGuid();
 
             pay.AddRequestData("vnp_Version", "2.1.0"); //Phiên bản api mà merchant kết nối. Phiên bản hiện tại là 2.1.0
             pay.AddRequestData("vnp_Command", "pay"); //Mã API sử dụng, mã cho giao dịch thanh toán là 'pay'
             pay.AddRequestData("vnp_TmnCode", tmnCode); //Mã website của merchant trên hệ thống của VNPAY (khi đăng ký tài khoản sẽ có trong mail VNPAY gửi về)
             //----------------------------SỬA Ở ĐÂY-----------------------------------
-            //pay.AddRequestData("vnp_Amount", (cartData.totalDiscount * 23730).ToString()); //số tiền cần thanh toán, công thức: số tiền * 100 - ví dụ 10.000 (mười nghìn đồng) --> 1000000
+            pay.AddRequestData("vnp_Amount", (cartData.Data.TotalPrice *100).ToString()); //số tiền cần thanh toán, công thức: số tiền * 100 - ví dụ 10.000 (mười nghìn đồng) --> 1000000
             pay.AddRequestData("vnp_BankCode", ""); //Mã Ngân hàng thanh toán (tham khảo: https://sandbox.vnpayment.vn/apis/danh-sach-ngan-hang/), có thể để trống, người dùng có thể chọn trên cổng thanh toán VNPAY
             pay.AddRequestData("vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss")); //ngày thanh toán theo định dạng yyyyMMddHHmmss
             pay.AddRequestData("vnp_CurrCode", "VND"); //Đơn vị tiền tệ sử dụng thanh toán. Hiện tại chỉ hỗ trợ VND
@@ -66,7 +70,7 @@ namespace Restaurant.WebAPI.Controllers.Payments
             string paymentUrl = pay.CreateRequestUrl(url, hashSecret);
             CustomerPaymentDTO customerPaymentDTO = new CustomerPaymentDTO
             {
-                AccountId = accountId,
+                AccountId = userId,
                 Status = "VNPay"
             };
             //----------------------------SỬA Ở ĐÂY-----------------------------------
