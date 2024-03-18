@@ -12,7 +12,7 @@ namespace Restaurant.Application.Interfaces.Orders
     public interface IOrderService
     {
         Task<ServiceResponse<OrderDto>> CreateOrder(OrderCreateDTO orderCreate);
-        Task<ServiceResponse<OrderDto>> UpdateOrderStatus(int id, string status);
+        Task<ServiceResponse<OrderDto>> UpdateOrderStatus(int id, string status, int paymentId);
         Task<ServiceResponse<OrderDto>> GetOrderById(int id);
         Task<ServiceResponse<OrderDetailDTO>> GetOrderByUser(int OrderId);
         Task<ServiceResponse<List<OrderDto>>> GetAllOrderByUser();

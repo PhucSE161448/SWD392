@@ -16,6 +16,6 @@ namespace Restaurant.Application.IRepositories.Orders
         Task<Order> GetOrderById(int id);
         Task<OrderDetailDTO> GetOrderDetail(int id);
         Task<List<Order>> GetAllOrderByUser();
-        Task<(bool success, Order order)> UpdateOrderStatusAsync(int id, string status);
+        Task<(bool success, Order order)> UpdateOrderStatusAsync(int id, string status, int paymentId);
     }
 }

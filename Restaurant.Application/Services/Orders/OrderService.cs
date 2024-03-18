@@ -137,12 +137,12 @@ namespace Restaurant.Application.Services.Orders
                 return response;
         }
 
-        public async Task<ServiceResponse<OrderDto>> UpdateOrderStatus(int id, string status)
+        public async Task<ServiceResponse<OrderDto>> UpdateOrderStatus(int id, string status, int paymentId)
         {
             var response = new ServiceResponse<OrderDto>();
             try
             {
-                var (isSuccess, Order) = await _unitOfWork.OrderRepository.UpdateOrderStatusAsync(id,status);
+                var (isSuccess, Order) = await _unitOfWork.OrderRepository.UpdateOrderStatusAsync(id,status, paymentId);
 
                 if (isSuccess)
                 {

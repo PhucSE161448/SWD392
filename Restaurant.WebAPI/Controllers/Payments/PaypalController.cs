@@ -10,6 +10,7 @@ using Restaurant.Application.Interfaces.Payments;
 using Restaurant.Application.Interfaces.Products;
 using Restaurant.Application.IRepositories.Accounts;
 using Restaurant.Application.ViewModels.OrderDTO;
+using System.Globalization;
 
 namespace Restaurant.WebAPI.Controllers.Payments
 {
@@ -46,9 +47,9 @@ namespace Restaurant.WebAPI.Controllers.Payments
         [HttpGet("PaymentPaypal/{orderId}")]
         public async Task<ActionResult<string>> PaymentWithPaypal([FromRoute] int orderId)
         {
-            var blogId = "";
+            string blogId = "";
             string Cancel = null;
-            var PayerID = "";
+            string PayerID = "";
             var paymentId = "";
             //getting the apiContext  
             var ClientID = _configuration.GetValue<string>("PayPal:Key");
@@ -76,12 +77,11 @@ namespace Restaurant.WebAPI.Controllers.Payments
                     //here we are generating guid for storing the paymentID received in session  
                     //which will be used in the payment execution  
                     //var guidd = Convert.ToString((new Random()).Next(100000));
-                    Guid guidd = Guid.NewGuid();
                     
                     //int AccountId = accountId;
                     //CreatePayment function gives us the payment approval url  
                     //on which payer is redirected for paypal account payment  
-                    var createdPayment = await this.CreatePayment(apiContext, baseURI + userId, orderId);
+                    var createdPayment = await this.CreatePayment(apiContext, baseURI + userId, orderId, blogId);
 
                     //get links returned from paypal in response to Create function call  
                     var links = createdPayment.links.GetEnumerator();
@@ -148,7 +148,7 @@ namespace Restaurant.WebAPI.Controllers.Payments
             };
             return this.payment.Execute(apiContext, paymentExecution);
         }
-        private async Task<Payment> CreatePayment(APIContext apiContext, string redirectUrl, int orderId)
+        private async Task<Payment> CreatePayment(APIContext apiContext, string redirectUrl, int orderId, string blogId)
         {
             //create itemlist and add item objects to it  
 
@@ -162,14 +162,16 @@ namespace Restaurant.WebAPI.Controllers.Payments
             };
             //Adding Item Details like name, currency, price etc  
             Console.WriteLine(data);
+            decimal amoun = (decimal)data.Data.TotalPrice;
+            string formattedAmount = amoun.ToString("F2", CultureInfo.InvariantCulture);
 
             //----------------------------SỬA Ở ĐÂY-----------------------------------
             itemList.items.Add(new Item()
             {
                 name = userName,
                 currency = "USD",
-                price = data.Data.TotalPrice.ToString(),
-                //quantity = data.totalAmount.ToString(),
+                price = formattedAmount,
+                quantity = "3",
                 sku = "asd"
             });
             var payer = new Payer()

@@ -52,9 +52,9 @@ namespace Restaurant.WebAPI.Controllers
             return Ok(result);
         }
         [HttpPut("Status/{id}")]
-        public async Task<IActionResult> UpdateOrderStatus(int id, [FromQuery] string status)
+        public async Task<IActionResult> UpdateOrderStatus(int id, [FromQuery] string status, int paymentId)
         {
-            var result = await _orderService.UpdateOrderStatus(id, status);
+            var result = await _orderService.UpdateOrderStatus(id, status, paymentId);
             if (result.Success)
             {
                 return Ok(result);
