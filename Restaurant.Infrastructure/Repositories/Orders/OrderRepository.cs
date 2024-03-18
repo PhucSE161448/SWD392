@@ -139,7 +139,7 @@ namespace Restaurant.Infrastructure.Repositories.Orders
         }
 
 
-        public async Task<(bool success, Order order)> UpdateOrderStatusAsync(int id, string status)
+        public async Task<(bool success, Order order)> UpdateOrderStatusAsync(int id, string status, int paymentId)
         {
             try
             {
@@ -153,6 +153,7 @@ namespace Restaurant.Infrastructure.Repositories.Orders
                 {
                     order.Status = StatusOrder.StatusCancelled;
                 }
+                order.PaymentMethodId = paymentId;
                 await _dbContext.SaveChangesAsync();
                 return (true, order);
             }

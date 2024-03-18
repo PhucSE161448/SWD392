@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Restaurant.Application.Interfaces;
@@ -8,6 +9,7 @@ using Restaurant.Application.Interfaces.Payments;
 using Restaurant.Application.Interfaces.Products;
 using Restaurant.Application.ViewModels.OrderDTO;
 using Restaurant.Application.ViewModels.PayLib;
+using Restaurant.Domain.Entities;
 
 namespace Restaurant.WebAPI.Controllers.Payments
 {
@@ -20,11 +22,13 @@ namespace Restaurant.WebAPI.Controllers.Payments
         private readonly IClaimsService _claimsService;
         private readonly ILogger<PaypalController> _logger;
         private IHttpContextAccessor _httpContextAccessor;
+        private readonly IMapper _mapper;
         //private readonly HttpContext _httpContext;
         IConfiguration _configuration;
 
         public VNPayController(IVNPayService vnpayService, ILogger<PaypalController> logger, IHttpContextAccessor context, IConfiguration iconfiguration,
-                    IProductService productService, IAccountService accountService, IOrderService orderService, IClaimsService claimsService)
+                    IProductService productService, IAccountService accountService, IOrderService orderService, IClaimsService claimsService,
+                IMapper mapper)
         {
             _logger = logger;
             _httpContextAccessor = context;
@@ -34,6 +38,7 @@ namespace Restaurant.WebAPI.Controllers.Payments
             _accountService = accountService;
             _orderService = orderService;
             _claimsService = claimsService;
+            _mapper = mapper;
             //_httpContext = httpContext;
         }
 
@@ -68,13 +73,14 @@ namespace Restaurant.WebAPI.Controllers.Payments
             pay.AddRequestData("vnp_TxnRef", newGuid.ToString()); //mã hóa đơn
 
             string paymentUrl = pay.CreateRequestUrl(url, hashSecret);
-            CustomerPaymentDTO customerPaymentDTO = new CustomerPaymentDTO
-            {
-                AccountId = userId,
-                Status = "VNPay"
-            };
+            //CustomerPaymentDTO customerPaymentDTO = new CustomerPaymentDTO
+            //{
+            //    AccountId = userId,
+            //    Status = "VNPay"
+            //};
             //----------------------------SỬA Ở ĐÂY-----------------------------------
             //await _orderService.CustomerPayment(customerPaymentDTO);
+            await _orderService.UpdateOrderStatus(orderId ,"finished", 3);
             return Ok(new
             {
                 message = "redirect",
