@@ -72,7 +72,7 @@ namespace Restaurant.Application.Services.Orders
             try
             {
                 var order = await _unitOfWork.OrderRepository.GetOrderById(id);
-
+                
                 if (order != null)
                 {
                     _response.Success = true;

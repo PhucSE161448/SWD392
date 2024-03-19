@@ -11,5 +11,6 @@ namespace Restaurant.Application.ViewModels.PaymentDTO
         public int Id { get; set; }
         public string Name { get; set; }
         public string PaymentType {  get; set; }
+        public bool? IsDelete { get; set; }
     }
 }

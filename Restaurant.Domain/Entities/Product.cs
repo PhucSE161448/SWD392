@@ -15,6 +15,7 @@ namespace Restaurant.Domain.Entities
         public string Name { get; set; } = null!;
         public decimal Price { get; set; }
         public int ProductTemplateId { get; set; }
+        public int? Quantity { get; set; }
 
         public virtual ProductTemplate ProductTemplate { get; set; } = null!;
         public virtual ICollection<IngredientProduct> IngredientProducts { get; set; }
