@@ -132,6 +132,7 @@ namespace Restaurant.Infrastructure.Repositories.Orders
                 Name = product.Name,
                 Price = product.Price,
                 ProductTemplateId = product.ProductTemplateId,
+                Quantity = product.Quantity,
                 Ingredients = product.IngredientProducts.Select(ip => ip.Ingredient.Name).ToList()
             }).ToList();
 

@@ -49,6 +49,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
                 Name = product.Name,
                 Price = product.Price,
                 ProductTemplateId = product.ProductTemplateId,
+                Quantity = product.Quantity,
                 Ingredients = product.IngredientProducts.Select(ip => ip.Ingredient.Name).ToList()
             };
 
@@ -83,6 +84,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
                     Name = product.Name,
                     Price = product.Price,
                     ProductTemplateId = product.ProductTemplateId,
+                    Quantity = product.Quantity,
                     Ingredients = product.IngredientProducts.Select(ip => ip.Ingredient.Name).ToList()
                 }).ToList();
             }
@@ -97,7 +99,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
                 var temId = _dbContext.TemplateSteps.FirstOrDefault(x => x.ProuctTemplateId == pro.ProductTemplateId);
                 var product = _mapper.Map<Product>(pro);
                 product.Name = productTemplate.Name;
-                product.Price = productTemplate.Price;
+                product.Price = productTemplate.Price * pro.Quantity;
                 product.CreatedBy = _currentUserId;
                 product.CreatedDate = DateTime.Now;
                 await _dbContext.Products.AddAsync(product);
@@ -128,7 +130,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
                         {
                             Product = product,
                             IngredientId = ingredientId,
-                            Quantity = 1,
+                            Quantity = pro.Quantity,
                         };
                         product.Price += ingredientPrice;
                         await _dbContext.IngredientProducts.AddAsync(ingredientProduct);
@@ -142,16 +144,6 @@ namespace Restaurant.Infrastructure.Repositories.Products
                 return (false, null);
             }
         }
-        public decimal CalculateTotalPrice(IEnumerable<ProductsDTO> products)
-        {
-            decimal totalPrice = 0;
-
-            foreach (var product in products)
-            {
-                totalPrice += product.Price;
-            }
-
-            return totalPrice;
-        }
+      
     }
 }

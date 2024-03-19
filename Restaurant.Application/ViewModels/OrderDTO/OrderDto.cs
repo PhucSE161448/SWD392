@@ -17,7 +17,7 @@ namespace Restaurant.Application.ViewModels.OrderDTO
         public int StoreId { get; set; }
         public DateTime? CreatedDate { get; set; }
 
-        public AccountsDTO Accounts { get; set; }
-        public PaymentsDTO Payments { get; set; }
+        public AccountsDTO? Accounts { get; set; }
+        public PaymentsDTO? PaymentMethods { get; set; }
     }
 }
