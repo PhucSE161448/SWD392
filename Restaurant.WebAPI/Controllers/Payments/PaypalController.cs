@@ -128,7 +128,7 @@ namespace Restaurant.WebAPI.Controllers.Payments
                         Status = "Paypal"
                     };
                     //await _orderService.CustomerPayment(customerData);
-                    return Redirect($"https://ctqmmec.azurewebsites.net/paymentsuccess/{userId}");
+                    return Redirect($"https://mixed-food.vercel.app/payment/success{userId}");
                 }
             }
             catch (Exception ex)
