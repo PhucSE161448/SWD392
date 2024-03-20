@@ -56,7 +56,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
             return productDTO;
         }
 
-        public async Task<List<GetProductDTO>> GetProductsByUserId(string? name)
+        public async Task<List<ProductsDTO>> GetProductsByUserId(string? name)
         {
             List<Product> products = new List<Product>();
             if(!string.IsNullOrEmpty(name))
@@ -75,22 +75,18 @@ namespace Restaurant.Infrastructure.Repositories.Products
                .Where(p => p.IsDeleted == false)
                .ToListAsync();
             }
-            List<GetProductDTO> productDTOs = products.Select(product => new GetProductDTO
+            List<ProductsDTO> productDTOs = new List<ProductsDTO>();
+            if (products != null)
             {
-                Id = product.Id,
-                Name = product.Name,
-                Price = product.Price,
-                ProductTemplateId = product.ProductTemplateId,
-                Quantity = product.Quantity,
-                Ingredients = product.IngredientProducts.Select(ip => ip.Ingredient.Name).ToList(),
-                TotalPrice = product.Price * (product.Quantity ?? 1) 
-            }).ToList();
-            decimal totalPrice = productDTOs.Sum(dto => dto.TotalPrice); // Calculate total price
-
-            // Update TotalPrice property for all DTOs
-            foreach (var dto in productDTOs)
-            {
-                dto.TotalPrice = totalPrice;
+                productDTOs = products.Select(product => new ProductsDTO
+                {
+                    Id = product.Id,
+                    Name = product.Name,
+                    Price = product.Price,
+                    ProductTemplateId = product.ProductTemplateId,
+                    Quantity = product.Quantity,
+                    Ingredients = product.IngredientProducts.Select(ip => ip.Ingredient.Name).ToList()
+                }).ToList();
             }
             return productDTOs;
         }
