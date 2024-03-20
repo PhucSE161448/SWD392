@@ -56,10 +56,10 @@ namespace Restaurant.Infrastructure.Repositories.Products
             return productDTO;
         }
 
-        public async Task<GetProductDTO> GetProductsByUserId(string? name)
+        public async Task<List<GetProductDTO>> GetProductsByUserId(string? name)
         {
             List<Product> products = new List<Product>();
-            if (!string.IsNullOrEmpty(name))
+            if(!string.IsNullOrEmpty(name))
             {
                 products = await _dbContext.Products
                .Include(p => p.IngredientProducts)
@@ -75,33 +75,27 @@ namespace Restaurant.Infrastructure.Repositories.Products
                .Where(p => p.IsDeleted == false)
                .ToListAsync();
             }
-            List<ProductsDTO> productDTOs = new List<ProductsDTO>();
-            decimal totalPrice = 0;
-            if (products != null)
+            List<GetProductDTO> productDTOs = products.Select(product => new GetProductDTO
             {
-                productDTOs = products.Select(product => new ProductsDTO
-                {
-                    Id = product.Id,
-                    Name = product.Name,
-                    Price = product.Price,
-                    ProductTemplateId = product.ProductTemplateId,
-                    Quantity = product.Quantity,
-                    Ingredients = product.IngredientProducts.Select(ip => ip.Ingredient.Name).ToList()
-                }).ToList();
+                Id = product.Id,
+                Name = product.Name,
+                Price = product.Price,
+                ProductTemplateId = product.ProductTemplateId,
+                Quantity = product.Quantity,
+                Ingredients = product.IngredientProducts.Select(ip => ip.Ingredient.Name).ToList(),
+                TotalPrice = product.Price * (product.Quantity ?? 1) 
+            }).ToList();
+            decimal totalPrice = productDTOs.Sum(dto => dto.TotalPrice); // Calculate total price
 
-                totalPrice = products.Sum(product => product.Price);
+            // Update TotalPrice property for all DTOs
+            foreach (var dto in productDTOs)
+            {
+                dto.TotalPrice = totalPrice;
             }
-
-            GetProductDTO getProductDTO = new GetProductDTO
-            {
-                ProductDTOs = productDTOs,
-                TotalPrice = totalPrice
-            };
-
-            return getProductDTO;
+            return productDTOs;
         }
 
-
+      
         public async Task<(bool success, Product product)> CreateProductAsync(CreatedProductDTO pro, ProductTemplateDTO productTemplate)
         {
             try

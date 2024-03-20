@@ -15,6 +15,6 @@ namespace Restaurant.Application.IRepositories.Products
 
         Task<(bool success, Product product)> CreateProductAsync(CreatedProductDTO pro, ProductTemplateDTO productTemplate);
         Task<ProductsDTO> GetProduct(int id);
-        Task<GetProductDTO> GetProductsByUserId(string? name );
+        Task<List<GetProductDTO>> GetProductsByUserId(string? name );
     }
 }

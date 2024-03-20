@@ -103,9 +103,9 @@ namespace Restaurant.Application.Services.Products
             return response;
         }
 
-        public async Task<ServiceResponse<GetProductDTO>> GetAllProductAsync(string? name = null)
+        public async Task<ServiceResponse<List<GetProductDTO>>> GetAllProductAsync(string? name = null)
         {
-            var _response = new ServiceResponse<GetProductDTO>();
+            var _response = new ServiceResponse<List<GetProductDTO>>();
             try
             {
                 var products = await _unitOfWork.ProductRepository.GetProductsByUserId(name);

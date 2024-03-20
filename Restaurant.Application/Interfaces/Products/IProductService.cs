@@ -12,7 +12,7 @@ namespace Restaurant.Application.Interfaces.Products
 {
     public interface IProductService
     {
-        Task<ServiceResponse<GetProductDTO>> GetAllProductAsync(string? name = null);
+        Task<ServiceResponse<List<GetProductDTO>>> GetAllProductAsync(string? name = null);
         Task<ServiceResponse<ProductsDTO>> GetProductAsync(int id);
         Task<ServiceResponse<ProductsDTO>> CreateProductAsync(CreatedProductDTO CreatedProductDTO);
         Task<ServiceResponse<ProductsDTO>> UpdateProductAsync(int id, ProductsDTO ProductDTO);
