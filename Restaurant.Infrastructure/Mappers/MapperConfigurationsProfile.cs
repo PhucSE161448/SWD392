@@ -59,7 +59,9 @@ namespace Restaurant.Infrastructures.Mappers
             CreateMap<NutritionUpdateDTO, Nutrition>().ReverseMap();
 
             CreateMap<IngredientType, IngredientTypeDTO>().ReverseMap();
-
+            CreateMap<IngredientType, AddUpdateIngredientTypeDTO>().ReverseMap();
+            CreateMap<AddUpdateIngredientTypeDTO, IngredientTypeDTO>().ReverseMap();
+                
             CreateMap<StoreDTO, Store>().ReverseMap();
             CreateMap<AddStoreDTO, Store>().ReverseMap();
 

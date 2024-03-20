@@ -16,11 +16,12 @@ namespace Restaurant.Application.Services.Newss
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-
-        public NewsService(IUnitOfWork unitOfWork, IMapper mapper)
+        private readonly IClaimsService _claimsService;
+        public NewsService(IUnitOfWork unitOfWork, IMapper mapper, IClaimsService claimsService)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _claimsService = claimsService;
         }
         public async Task<ServiceResponse<NewsDTO>> CreateNewsAsync(AddNewsDTO CreatedNewsDTO, string image)
         {
@@ -39,6 +40,7 @@ namespace Restaurant.Application.Services.Newss
                 {
                     var News = _mapper.Map<News>(CreatedNewsDTO);
                     News.Image = image;
+                    News.AccountId = _claimsService.GetCurrentUser;
                     await _unitOfWork.NewsRepository.AddAsync(News);
                     var isSuccess = await _unitOfWork.SaveChangeAsync() > 0;
                     if (isSuccess)
