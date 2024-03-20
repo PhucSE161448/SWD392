@@ -103,13 +103,13 @@ namespace Restaurant.Application.Services.Products
             return response;
         }
 
-        public async Task<ServiceResponse<IEnumerable<ProductsDTO>>> GetAllProductAsync(string? name = null)
+        public async Task<ServiceResponse<GetProductDTO>> GetAllProductAsync(string? name = null)
         {
-            var _response = new ServiceResponse<IEnumerable<ProductsDTO>>();
+            var _response = new ServiceResponse<GetProductDTO>();
             try
             {
                 var products = await _unitOfWork.ProductRepository.GetProductsByUserId(name);
-                if (products.Count != 0)
+                if (products !=  null)
                 {
                     _response.Success = true;
                     _response.Message = "Product retrieved successfully";

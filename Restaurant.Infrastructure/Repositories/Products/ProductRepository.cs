@@ -56,10 +56,10 @@ namespace Restaurant.Infrastructure.Repositories.Products
             return productDTO;
         }
 
-        public async Task<List<ProductsDTO>> GetProductsByUserId(string? name)
+        public async Task<GetProductDTO> GetProductsByUserId(string? name)
         {
             List<Product> products = new List<Product>();
-            if(!string.IsNullOrEmpty(name))
+            if (!string.IsNullOrEmpty(name))
             {
                 products = await _dbContext.Products
                .Include(p => p.IngredientProducts)
@@ -76,6 +76,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
                .ToListAsync();
             }
             List<ProductsDTO> productDTOs = new List<ProductsDTO>();
+            decimal totalPrice = 0;
             if (products != null)
             {
                 productDTOs = products.Select(product => new ProductsDTO
@@ -87,11 +88,20 @@ namespace Restaurant.Infrastructure.Repositories.Products
                     Quantity = product.Quantity,
                     Ingredients = product.IngredientProducts.Select(ip => ip.Ingredient.Name).ToList()
                 }).ToList();
+
+                totalPrice = products.Sum(product => product.Price);
             }
-            return productDTOs;
+
+            GetProductDTO getProductDTO = new GetProductDTO
+            {
+                ProductDTOs = productDTOs,
+                TotalPrice = totalPrice
+            };
+
+            return getProductDTO;
         }
 
-      
+
         public async Task<(bool success, Product product)> CreateProductAsync(CreatedProductDTO pro, ProductTemplateDTO productTemplate)
         {
             try
