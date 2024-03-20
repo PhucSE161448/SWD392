@@ -132,7 +132,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
                             IngredientId = ingredientId,
                             Quantity = pro.Quantity,
                         };
-                        product.Price += ingredientPrice;
+                        product.Price += ingredientPrice * pro.Quantity;
                         await _dbContext.IngredientProducts.AddAsync(ingredientProduct);
                     }
                 }
