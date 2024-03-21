@@ -123,6 +123,8 @@ namespace Restaurant.Infrastructure.Repositories.Orders
             var orderProducts = await _dbContext.OrderProducts
                 .Where(op => op.OrderId == orderId)
                 .Include(op => op.Product)
+                 .ThenInclude(p => p.IngredientProducts)
+                   .ThenInclude(ip => ip.Ingredient)
                 .Select(op => op.Product)
                 .ToListAsync();
 
