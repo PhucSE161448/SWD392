@@ -78,17 +78,17 @@ namespace Restaurant.Infrastructure.Repositories.TemplateSteps
                 {
                     _dbContext.IngredientTypeTemplateSteps.RemoveRange(existingIngredientTypeTemplateSteps);
                 }
-                _mapper.Map(templateStep, template);
+               
 
                
-                foreach (var ingredientId in templateStep.IngredientTypeId)
+                foreach (var ingredientId in templateStep.IngredientTypeTemplateSteps)
                 {
                     var ingredientProduct = new IngredientTypeTemplateStep
                     {
                         TemplateStepId = template.Id,
-                        IngredientTypeId = ingredientId,
-                        QuantityMax = templateStep.Max,
-                        QuantityMin = templateStep.Min,
+                        IngredientTypeId = ingredientId.IngredientTypeId,
+                        QuantityMax = ingredientId.QuantityMax,
+                        QuantityMin = ingredientId.QuantityMin,
                     };
                     await _dbContext.IngredientTypeTemplateSteps.AddAsync(ingredientProduct);
                 }
