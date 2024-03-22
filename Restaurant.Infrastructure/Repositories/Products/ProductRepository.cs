@@ -96,7 +96,7 @@ namespace Restaurant.Infrastructure.Repositories.Products
         {
             try
             {
-                var temId = _dbContext.TemplateSteps.FirstOrDefault(x => x.ProuctTemplateId == pro.ProductTemplateId);
+                var temId = _dbContext.TemplateSteps.FirstOrDefault(x => x.ProductTemplateId == pro.ProductTemplateId);
                 var product = _mapper.Map<Product>(pro);
                 product.Name = productTemplate.Name;
                 product.Price = productTemplate.Price * pro.Quantity;

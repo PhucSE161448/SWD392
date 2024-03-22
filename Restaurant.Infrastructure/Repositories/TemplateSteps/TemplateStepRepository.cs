@@ -41,7 +41,7 @@ namespace Restaurant.Infrastructure.Repositories.TemplateSteps
             {
                 var template = _mapper.Map<TemplateStep>(templateStep);
                 var productTemplate = await _dbContext.ProductTemplates.FirstOrDefaultAsync(x => x.Id == templateStep.ProductTemplateId);
-                template.ProuctTemplateId = productTemplate.Id;
+                template.ProductTemplateId = productTemplate.Id;
                 template.Name = productTemplate.Name;
                 template.CreatedDate = DateTime.Now;
                 await _dbContext.TemplateSteps.AddAsync(template);
@@ -123,7 +123,7 @@ namespace Restaurant.Infrastructure.Repositories.TemplateSteps
 
                 if (productTemplateId.HasValue)
                 {
-                    templateStepsQuery = templateStepsQuery.Where(ts => ts.ProuctTemplateId == productTemplateId);
+                    templateStepsQuery = templateStepsQuery.Where(ts => ts.ProductTemplateId == productTemplateId);
                 }
 
                 var result = await (from ts in templateStepsQuery.Include(x => x.IngredientTypeTemplateSteps)

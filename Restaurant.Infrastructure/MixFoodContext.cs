@@ -585,11 +585,11 @@ namespace Restaurant.Infrastructure
 
                 entity.Property(e => e.Name).HasMaxLength(255);
 
-                entity.Property(e => e.ProuctTemplateId).HasColumnName("ProuctTemplate_Id");
+                entity.Property(e => e.ProductTemplateId).HasColumnName("ProductTemplate_Id");
 
-                entity.HasOne(d => d.ProuctTemplate)
+                entity.HasOne(d => d.ProductTemplate)
                     .WithMany(p => p.TemplateSteps)
-                    .HasForeignKey(d => d.ProuctTemplateId)
+                    .HasForeignKey(d => d.ProductTemplateId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("templatestep_proucttemplate_id_foreign");
             });

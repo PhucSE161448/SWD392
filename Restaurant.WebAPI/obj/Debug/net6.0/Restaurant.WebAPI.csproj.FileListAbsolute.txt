@@ -254,7 +254,6 @@ D:\C#\SWD\SWD392\Restaurant.WebAPI\obj\Debug\net6.0\Restaurant.WebAPI.GeneratedM
 D:\C#\SWD\SWD392\Restaurant.WebAPI\obj\Debug\net6.0\Restaurant.WebAPI.AssemblyInfoInputs.cache
 D:\C#\SWD\SWD392\Restaurant.WebAPI\obj\Debug\net6.0\Restaurant.WebAPI.AssemblyInfo.cs
 D:\C#\SWD\SWD392\Restaurant.WebAPI\obj\Debug\net6.0\Restaurant.WebAPI.csproj.CoreCompileInputs.cache
-D:\C#\SWD\SWD392\Restaurant.WebAPI\obj\Debug\net6.0\Restaurant.WebAPI.MvcApplicationPartsAssemblyInfo.cs
 D:\C#\SWD\SWD392\Restaurant.WebAPI\obj\Debug\net6.0\Restaurant.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\C#\SWD\SWD392\Restaurant.WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.Restaurant.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
 D:\C#\SWD\SWD392\Restaurant.WebAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.Restaurant.WebAPI.props

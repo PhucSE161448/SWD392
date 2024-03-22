@@ -9,7 +9,7 @@ namespace Restaurant.Application.ViewModels.TemplateStepsDTO
     public class TemplateStepDTO
     {
         public int Id { get; set; }
-        public int ProuctTemplateId { get; set; }
+        public int ProductTemplateId { get; set; }
         public string Name { get; set; }
         public IngredientTypeTemplateSteps TemplateStepIngredient { get; set; }
     }

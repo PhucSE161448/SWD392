@@ -14,6 +14,7 @@ namespace Restaurant.Domain.Entities
         public string? HealthValue { get; set; }
         public string? Nutrition1 { get; set; }
 
+
         public virtual Ingredient? Ingredient { get; set; }
     }
 }

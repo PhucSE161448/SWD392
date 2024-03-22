@@ -14,6 +14,7 @@ namespace Restaurant.Domain.Entities
         public int Id { get; set; }
         public string Name { get; set; } = null!;
 
+
         public virtual ICollection<IngredientTypeTemplateStep> IngredientTypeTemplateSteps { get; set; }
         public virtual ICollection<Ingredient> Ingredients { get; set; }
     }
