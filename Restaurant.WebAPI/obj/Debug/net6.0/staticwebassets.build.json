@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7tqtjQJZ+/OM2eax9sJHUPq5N1htoBiHx61A6uSrG88=",
+  "Hash": "OHz2RApY2KdiCsjxZVRPf8NwX8VqLItsw2TLFNzFwO0=",
   "Source": "Restaurant.WebAPI",
   "BasePath": "_content/Restaurant.WebAPI",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Restaurant.WebAPI\\wwwroot",
       "Source": "Restaurant.WebAPI",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\ SPICY CHICKEN.png",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\ SPICY CHICKEN.png",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/ SPICY CHICKEN.png",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\ SPICY CHICKEN.png"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\BEAN SPROUTS.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\BEAN SPROUTS.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/BEAN SPROUTS.jpg",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\BEAN SPROUTS.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\BLACK BEANS.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\BLACK BEANS.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/BLACK BEANS.jpg",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\BLACK BEANS.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\CARROTS.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\CARROTS.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/CARROTS.jpg",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\CARROTS.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\CHICKEN.png",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\CHICKEN.png",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/CHICKEN.png",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\CHICKEN.png"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\CORN.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\CORN.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/CORN.jpg",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\CORN.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\KOREAN BBQ BEEF.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\KOREAN BBQ BEEF.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/KOREAN BBQ BEEF.jpg",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\KOREAN BBQ BEEF.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\ORGANIC TOFU.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\ORGANIC TOFU.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/ORGANIC TOFU.jpg",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\ORGANIC TOFU.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\PURPLE RICE.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\PURPLE RICE.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/PURPLE RICE.jpg",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\PURPLE RICE.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\ROMAINE LETTUCE.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\ROMAINE LETTUCE.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/ROMAINE LETTUCE.jpg",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\ROMAINE LETTUCE.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\STEAK.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\STEAK.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/STEAK.jpg",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\STEAK.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\SUPERGREEN SALAD.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\SUPERGREEN SALAD.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/SUPERGREEN SALAD.jpg",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\SUPERGREEN SALAD.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\SWEET POTATO NOODLES.png",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\SWEET POTATO NOODLES.png",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/SWEET POTATO NOODLES.png",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\SWEET POTATO NOODLES.png"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\WHITE RICE.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\NutritionImage\\WHITE RICE.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "NutritionImage/WHITE RICE.jpg",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\NutritionImage\\WHITE RICE.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Big Bowl.png",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Big Bowl.png",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "ProductImage/Big Bowl.png",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Big Bowl.png"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Big Bowls.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Big Bowls.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "ProductImage/Big Bowls.jpg",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Big Bowls.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Nấm.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Nấm.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "ProductImage/Nấm.jpg",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Nấm.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Red Rice.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Red Rice.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "ProductImage/Red Rice.jpg",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Red Rice.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Red Rice.png",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Red Rice.png",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "ProductImage/Red Rice.png",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Red Rice.png"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Ricee.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Ricee.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "ProductImage/Ricee.jpg",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Ricee.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Teriyaki.png",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Teriyaki.png",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "ProductImage/Teriyaki.png",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Teriyaki.png"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Thịt Gà.png",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\Thịt Gà.png",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "ProductImage/Thịt Gà.png",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\Thịt Gà.png"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\true.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\true.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "ProductImage/true.jpg",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\ProductImage\\true.jpg"
     },
     {
-      "Identity": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\White Rice.jpg",
+      "Identity": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\ProductImage\\White Rice.jpg",
       "SourceId": "Restaurant.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\Code\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
+      "ContentRoot": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\wwwroot\\",
       "BasePath": "_content/Restaurant.WebAPI",
       "RelativePath": "ProductImage/White Rice.jpg",
       "AssetKind": "All",

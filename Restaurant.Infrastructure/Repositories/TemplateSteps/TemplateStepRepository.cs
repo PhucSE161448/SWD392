@@ -41,6 +41,7 @@ namespace Restaurant.Infrastructure.Repositories.TemplateSteps
             {
                 var template = _mapper.Map<TemplateStep>(templateStep);
                 var productTemplate = await _dbContext.ProductTemplates.FirstOrDefaultAsync(x => x.Id == templateStep.ProductTemplateId);
+                template.ProuctTemplateId = productTemplate.Id;
                 template.Name = productTemplate.Name;
                 template.CreatedDate = DateTime.Now;
                 await _dbContext.TemplateSteps.AddAsync(template);
