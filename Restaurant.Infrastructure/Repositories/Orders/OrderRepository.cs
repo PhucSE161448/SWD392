@@ -48,7 +48,7 @@ namespace Restaurant.Infrastructure.Repositories.Orders
                 order.PaymentMethodId = 1;
                 order.TotalPrice = o.TotalPrice;
                 order.AccountId = account.Id;
-                order.Status = StatusOrder.StatusInProcess;
+                order.Status = StatusOrder.StatusFinish;
                 await _dbContext.Orders.AddAsync(order);
                 await _dbContext.SaveChangesAsync();
                 foreach (int id in o.ProductId)
