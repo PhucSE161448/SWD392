@@ -776,6 +776,22 @@
           }
         }
       },
+      "payOS/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "compile": {
+          "lib/net6.0/payos-lib-backend-dotnet.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/payos-lib-backend-dotnet.dll": {
+            "related": ".runtimeconfig.json"
+          }
+        }
+      },
       "PayPal/1.9.1": {
         "type": "package",
         "dependencies": {
@@ -2713,6 +2729,19 @@
         "packageIcon.png"
       ]
     },
+    "payOS/1.0.5": {
+      "sha512": "FMM3FMaO1MqTnf3G5bhn6Uf73hoz5BbIEFGDPyGj3JEhdhbLcViCgab7uI+aEjf4uSjLUUmr5bXvIJXzk0M7ZA==",
+      "type": "package",
+      "path": "payos/1.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/payos-lib-backend-dotnet.dll",
+        "lib/net6.0/payos-lib-backend-dotnet.runtimeconfig.json",
+        "payos.1.0.5.nupkg.sha512",
+        "payos.nuspec"
+      ]
+    },
     "PayPal/1.9.1": {
       "sha512": "b3vq6Lc9CwSooCX2tsZ02zb7E/K/cA6EILCoMynue+ZeVuitJNqt0YwxPnp7uN0Pccob02oDlpAjRLH+GRCRxA==",
       "type": "package",
@@ -3696,7 +3725,8 @@
       "Newtonsoft.Json >= 13.0.3",
       "PayPal >= 1.9.1",
       "Restaurant.Infrastructure >= 1.0.0",
-      "Swashbuckle.AspNetCore >= 6.5.0"
+      "Swashbuckle.AspNetCore >= 6.5.0",
+      "payOS >= 1.0.5"
     ]
   },
   "packageFolders": {
@@ -3706,11 +3736,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\Restaurant.WebAPI.csproj",
+      "projectUniqueName": "F:\\Code\\C#\\SWD\\Restaurant.WebAPI\\Restaurant.WebAPI.csproj",
       "projectName": "Restaurant.WebAPI",
-      "projectPath": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\Restaurant.WebAPI.csproj",
+      "projectPath": "F:\\Code\\C#\\SWD\\Restaurant.WebAPI\\Restaurant.WebAPI.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\SWD\\SWD392\\Restaurant.WebAPI\\obj\\",
+      "outputPath": "F:\\Code\\C#\\SWD\\Restaurant.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3731,8 +3761,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\C#\\SWD\\SWD392\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj": {
-              "projectPath": "D:\\C#\\SWD\\SWD392\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj"
+            "F:\\Code\\C#\\SWD\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj": {
+              "projectPath": "F:\\Code\\C#\\SWD\\Restaurant.Infrastructure\\Restaurant.Infrastructure.csproj"
             }
           }
         }
@@ -3770,6 +3800,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.5.0, )"
+          },
+          "payOS": {
+            "target": "Package",
+            "version": "[1.0.5, )"
           }
         },
         "imports": [
@@ -3783,6 +3817,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.30, 6.0.30]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[6.0.30, 6.0.30]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.30, 6.0.30]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.30, 6.0.30]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -3791,7 +3843,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.409\\RuntimeIdentifierGraph.json"
       }
     }
   },

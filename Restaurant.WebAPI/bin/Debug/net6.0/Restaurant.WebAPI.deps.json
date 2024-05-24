@@ -14,7 +14,8 @@
           "Newtonsoft.Json": "13.0.3",
           "PayPal": "1.9.1",
           "Restaurant.Infrastructure": "1.0.0",
-          "Swashbuckle.AspNetCore": "6.5.0"
+          "Swashbuckle.AspNetCore": "6.5.0",
+          "payOS": "1.0.5"
         },
         "runtime": {
           "Restaurant.WebAPI.dll": {}
@@ -478,6 +479,17 @@
           "lib/net6.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
             "fileVersion": "13.0.3.27908"
+          }
+        }
+      },
+      "payOS/1.0.5": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "runtime": {
+          "lib/net6.0/payos-lib-backend-dotnet.dll": {
+            "assemblyVersion": "1.0.5.0",
+            "fileVersion": "1.0.5.0"
           }
         }
       },
@@ -1117,6 +1129,13 @@
       "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "path": "newtonsoft.json/13.0.3",
       "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
+    },
+    "payOS/1.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FMM3FMaO1MqTnf3G5bhn6Uf73hoz5BbIEFGDPyGj3JEhdhbLcViCgab7uI+aEjf4uSjLUUmr5bXvIJXzk0M7ZA==",
+      "path": "payos/1.0.5",
+      "hashPath": "payos.1.0.5.nupkg.sha512"
     },
     "PayPal/1.9.1": {
       "type": "package",

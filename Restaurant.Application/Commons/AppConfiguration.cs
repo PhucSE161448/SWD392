@@ -20,10 +20,17 @@ namespace Restaurant.Application.Commons
         public string UserName { get; set; }
         public string Password { get; set; }
     }
+    public class PayOSConfig
+    {
+        public string PAYOS_CHECKSUM_KEY { get; set; }
+        public string PAYOS_API_KEY { get; set; }
+        public string PAYOS_CLIENT_ID { get; set; }
+    }
     public class AppConfiguration
     {
         public string DatabaseConnection { get; set; }
         public JWTSection JWTSection { get; set; }
         public EmailConfig EmailConfiguration { get; set; }  
+        public PayOSConfig PayOSConfig { get; set; }
     }
 }

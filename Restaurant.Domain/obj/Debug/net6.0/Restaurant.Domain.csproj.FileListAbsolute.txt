@@ -81,3 +81,17 @@ F:\Code\C#\SWD\SWD392\Restaurant.Domain\obj\Debug\net6.0\refint\Restaurant.Domai
 F:\Code\C#\SWD\SWD392\Restaurant.Domain\obj\Debug\net6.0\Restaurant.Domain.pdb
 F:\Code\C#\SWD\SWD392\Restaurant.Domain\obj\Debug\net6.0\Restaurant.Domain.genruntimeconfig.cache
 F:\Code\C#\SWD\SWD392\Restaurant.Domain\obj\Debug\net6.0\ref\Restaurant.Domain.dll
+F:\Code\C#\SWD\Restaurant.Domain\bin\Debug\net6.0\Restaurant.Domain.deps.json
+F:\Code\C#\SWD\Restaurant.Domain\bin\Debug\net6.0\Restaurant.Domain.runtimeconfig.json
+F:\Code\C#\SWD\Restaurant.Domain\bin\Debug\net6.0\Restaurant.Domain.dll
+F:\Code\C#\SWD\Restaurant.Domain\bin\Debug\net6.0\Restaurant.Domain.pdb
+F:\Code\C#\SWD\Restaurant.Domain\obj\Debug\net6.0\Restaurant.Domain.csproj.AssemblyReference.cache
+F:\Code\C#\SWD\Restaurant.Domain\obj\Debug\net6.0\Restaurant.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\Code\C#\SWD\Restaurant.Domain\obj\Debug\net6.0\Restaurant.Domain.AssemblyInfoInputs.cache
+F:\Code\C#\SWD\Restaurant.Domain\obj\Debug\net6.0\Restaurant.Domain.AssemblyInfo.cs
+F:\Code\C#\SWD\Restaurant.Domain\obj\Debug\net6.0\Restaurant.Domain.csproj.CoreCompileInputs.cache
+F:\Code\C#\SWD\Restaurant.Domain\obj\Debug\net6.0\Restaurant.Domain.dll
+F:\Code\C#\SWD\Restaurant.Domain\obj\Debug\net6.0\refint\Restaurant.Domain.dll
+F:\Code\C#\SWD\Restaurant.Domain\obj\Debug\net6.0\Restaurant.Domain.pdb
+F:\Code\C#\SWD\Restaurant.Domain\obj\Debug\net6.0\Restaurant.Domain.genruntimeconfig.cache
+F:\Code\C#\SWD\Restaurant.Domain\obj\Debug\net6.0\ref\Restaurant.Domain.dll

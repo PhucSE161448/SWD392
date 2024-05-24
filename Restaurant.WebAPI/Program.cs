@@ -8,12 +8,17 @@ using System.Text;
 using System.Text.Json.Serialization;
 using Restaurant.WebAPI.Middlewares;
 using Restaurant.Application.ViewModels.Help;
+using Net.payOS;
 
 var builder = WebApplication.CreateBuilder(args);
 // parse the configuration in appsettings
 var configuration = builder.Configuration.Get<AppConfiguration>() ?? new AppConfiguration();
+PayOS payOS = new PayOS(configuration.PayOSConfig.PAYOS_CLIENT_ID,
+    configuration.PayOSConfig.PAYOS_API_KEY,
+    configuration.PayOSConfig.PAYOS_CHECKSUM_KEY);
 builder.Services.AddInfrastructureService(configuration.DatabaseConnection);
 builder.Services.AddWebAPIService();
+builder.Services.AddSingleton(payOS);
 builder.Services.AddSingleton(configuration);
 // Add services to the container.
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -61,6 +66,14 @@ builder.Services.AddSwaggerGen(setup =>
 /*
 builder.Services.Configure<EmailConfiguration>(builder.Configuration.GetSection("EmailConfiguration"));*/
 builder.Services.AddSingleton(configuration);
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("*").AllowAnyHeader().AllowAnyMethod();
+        });
+});
 var app = builder.Build();
 app.UseCors(options =>
 //options.WithOrigins("http://localhost:3000")
@@ -68,6 +81,7 @@ options.AllowAnyOrigin()
 .AllowAnyMethod()
 .AllowAnyHeader()
 );
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
