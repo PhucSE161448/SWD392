@@ -16,7 +16,7 @@ namespace Restaurant.WebAPI.Controllers.Payments
             _orderService = orderService;
         }
 
-        [HttpPost("PayOS/{orderId}")]
+        [HttpPost("{orderId}")]
         public async Task<IActionResult> Checkout([FromRoute] int orderId)
         {
             try
@@ -26,7 +26,7 @@ namespace Restaurant.WebAPI.Controllers.Payments
                 List<ItemData> items = new List<ItemData>();
                 foreach (var detail in oder.Data.details)
                 {
-                    ItemData item = new ItemData(detail.Name, 1, (int)itemss.Data.TotalPrice);
+                    ItemData item = new ItemData(detail.Name, 1, (int)detail.Price);
                     items.Add(item);
                 }
 
